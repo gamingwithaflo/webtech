@@ -1,3 +1,55 @@
-h1 {
-  color: red;
+/* reset */
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  margin: .25rem .125rem;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  color: white;
+  line-height: 1.5;
+}
+button:hover {
+ background-color: #0b5ed7;
+}
+.button--blue {
+  background-color: #0d6efd;
+  border: none;
+}
+
+/* header */
+.header--homepage {
+  padding: 3rem 0;
+}
+.header__h1--homepage {
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
+}
+
+/* navigation */
+nav {
+  display: flex;
+  background-color: #0d6efd;
+  padding: .75rem;
+}
+nav a {
+  padding: .5rem;
+  color: white;
+}
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: .25rem;
+}
+
+/* breakpoints */
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
 }
