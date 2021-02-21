@@ -7,80 +7,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="getting-started.html">Getting started</a>
-      <a href="basic-usage.html">Basic usage</a>
-      <a href="notable-feature.html">Notable feature</a>
-      <a href="history.html">History</a>
+    <nav class="skip content">
+      <a href="#main">Skip to main content</a>
+    </nav>
+    <nav class="navbar">
+      <div class="content">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting started</a>
+        <a href="basic-usage.html" class="navbar__item--active">Basic usage</a>
+        <a href="notable-features.html">Notable features</a>
+        <a href="history.html">History</a>
+      </div>
     </nav>
 
-    <header>
-      <h1>WELCOME_HOME</h1>
-    </header>
-
-    <article>
-      <h2>What Is React?</h2>
-      <section>
-        <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
-          <br>
-          <br>
-          React has a few different kinds of components, but we’ll start with React.Component subclasses:
-          <pre>
-            class ShoppingList extends React.Component {
-              render() {
-                return (
-                  &lt;div className="shopping-list"&gt;
-                  &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&lt;
-                  &lt;ul&gt;
-                  &lt;li&gt;Instagram&lt;/li&gt;
-                  &lt;li&gt;WhatsApp&lt;/li&gt;
-                  &lt;li&gt;Oculus&lt;/li&gt;
-                  &lt;/ul&gt;
-                  &lt;/div&gt;
-                );
+    <main id="main" class="content">
+      <header>
+        <h1>WELCOME_HOME</h1>
+      </header>
+      
+      <article>
+        <h2>What Is React?</h2>
+        <section>
+          <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
+            <br>
+            <br>
+            React has a few different kinds of components, but we’ll start with React.Component subclasses:
+            <pre>
+              class ShoppingList extends React.Component {
+                render() {
+                  return (
+                    &lt;div className="shopping-list"&gt;
+                    &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&lt;
+                    &lt;ul&gt;
+                    &lt;li&gt;Instagram&lt;/li&gt;
+                    &lt;li&gt;WhatsApp&lt;/li&gt;
+                    &lt;li&gt;Oculus&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/div&gt;
+                  );
+                }
               }
-            }
-            
-            // Example usage: &lt;ShoppingList name="Mark" /&gt;
-          </pre>
-          We’ll get to the funny XML-like tags soon.
-           We use components to tell React what we want to see on the screen.\
-            When our data changes, React will efficiently update and re-render our components.
-            <br>
-            <br>
-            Here, ShoppingList is a <strong>React component class</strong>, or <strong>React component type</strong>.
-             A component takes in parameters, called props (short for “properties”), and returns a hierarchy of views to display via the render method.
-             <br>
-             <br>
-             The render method returns a description of what you want to see on the screen. React takes the description and displays the result.
-              In particular, render returns a <strong>React element</strong>, which is a lightweight description of what to render.
-               Most React ""developers use a special syntax called “JSX” which makes these structures easier to write. The &lt;div /&gt; syntax is transformed at build time to React.createElement('div'). The example above is equivalent to:
-               <pre>
-                return React.createElement('div', {className: 'shopping-list'},
-                React.createElement('h1', /* ... h1 children ... */),
-                React.createElement('ul', /* ... ul children ... */)
-              );
-               </pre> 
-               <a href="https://babeljs.io/repl/#?presets=react&code_lz=DwEwlgbgBAxgNgQwM5IHII…4cuwAK5wTXbg1YBJSswTV5mQ7c7XgtgOqEETEgAguTuYFamtgDyMBZmSGFWhhYchuAQrADc7EA" target="_blank">See full expanded version</a>
-               <br>
-               <br>
-               If you’re curious, createElement() is described in more detail in the API reference, but we won’t be using it in this tutorial.
-                Instead, we will keep using JSX.
+              
+              // Example usage: &lt;ShoppingList name="Mark" /&gt;
+            </pre>
+            We’ll get to the funny XML-like tags soon.
+            We use components to tell React what we want to see on the screen.\
+              When our data changes, React will efficiently update and re-render our components.
+              <br>
+              <br>
+              Here, ShoppingList is a <strong>React component class</strong>, or <strong>React component type</strong>.
+              A component takes in parameters, called props (short for “properties”), and returns a hierarchy of views to display via the render method.
+              <br>
+              <br>
+              The render method returns a description of what you want to see on the screen. React takes the description and displays the result.
+                In particular, render returns a <strong>React element</strong>, which is a lightweight description of what to render.
+                Most React ""developers use a special syntax called “JSX” which makes these structures easier to write. The &lt;div /&gt; syntax is transformed at build time to React.createElement('div'). The example above is equivalent to:
+                <pre>
+                  return React.createElement('div', {className: 'shopping-list'},
+                  React.createElement('h1', /* ... h1 children ... */),
+                  React.createElement('ul', /* ... ul children ... */)
+                );
+                </pre> 
+                <a href="https://babeljs.io/repl/#?presets=react&code_lz=DwEwlgbgBAxgNgQwM5IHII…4cuwAK5wTXbg1YBJSswTV5mQ7c7XgtgOqEETEgAguTuYFamtgDyMBZmSGFWhhYchuAQrADc7EA" target="_blank">See full expanded version</a>
                 <br>
                 <br>
-                JSX comes with the full power of JavaScript. You can put <em>any</em> JavaScript expressions within braces inside JSX.
-                 Each React element is a JavaScript object that you can store in a variable or pass around in your program.
-                 <br>
-                 <br>
-                 The ShoppingList component above only renders built-in DOM components like &lt;div /&gt; and &lt;li /&gt;.
-                  But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing &lt;ShoppingList /&gt;.
-                  Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
-        </p>
-      </section>
-    </article>
+                If you’re curious, createElement() is described in more detail in the API reference, but we won’t be using it in this tutorial.
+                  Instead, we will keep using JSX.
+                  <br>
+                  <br>
+                  JSX comes with the full power of JavaScript. You can put <em>any</em> JavaScript expressions within braces inside JSX.
+                  Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+                  <br>
+                  <br>
+                  The ShoppingList component above only renders built-in DOM components like &lt;div /&gt; and &lt;li /&gt;.
+                    But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing &lt;ShoppingList /&gt;.
+                    Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+          </p>
+        </section>
+      </article>
+    </main>
+    
     <footer>
-
+      <div class="content">
+        <section>
+          <p>Homework assignment webtechnologies group {name}.</p>
+        </section>
+      </div>
     </footer>
   </body>
 </html>
