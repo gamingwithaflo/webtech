@@ -3,7 +3,6 @@ body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -118,27 +117,28 @@ aside nav a {
 }
 
 /* table */
+.history-intro {
+  padding-left: 1.5em;
+  padding-right: 2em;
+  font-size: 1.2em;
+}
+
 .wikitable {
   border-spacing: 0;
+  margin-bottom: 5em;
+}
+
+.wikitable caption {
+  text-align: left;
 }
 
 .wikitable tr:nth-child(even) {
   background: #CCC;
 }
 
-.wikitable td {
-  padding-right: 5px;
-}
-
-.firstcol {
-  width: 5em;
-}
-
-.secondcol {
-  width: 7em;
-}
-
-th.wikitable-header {
+.wikitable th {
+  white-space: nowrap;
+  padding-right: 1.1em;
   text-align: left;
   vertical-align: text-top;
   text-overflow: '';
@@ -206,5 +206,9 @@ th.wikitable-header {
 @media (min-width: 1400px) {
   .content {
     max-width: 1400px;
+  }
+
+  .wikitable caption {
+    text-align: center;
   }
 }

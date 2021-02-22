@@ -5,6 +5,14 @@
   <meta charset="utf-8">
   <title>History | About React.js</title>
   <link rel="stylesheet" href="style.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-stuff/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-stuff/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-stuff/favicon-16x16.png">
+  <link rel="manifest" href="favicon-stuff/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -23,36 +31,32 @@
   </nav>
 
   <main id="main" class="content">
-    <header>
+    <header class="history-intro">
       <h1>About React</h1>
     </header>
 
     <article>
-      <h2>History of React.js</h2>
-      <main>
+      <div class="history-intro">
+        <h2>History of React.js</h2>
         <section class="scrollable">
-          <p>React was created by Jordan Walke, a software engineer at Facebook, who released an early prototype of React called "FaxJS". He was influenced by XHP, an HTML component library for PHP. It was first deployed on Facebook's News Feed in 2011
-            and later on Instagram in 2012. It was open-sourced at JSConf US in May 2013. </p>
+          <p>React was created by Jordan Walke, a software engineer at Facebook, who released an early prototype of React called "FaxJS".
+            He was influenced by XHP, an HTML component library for PHP.
+            It was first deployed on Facebook's News Feed in 2011 and later on Instagram in 2012.
+            It was open-sourced at JSConf US in May 2013. </p>
         </section>
-      </main>
+      </div>
       <hr>
       <section class=scrollable>
         <table class="wikitable">
-          <caption><strong>Versions</strong></caption>
-
-          <colgroup>
-            <col class="firstcol">
-            <col class="secondcol">
-            <col class="thirdcol">
-          </colgroup>
+          <caption class="history-intro"><h3>Version history</h3></caption>
 
           <tbody>
             <tr>
-              <th class="wikitable-header">Version
+              <th>Version
               </th>
-              <th class="wikitable-header">Release Date
+              <th>Release Date
               </th>
-              <th class="wikitable-header">Changes
+              <th>Changes
               </th>
             </tr>
             <tr>
@@ -427,7 +431,6 @@
           </tbody>
         </table>
       </section>
-      <hr>
     </article>
   </main>
 
