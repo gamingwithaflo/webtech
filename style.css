@@ -11,6 +11,40 @@ a {
   text-decoration: none;
 }
 
+.new-anchor-style a {
+  text-decoration: underline;
+  color: black;
+  margin: 0 -0.4em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  background-image: linear-gradient(
+    to right,
+    rgba(202, 242, 253, 0.1),
+    rgba(202, 242, 253, 0.7) 4%,
+    rgba(202, 242, 253, 0.3)
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.new-anchor-style a:hover {
+  text-decoration: underline;
+  color: black;
+  margin: 0 -0.4em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  background-image: linear-gradient(
+    to right,
+    rgba(135, 226, 250, 0.1),
+    rgba(135, 226, 250, 0.7) 4%,
+    rgba(135, 226, 250, 0.3)
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 /* global */
 .content {
   margin: 0 auto;
