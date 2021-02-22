@@ -117,6 +117,38 @@ aside nav a {
   padding-top: 0.5rem;
 }
 
+/* table */
+.wikitable {
+  border-spacing: 0;
+}
+
+.wikitable tr:nth-child(even) {
+  background: #CCC;
+}
+
+.wikitable td {
+  padding-right: 5px;
+}
+
+.firstcol {
+  width: 5em;
+}
+
+.secondcol {
+  width: 7em;
+}
+
+th.wikitable-header {
+  text-align: left;
+  vertical-align: text-top;
+  text-overflow: '';
+}
+
+.scrollable {
+  overflow-x: auto;
+  /*overflow: scroll;*/
+}
+
 /* breakpoints */
 @media (min-width: 768px) {
   footer {
