@@ -124,6 +124,11 @@ footer section {
 footer .footer__sources {
   border-bottom: 1px solid #d2d2d7;
 }
+
+.footer-fontstyle {
+  color: #eeebe3;
+}
+
 aside nav a:visited {
   color: black;
 }
