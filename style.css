@@ -34,7 +34,7 @@ img {
   max-width: 100%;
 }
 
-.blockquote__tip-quote {
+.blockquote {
   background-color: rgba(255,229,100,0.3);
   border-left-color: #ffe564;
   border-left-width: 9px;
@@ -288,8 +288,8 @@ footer {
   .content {
     max-width: 1400px;
   }
-  
-  .blockquote__tip-quote {
+
+  .blockquote {
     margin-left: -10px;
   }
 }
