@@ -2,162 +2,146 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="What Is React.js">
     <meta name="keywords" content="React">
-    <title>Notable features</title>
+    <title>Notable features | React</title>
     <link rel="stylesheet" href="style.css">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon stuff/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon stuff/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon stuff/favicon-16x16.png">
-    <link rel="manifest" href="favicon stuff/site.webmanifest">
-    <link rel="mask-icon" href="favicon stuff/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="favicon stuff/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="favicon stuff/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      /* temporarily  */
-      @media (min-width: 768px) {
-        main {
-          display: grid;
-          grid-template-columns: 3fr 1fr;
-          grid-template-areas: "content aside";
-          grid-gap: 10px;
-        }
-        aside {
-          grid-area: aside;
-        }
-        main {
-          grid-area: content;
-        }
-      }
-    </style>
+    <link rel="icon" href="static/favicon.ico">
   </head>
   <body>
     <nav class="skip content">
       <a href="#main">Skip to main content</a>
     </nav>
-    <nav class="navbar">
-      <div class="content">
-        <a href="index.html">Home</a>
-        <a href="What-is-React.html">What is React</a>
-        <a href="getting-started.html">Getting started</a>
-        <a href="notable-features.html" class="navbar__item--active">Notable features</a>
-        <a href="history.html">History</a>
+
+    <nav class="nav">
+      <div class="nav__row content">
+        <a href="index.html" class="nav__item nav__item--name">React</a>
+        <a href="what-is-react.html" class="nav__item">What is React</a>
+        <a href="getting-started.html" class="nav__item">Getting started</a>
+        <a href="notable-features.html" class="nav__item nav__item--active">Notable features</a>
+        <a href="history.html" class="nav__item">History</a>
       </div>
     </nav>
 
-    <main id="main" class="content">
-      <aside>
+    <main id="main" class="main-grid content">
+      <aside class="main-grid__aside">
         <h2>Table of content</h2>
         <nav>
-          <a href="#virtualdom">Virtual DOM</a>
-          <a href="#lifecyclemethods">Lifecyle methods</a>
-          <a href="#JSX">JSX</a></li>
-          <a href="#reactHooks">React Hooks</a>
+          <a href="#virtualdom" class="nav-aside__item">Virtual DOM</a>
+          <a href="#lifecyclemethods" class="nav-aside__item">Lifecyle methods</a>
+          <a href="#jsx" class="nav-aside__item">JSX</a>
+          <a href="#reactHooks" class="nav-aside__item">React Hooks</a>
         </nav>
       </aside>
 
-      <div class="content">
-        <header>
-          <h1>Notable features</h1>
-        </header>
+      <header class="main-grid__header">
+        <h1 class="header__title">Notable features</h1>
+      </header>
 
-        <article>
-          <section id="virtualdom">
-            <h2>Virtual DOM</h2>
+      <article class="main-grid__article">
+        <section id="virtualdom">
+          <h2>Virtual DOM</h2>
+          <p>
+            Another notable feature is the use of a virtual Document Object Model, or virtual DOM.
+            React creates an in-memory data-structure cache, computes the resulting differences, and then updates the browser's displayed DOM efficiently.
+            This process is called reconciliation. This allows the programmer to write code as if the entire page is rendered on each change, while the React libraries only render subcomponents that actually change.
+            This selective rendering provides a major performance boost.
+            It saves the effort of recalculating the CSS style, layout for the page and rendering for the entire page.
+          </p>
+        </section>
+        <section id="lifecyclemethods">
+          <h2>Lifecycle methods</h2>
+          <p>Lifecycle methods use a form of hooking that allows the execution of code at set points during a component's lifetime.</p>
+          <ul>
+            <li>shouldComponentUpdate allows the developer to prevent unnecessary re-rendering of a component by returning false if a render is not required.</li>
+            <li>componentDidMount is called once the component has "mounted" (the component has been created in the user interface, often by associating it with a DOM node). This is commonly used to trigger data loading from a remote source via an API.</li>
+            <li>componentWillUnmount is called immediately before the component is torn down or "unmounted".
+              This is commonly used to clear resource-demanding dependencies to the component that will not simply be removed with the unmounting of the component (e.g., removing any setInterval() instances that are related to the component, or an "eventListener" set on the "document" because of the presence of the component)</li>
+            <li>render is the most important lifecycle method and the only required one in any component. It is usually called every time the component's state is updated, which should be reflected in the user interface.</li>
+              </ul>
+        </section>
+        <section id="jsx">
+          <h2>JSX</h2>
+          <p>
+            JSX, or JavaScript XML, is an extension to the JavaScript language syntax.
+            Similar in appearance to HTML, JSX provides a way to structure component rendering using syntax familiar to many developers.
+              React components are typically written using JSX, although they do not have to be (components may also be written in pure JavaScript).
+            JSX is similar to another extension syntax created by Facebook for PHP called XHP.
+          </p>
+          <p>
+            An example of JSX code:
+          </p>
+          <pre class="scroll">
+            class App extends React.Component {
+              render() {
+                return (
+                  &lt;div&gt;
+                    &lt;p&gt;Header&lt;/p&gt;
+                    &lt;p&gt;Content&lt;/p&gt;
+                    &lt;p&gt;Footer&lt;/p&gt;
+                  &lt;/div&gt;
+                );
+              }
+            }
+          </pre>
+
+          <section>
+            <h3>Nested elements</h3>
             <p>
-              Another notable feature is the use of a virtual Document Object Model, or virtual DOM.
-              React creates an in-memory data-structure cache, computes the resulting differences, and then updates the browser's displayed DOM efficiently.
-              This process is called reconciliation. This allows the programmer to write code as if the entire page is rendered on each change, while the React libraries only render subcomponents that actually change.
-              This selective rendering provides a major performance boost.
-              It saves the effort of recalculating the CSS style, layout for the page and rendering for the entire page.
+              Multiple elements on the same level need to be wrapped in a single React element such as the
+              &lt;/div&gt; element shown above, a fragment delineated by 
+              &lt;fragment&gt; or in its shorthand form 
+              &lt;&gt;, or returned as an array.
             </p>
-          </section>
-          <section id="lifecyclemethods">
-            <h2>Lifecycle methods</h2>
-            <p>Lifecycle methods use a form of hooking that allows the execution of code at set points during a component's lifetime.</p>
-            <ul>
-              <li>shouldComponentUpdate allows the developer to prevent unnecessary re-rendering of a component by returning false if a render is not required.</li>
-              <li>componentDidMount is called once the component has "mounted" (the component has been created in the user interface, often by associating it with a DOM node). This is commonly used to trigger data loading from a remote source via an API.</li>
-              <li>componentWillUnmount is called immediately before the component is torn down or "unmounted".
-                This is commonly used to clear resource-demanding dependencies to the component that will not simply be removed with the unmounting of the component (e.g., removing any setInterval() instances that are related to the component, or an "eventListener" set on the "document" because of the presence of the component)</li>
-              <li>render is the most important lifecycle method and the only required one in any component. It is usually called every time the component's state is updated, which should be reflected in the user interface.</li>
-                </ul>
-          </section>
-          <section id="JSX">
-            <h2>JSX</h2>
-            <p>JSX, or JavaScript XML, is an extension to the JavaScript language syntax.
-              Similar in appearance to HTML, JSX provides a way to structure component rendering using syntax familiar to many developers.
-                React components are typically written using JSX, although they do not have to be (components may also be written in pure JavaScript).
-              JSX is similar to another extension syntax created by Facebook for PHP called XHP.
-            </p>
+
+            <h4>Attributes</h4>
             <p>
-              An example of JSX code:
+              JSX provides a range of element attributes designed to mirror those provided by HTML.
+              Custom attributes can also be passed to the component.
+              All attributes will be received by the component as props.
             </p>
-              <pre>
-                class App extends React.Component {
-                  render() {
-                    return (
-                      &lt;div&gt;
-                      &lt;p&gt;Header&lt;/p&gt;
-                      &lt;p&gt;Content&lt;/p&gt;
-                          &lt;p&gt;Footer&lt;/p&gt;
-                          &lt;/div&gt;
-                    );
-                  }
-                }
-              </pre>
-              <h3>Nested elements</h3>
-              <p>Multiple elements on the same level need to be wrapped in a single React element such as the
-                &lt;/div&gt; element shown above, a fragment delineated by
-                &lt;fragment&gt; or in its shorthand form
-                &lt;&gt;, or returned as an array.</p>
-                <h4>Attributes</h4>
-                <p>
-                  JSX provides a range of element attributes designed to mirror those provided by HTML.
-                  Custom attributes can also be passed to the component.
-                  All attributes will be received by the component as props.
-                </p>
-                <h3>JavaScript expressions</h3>
-                <p>
-                  JavaScript expressions (but not statements) can be used inside JSX with curly brackets {}:
-                  <pre>
-                    &lt;h1&gt;{10+1}&lt;/h1&gt;
-                  </pre>
-                  The example above will render
-                  <pre>
-                    &lt;h1&gt;11&lt;/h1&gt;
-                  </pre>
-                </p>
           </section>
-          <section id="reactHooks">
-            <h2>React Hooks</h2>
-            <p>Hooks are functions that let developers "hook into" React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes.
-              React provides a few built-in hooks like useState, useContext, useReducer and useEffect. Others are documented in the Hooks API Reference. useState , useReducer and useEffect, which are the most used, are for controlling state and side effects respectively.</p>
-              <h3>Rules of Hooks</h3>
-              <p>There are rules of hooks which describe the characteristic code pattern that hooks rely on. It is the modern way to handle state with React.
-                <ol>
-                  <li>Hooks should only be called at the top level (not inside loops or if statements).</li>
-                  <li>Hooks should only be called from React function components, not normal functions or class components</li>
-                </ol>
-                Although these rules can't be enforced at runtime, code analysis tools such as linters can be configured to detect many mistakes during development.
-                The rules apply to both usage of hooks and the implementation of custom hooks, which may call other hooks.
-              </p>
+
+          <section>
+            <h3>JavaScript expressions</h3>
+            <p>
+              JavaScript expressions (but not statements) can be used inside JSX with curly brackets {}:
+            </p>
+            <pre class="scroll">
+              &lt;h1&gt;{10+1}&lt;/h1&gt;
+            </pre>
+            <p>
+              The example above will render
+            </p>
+            <pre class="scroll">
+              &lt;h1&gt;11&lt;/h1&gt;
+            </pre>
           </section>
-        </article>
-      </div>
+        </section>
+        <section id="reactHooks">
+          <h3>React Hooks</h3>
+          <p>Hooks are functions that let developers "hook into" React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes.
+            React provides a few built-in hooks like useState, useContext, useReducer and useEffect. Others are documented in the Hooks API Reference. useState , useReducer and useEffect, which are the most used, are for controlling state and side effects respectively.</p>
+            <h4>Rules of Hooks</h4>
+            <p>There are rules of hooks which describe the characteristic code pattern that hooks rely on. It is the modern way to handle state with React.
+              <ol>
+                <li>Hooks should only be called at the top level (not inside loops or if statements).</li>
+                <li>Hooks should only be called from React function components, not normal functions or class components</li>
+              </ol>
+              Although these rules can't be enforced at runtime, code analysis tools such as linters can be configured to detect many mistakes during development.
+              The rules apply to both usage of hooks and the implementation of custom hooks, which may call other hooks.
+            </p>
+        </section>
+      </article>
     </main>
 
-    <footer class="footer-fontstyle">
+    <footer>
       <div class="content">
         <section class="footer__sources">
           <ol>
-            <li> This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
-            <li>All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021 from <a href="https://reactjs.org/" target="_blank">https://reactjs.org/</a></li>
+            <li>This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
+            <li>All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021 from <a href="https://reactjs.org/" target="_blank" class="link--text-blue">https://reactjs.org/</a></li>
           </ol>
         </section>
         <section>

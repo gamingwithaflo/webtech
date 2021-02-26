@@ -1,3 +1,3 @@
-# Assignment1
+# Webtechnologies assignment
 
 Hello there
