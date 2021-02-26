@@ -10,10 +10,10 @@ a {
 }
 main a {
   color: black;
-  background-color: rgba(187,239,253,0.3);
+  background-color: rgba(115, 223, 251, 0.3);
 }
 main a:hover {
-  background-color: rgb(187,239,253);
+  background-color: rgb(115, 223, 251);
 }
 
 .scroll {
@@ -25,12 +25,10 @@ h1, h2, h3, h4 {
 }
 
 .blockquote {
-  background-color: rgba(255,229,100,0.3);
-  border-left-color: #ffe564;
-  border-left-width: 9px;
-  border-left-style: solid;
-  padding: 10px 10px 10px 25px;
-  margin: 20px 10px 30px 0px;
+  border-left: 8px solid #c00000;
+  background-color: #eeeeee;
+  margin: 20px 0px 30px 0px;
+  padding: 5px 15px;
 }
 
 /* global */
