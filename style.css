@@ -7,14 +7,20 @@ body {
 
 a {
   text-decoration: none;
+  padding: .1rem;
 }
-/* main a {
+a[target="_blank"]::after {
+  content: url(static/images/external.svg);
+  margin: 0 .2rem;
+}
+
+article a {
   color: black;
   background-color: rgba(187,239,253,0.3);
 }
-main a:hover {
+article a:hover {
   background-color: rgb(187,239,253);
-} */
+}
 
 .scroll {
   overflow: scroll;
