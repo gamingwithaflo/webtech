@@ -15,11 +15,13 @@ a[target="_blank"]::after {
   margin: 0 .2rem;
 }
 
-article a {
+article a,
+.link--background-blue {
   color: black;
-  background-color: rgba(187,239,253,0.3);
+  background-color: rgba(187,239,253,0.6);
 }
-article a:hover {
+article a:hover,
+.link--background-blue:hover {
   background-color: rgb(187,239,253);
 }
 
@@ -66,13 +68,17 @@ img {
 /* button */
 .button {
   padding: 1rem 1.5rem;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   display: inline-block;
   border-radius: .3rem;
 }
 .button--border-blue {
-  border: 1px solid rgb(120, 224, 252);
-  color: rgb(120, 224, 252)
+  border: 2px solid rgb(120, 224, 252);
+  color: rgb(120, 224, 252);
+}
+.button--border-darkblue {
+  border: 2px solid rgb(37, 100, 117);
+  color: rgb(37, 100, 117);
 }
 .button--border-blue:hover {
   text-decoration: underline;
@@ -85,12 +91,10 @@ img {
 .link--text-blue:hover {
   color: rgb(97, 218, 251);
 }
-.link--background-blue,
 .button--background-blue {
   background-color: rgb(120, 224, 252);
   color: black;
 }
-.link--background-blue:hover,
 .button--background-blue:hover {
   background-color: rgb(97, 218, 251);
 }
