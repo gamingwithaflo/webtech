@@ -24,6 +24,23 @@ h1, h2, h3, h4 {
   scroll-margin-top: 4.5rem;
 }
 
+blockquote {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+  background-color: rgba(255,229,100,0.3);
+  border-left-color: #ffe564;
+  border-left-width: 9px;
+  border-left-style: solid;
+  padding: 20px 45px 20px 26px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: -15px;
+  margin-right: -30px;
+}
+
 /* global */
 .content {
   margin: 0 auto;
