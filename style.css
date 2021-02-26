@@ -177,7 +177,6 @@ text-decoration: underline;
 /* aside */
 .aside {
   color: #6c757d;
-  line-height: 2;
 }
 aside > nav {
   display: flex;
@@ -191,6 +190,9 @@ aside > nav {
 .aside ul {
   list-style: none;
   padding-left: 1rem;
+}
+.aside ul li {
+  margin-bottom: .25rem;
 }
 .aside > nav > ul {
   margin: 0;
