@@ -177,6 +177,7 @@ text-decoration: underline;
 /* aside */
 .aside {
   color: #6c757d;
+  line-height: 2;
 }
 aside > nav {
   display: flex;
@@ -218,7 +219,7 @@ footer {
   background-color: #20232a;
   color: #eeebe3;
   font-size: .875rem;
-  word-break: break-word;
+  word-break: break-all;
   padding: 1rem 0;
   margin-top: 1rem;
 }
