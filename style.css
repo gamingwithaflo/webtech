@@ -28,6 +28,15 @@ img {
   max-width: 100%;
 }
 
+.blockquote__tip-quote {
+  background-color: rgba(255,229,100,0.3);
+  border-left-color: #ffe564;
+  border-left-width: 9px;
+  border-left-style: solid;
+  padding: 10px 10px 10px 25px;
+  margin: 20px 10px 30px 0px;
+}
+
 /* global */
 .content {
   margin: 0 auto;
@@ -272,5 +281,9 @@ footer {
 @media (min-width: 1400px) {
   .content {
     max-width: 1400px;
+  }
+  
+  .blockquote__tip-quote {
+    margin-left: -10px;
   }
 }
