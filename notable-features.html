@@ -3,12 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Another notable feature is the use of a virtual Document Object Model, or virtual DOM.
-    React creates an in-memory data-structure cache, computes the resulting differences, and then updates the browser's displayed DOM efficiently.
-    This process is called reconciliation. This allows the programmer to write code as if the entire page is rendered on each change, while the React libraries only render subcomponents that actually change.
-    This selective rendering provides a major performance boost.
-    It saves the effort of recalculating the CSS style, layout for the page and rendering for the entire page.">
-    <meta name="keywords" content="React,React.js,JavaScript,libary,HTML,framework,components,JSX,example,subclasses,about react,features,notable features,virtual DOM,DOM,lifecycle methods,methods,lifecycle,react hooks,hooks">
+    <meta name="description" content="Another notable feature is the use of a virtual Document Object Model, or virtual DOM. React creates an in-memory data-structure cache, computes the resulting differences, and then updates the browser's displayed DOM efficiently. This process is called reconciliation. This allows the programmer to write code as if the entire page is rendered on each change, while the React libraries only render subcomponents that actually change. This selective rendering provides a major performance boost. It saves the effort of recalculating the CSS style, layout for the page and rendering for the entire page.">
+    <meta name="keywords" content="React, React.js, JavaScript, libary, HTML, framework, components, JSX, example, subclasses, about react">
     <title>Notable features | React</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="static/favicon.ico">
@@ -29,22 +25,42 @@
     </nav>
 
     <main id="main" class="main-grid content">
-      <aside class="main-grid__aside">
-        <h2>Table of content</h2>
+      <aside class="main-grid__aside aside">
+        <h4 class="aside__title">Table of content</h4>
         <nav>
-          <a href="#virtualdom" class="nav-aside__item">Virtual DOM</a>
-          <a href="#lifecyclemethods" class="nav-aside__item">Lifecyle methods</a>
-          <a href="#jsx" class="nav-aside__item">JSX</a>
-          <a href="#reactHooks" class="nav-aside__item">React Hooks</a>
+          <ul>
+            <li><a href="#virtual-dom" class="nav-aside__item">Virtual DOM</a></li>
+            <li><a href="#lifecycle-methods" class="nav-aside__item">Lifecyle methods</a></li>
+            <li>
+              <a href="#jsx" class="nav-aside__item">JSX</a>
+              <ul>
+                <li>
+                  <a href="#nested-elements" class="nav-aside__item">Nested elements</a>
+                  <ul>
+                    <li><a href="#attributes" class="nav-aside__item">Attributes</a></li>
+                  </ul>
+                </li>
+                <li><a href="#javascript-expressions" class="nav-aside__item">JavaScript expressions</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#reactHooks" class="nav-aside__item">React Hooks</a>
+              <ul>
+                <li><a href="#rules-of-hooks" class="nav-aside__item">Rules of hooks</a></li>
+              </ul>
+            </li>
+            <li><a href="#sources" class="nav-aside__item">Sources</a></li>
+          </ul>
         </nav>
       </aside>
 
       <header class="main-grid__header">
         <h1 class="header__title">Notable features</h1>
+        <p class="header__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed nulla auctor, blandit enim ac, posuere nisl. Vestibulum a neque vitae lorem dapibus euismod. Maecenas quis vehicula sapien, ut elementum.</p>
       </header>
 
       <article class="main-grid__article">
-        <section id="virtualdom">
+        <section id="virtual-dom">
           <h2>Virtual DOM</h2>
           <p>
             Another notable feature is the use of a virtual Document Object Model, or virtual DOM.
@@ -54,7 +70,8 @@
             It saves the effort of recalculating the CSS style, layout for the page and rendering for the entire page.
           </p>
         </section>
-        <section id="lifecyclemethods">
+
+        <section id="lifecycle-methods">
           <h2>Lifecycle methods</h2>
           <p>Lifecycle methods use a form of hooking that allows the execution of code at set points during a component's lifetime.</p>
           <ul>
@@ -65,6 +82,7 @@
             <li>render is the most important lifecycle method and the only required one in any component. It is usually called every time the component's state is updated, which should be reflected in the user interface.</li>
               </ul>
         </section>
+
         <section id="jsx">
           <h2>JSX</h2>
           <p>
@@ -91,24 +109,26 @@
           </pre>
 
           <section>
-            <h3>Nested elements</h3>
+            <h3 id="nested-elements">Nested elements</h3>
             <p>
               Multiple elements on the same level need to be wrapped in a single React element such as the
-              &lt;/div&gt; element shown above, a fragment delineated by
-              &lt;fragment&gt; or in its shorthand form
+              &lt;/div&gt; element shown above, a fragment delineated by 
+              &lt;fragment&gt; or in its shorthand form 
               &lt;&gt;, or returned as an array.
             </p>
 
-            <h4>Attributes</h4>
-            <p>
-              JSX provides a range of element attributes designed to mirror those provided by HTML.
-              Custom attributes can also be passed to the component.
-              All attributes will be received by the component as props.
-            </p>
+            <section>
+              <h4 id="attributes">Attributes</h4>
+              <p>
+                JSX provides a range of element attributes designed to mirror those provided by HTML.
+                Custom attributes can also be passed to the component.
+                All attributes will be received by the component as props.
+              </p>
+            </section>
           </section>
 
           <section>
-            <h3>JavaScript expressions</h3>
+            <h3 id="javascript-expressions">JavaScript expressions</h3>
             <p>
               JavaScript expressions (but not statements) can be used inside JSX with curly brackets {}:
             </p>
@@ -123,11 +143,15 @@
             </pre>
           </section>
         </section>
+
         <section id="reactHooks">
-          <h3>React Hooks</h3>
-          <p>Hooks are functions that let developers "hook into" React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes.
-            React provides a few built-in hooks like useState, useContext, useReducer and useEffect. Others are documented in the Hooks API Reference. useState , useReducer and useEffect, which are the most used, are for controlling state and side effects respectively.</p>
-            <h4>Rules of Hooks</h4>
+          <h2>React Hooks</h2>
+          <p>
+            Hooks are functions that let developers "hook into" React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes.
+            React provides a few built-in hooks like useState, useContext, useReducer and useEffect. Others are documented in the Hooks API Reference. useState , useReducer and useEffect, which are the most used, are for controlling state and side effects respectively.
+          </p>
+          <section>
+            <h4 id="rules-of-hooks">Rules of Hooks</h4>
             <p>There are rules of hooks which describe the characteristic code pattern that hooks rely on. It is the modern way to handle state with React.
               <ol>
                 <li>Hooks should only be called at the top level (not inside loops or if statements).</li>
@@ -136,21 +160,22 @@
               Although these rules can't be enforced at runtime, code analysis tools such as linters can be configured to detect many mistakes during development.
               The rules apply to both usage of hooks and the implementation of custom hooks, which may call other hooks.
             </p>
+          </section>
+        </section>
+
+        <section>
+          <h2 id="sources">Sources</h2>
+          <ol>
+            <li>This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
+            <li>All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021 from <a href="https://reactjs.org/" target="_blank" class="link--text-blue">https://reactjs.org/</a></li>
+          </ol>
         </section>
       </article>
     </main>
 
     <footer>
       <div class="content">
-        <section class="footer__sources">
-          <ol>
-            <li>This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
-            <li>All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021 from <a href="https://reactjs.org/" target="_blank" class="link--text-blue">https://reactjs.org/</a></li>
-          </ol>
-        </section>
-        <section>
-          <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
-        </section>
+        <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
       </div>
     </footer>
   </body>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.">
-    <meta name="keywords" content="React,React.js,JavaScript,libary,HTML,framework,components,JSX,example,subclasses,about react">
+    <meta name="keywords" content="React, React.js, JavaScript, libary, HTML, framework, components, JSX, example, subclasses, about react">
     <title>What is React | React</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="static/favicon.ico">
@@ -27,13 +27,12 @@
     <main id="main" class="content">
       <header>
         <h1 class="header__title">What is React?</h1>
+        <p class="header__description">React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
       </header>
-
+      
       <article>
         <section>
-          <p>
-            React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
-          </p>
+          <h2 id="components">Components</h2>
           <p>
             React has a few different kinds of components, but we’ll start with React.Component subclasses:
           </p>
@@ -42,7 +41,7 @@
               render() {
                 return (
                   &lt;div className="shopping-list"&gt;
-                    &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&lt;
+                    &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&gt;
                     &lt;ul&gt;
                       &lt;li&gt;Instagram&lt;/li&gt;
                       &lt;li&gt;WhatsApp&lt;/li&gt;
@@ -52,7 +51,7 @@
                 );
               }
             }
-
+            
             // Example usage: &lt;ShoppingList name="Mark" /&gt;
           </pre>
           <p>
@@ -92,20 +91,20 @@
             Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
           </p>
         </section>
-      </article>
-    </main>
 
-    <footer>
-      <div class="content">
-        <section class="footer__sources">
+        <section>
+          <h2 id="sources">Sources</h2>
           <ol>
-            <li> This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
+            <li>This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
             <li>All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021 from <a href="https://reactjs.org/" target="_blank" class="link--text-blue">https://reactjs.org/</a></li>
           </ol>
         </section>
-        <section>
-          <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
-        </section>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="content">
+        <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
       </div>
     </footer>
   </body>
