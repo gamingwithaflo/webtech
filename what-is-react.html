@@ -25,32 +25,32 @@
     </nav>
 
     <main id="main" class="content">
-      <header>
-        <h1 class="header__title">What is React?</h1>
-      </header>
-      
       <article>
+        <header class="main-grid__header">
+          <h1 class="header__title">What is React?</h1>
+        </header>
+
         <section>
           <h2 id="components">Components</h2>
           <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
           <p>React has a few different kinds of components, but we’ll start with React.Component subclasses:</p>
           <pre class="scroll">
-            class ShoppingList extends React.Component {
-              render() {
-                return (
-                  &lt;div className="shopping-list"&gt;
-                    &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&gt;
-                    &lt;ul&gt;
-                      &lt;li&gt;Instagram&lt;/li&gt;
-                      &lt;li&gt;WhatsApp&lt;/li&gt;
-                      &lt;li&gt;Oculus&lt;/li&gt;
-                    &lt;/ul&gt;
-                  &lt;/div&gt;
-                );
-              }
-            }
-            
-            // Example usage: &lt;ShoppingList name="Mark" /&gt;
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      &lt;div className="shopping-list"&gt;
+        &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Instagram&lt;/li&gt;
+          &lt;li&gt;WhatsApp&lt;/li&gt;
+          &lt;li&gt;Oculus&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+// Example usage: &lt;ShoppingList name="Mark" /&gt;
           </pre>
           <p>
           We’ll get to the funny XML-like tags soon.
@@ -67,10 +67,10 @@
             Most React ""developers use a special syntax called “JSX” which makes these structures easier to write. The &lt;div /&gt; syntax is transformed at build time to React.createElement('div'). The example above is equivalent to:
           </p>
           <pre class="scroll">
-            return React.createElement('div', {className: 'shopping-list'},
-              React.createElement('h1', /* ... h1 children ... */),
-              React.createElement('ul', /* ... ul children ... */)
-            );
+return React.createElement('div', {className: 'shopping-list'},
+  React.createElement('h1', /* ... h1 children ... */),
+  React.createElement('ul', /* ... ul children ... */)
+);
           </pre>
           <p>
             <a href="https://babeljs.io/repl/#?presets=react&code_lz=DwEwlgbgBAxgNgQwM5IHII…4cuwAK5wTXbg1YBJSswTV5mQ7c7XgtgOqEETEgAguTuYFamtgDyMBZmSGFWhhYchuAQrADc7EA" target="_blank">See full expanded version</a>
@@ -99,7 +99,7 @@
         </section>
       </article>
     </main>
-    
+
     <footer>
       <div class="content">
         <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
