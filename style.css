@@ -229,6 +229,15 @@ footer {
   border-bottom: 1px solid #d2d2d7;
 }
 
+/* Menu (in footer) */
+.menu-content-option {
+  display: none;
+}
+
+.menu-content-option__show {
+   display: block;
+}
+
 /* breakpoints */
 @media (min-width: 768px) {
   .nav {
