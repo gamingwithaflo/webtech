@@ -1,10 +1,14 @@
 window.addEventListener("load", registerEvents, false);
 
-function toggleDisplay() {
- let content = document.getElementById("menu-conetent-option-notable-features");
- content.classList.toggle("menu-content-option__show");
+function toggleDisplay(element) {
+ let elementContent = document.getElementsByClassName("menu-content-option")[0];
+ elementContent.classList.toggle("menu-content-option__show");
+ window.scrollTo(0,document.body.scrollHeight);
 }
 
 function registerEvents() {
- document.getElementById("menu-notable-features").addEventListener("click", toggleDisplay, false);
+    let elementName = document.getElementsByClassName("menu-button")[0];
+    elementName.addEventListener("click",toggleDisplay, false);
+ 
+ 
 }
