@@ -104,19 +104,20 @@
       <div class="content">
         <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
       </div>
-      <button id="menu">menu</button>
+      <button class="button menu-button" id="menu">Change appearance of elements</button>
       <nav class="menu-content-option" id="menu-conetent-option-what-is-react">
-      <a href="#">header</a>
-      <a href="#">body</a>
-      <a href="#">article</a>
-      <a href="#">section</a>
-      <a href="#">footer</a>
+        <h3>possible elements to change</h3>
+        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
+        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
+        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
+        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
+        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
       </nav>
     </footer>
   </body>
   <script>
-    document.addEventListener("click", toggleDisplay, false);
-    
+    document.getElementById("menu").addEventListener("click", toggleDisplay, false);
+
       function toggleDisplay () {
         let content = document.getElementById("menu-conetent-option-what-is-react");
         content.classList.toggle("menu-content-option__show");
