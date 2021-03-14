@@ -228,9 +228,30 @@ footer {
 .footer__sources {
   border-bottom: 1px solid #d2d2d7;
 }
+/* Menu (in footer) */
+.menu-content-option {
+  display:none;
+  max-width:15rem;
+  text-align: center;
+  padding:auto;
+  margin: auto;
+}
+.menu-content-option__show a {
+  display:block;
+}
+
+.menu-content-option__show {
+  display:block
+}
+.menu-button{
+  margin:auto;
+  padding: auto;
+  display: block;
+}
 
 /* breakpoints */
 @media (min-width: 768px) {
+  
   .nav {
     padding: 0;
     position: sticky;
