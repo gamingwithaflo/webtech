@@ -178,7 +178,7 @@
         <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
       </div>
       <button class="button menu-button" id="menu-notable-features">Change appearance of elements</button>
-      <nav class="menu-content-option" id="menu-conetent-option-notable-features">
+      <nav class="menu-content-option" id="menu-content-option-notable-features">
         <h3>possible elements to change</h3>
         <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
         <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
@@ -187,13 +187,6 @@
         <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
       </nav>
     </footer>
+    <script src="myScript.js"></script>
   </body>
-  <script>
-    document.getElementById("menu-notable-features").addEventListener("click", toggleDisplay, false);
-
-      function toggleDisplay () {
-        let content = document.getElementById("menu-conetent-option-notable-features");
-        content.classList.toggle("menu-content-option__show");
-      }
-  </script>
 </html>

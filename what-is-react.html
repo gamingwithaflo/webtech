@@ -105,7 +105,7 @@
         <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
       </div>
       <button class="button menu-button" id="menu-what-is-react">Change appearance of elements</button>
-      <nav class="menu-content-option" id="menu-conetent-option-what-is-react">
+      <nav class="menu-content-option" id="menu-content-option-what-is-react">
         <h3>possible elements to change</h3>
         <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
         <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
@@ -114,13 +114,6 @@
         <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
       </nav>
     </footer>
+    <script src="myScript.js"></script>
   </body>
-  <script>
-    document.getElementById("menu-what-is-react").addEventListener("click", toggleDisplay, false);
-
-      function toggleDisplay () {
-        let content = document.getElementById("menu-conetent-option-what-is-react");
-        content.classList.toggle("menu-content-option__show");
-      }
-  </script>
 </html>
