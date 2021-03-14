@@ -104,7 +104,7 @@
       <div class="content">
         <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
       </div>
-      <button onclick="toggleDisplay()">menu</button>
+      <button id="menu">menu</button>
       <nav class="menu-content-option" id="menu-conetent-option-what-is-react">
       <a href="#">header</a>
       <a href="#">body</a>
@@ -115,6 +115,8 @@
     </footer>
   </body>
   <script>
+    document.addEventListener("click", toggleDisplay, false);
+    
       function toggleDisplay () {
         let content = document.getElementById("menu-conetent-option-what-is-react");
         content.classList.toggle("menu-content-option__show");
