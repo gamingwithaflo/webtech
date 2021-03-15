@@ -237,6 +237,12 @@ footer {
   border-bottom: 1px solid #d2d2d7;
 }
 
+@media (max-height: 768px) {
+  .main-grid__aside li ul{
+    display: none;
+  }
+}
+
 /* breakpoints */
 @media (min-width: 768px) {
   .nav {
@@ -287,6 +293,7 @@ footer {
   .main-grid__aside {
     margin-top: 40px;
     grid-area: aside;
+    overflow-y: auto;
   }
   .main-grid__header {
     grid-area: header;
