@@ -1,5 +1,7 @@
 window.addEventListener("load", registerEvents, false);
 
+let activeTarget = "none";
+
 function toggleDisplay() {
  let elementContent = document.getElementsByClassName("menu-content-option")[0];
  elementContent.classList.toggle("menu-content-option__show");
@@ -14,8 +16,16 @@ function checkIfMenu1 (event){
       let trueOrFalse = OpenMenu2.classList.contains("control-menu__block")
       if (trueOrFalse){
           OpenMenu2.classList.remove("control-menu__block");
+          activeTarget = event.target.getAttribute("name");
       } else {
-          return;
+          if (activeTarget != event.target.getAttribute("name")){
+          activeTarget = event.target.getAttribute("name");
+          let ParentClass = document.getElementsByClassName("control-menu")[0]; 
+          let elements = ParentClass.getElementsByTagName("h3");
+          ParentClass.removeChild(elements[0]);
+          } else {
+              return;
+              }
       }
 
  //Page does not have an aside
