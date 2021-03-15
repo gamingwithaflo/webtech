@@ -36,12 +36,19 @@ function checkIfMenu1 (event){
       let OpenMenu2 = document.getElementsByClassName("control-menu")[0];
       let trueOrFalse = asideTag.classList.contains("aside-none")
       if (trueOrFalse){
-          asideTag.classList.remove("aside-none")
+          asideTag.classList.remove("aside-none");
+          activeTarget = event.target.getAttribute("name");
+          mainTag.classList.add("main-grid");
+      OpenMenu2.classList.add("control-menu__show");
       } else {
-        asideTag.classList.add("aside-none")
-      }
-      mainTag.classList.toggle("main-grid");
-      OpenMenu2.classList.toggle("control-menu__show");      
+        if (activeTarget != event.target.getAttribute("name")){
+          activeTarget = event.target.getAttribute("name");
+          let ParentClass = document.getElementsByClassName("control-menu")[0]; 
+          let elements = ParentClass.getElementsByTagName("h3");
+          ParentClass.removeChild(elements[0]);
+      } else {
+          return;
+      }      
   }
       let elementContent = document.getElementsByClassName("menu-content-option")[0];
       elementContent.classList.toggle("menu-content-option__show");
@@ -49,8 +56,10 @@ function checkIfMenu1 (event){
       let text = document.createTextNode("Change element appearance \"" + event.target.getAttribute("name") + "\"");
       h3Title.appendChild(text);
       let ParentClass = document.getElementsByClassName("control-menu")[0];
-      ParentClass.insertBefore(h3Title, ParentClass.firstChild);      
+      ParentClass.insertBefore(h3Title, ParentClass.firstChild);
+      console.log(activeTarget);      
   }
+}
 
 function closeTheChangePanel(){
 let ActiveAside = !!document.getElementsByClassName("aside__title")[0];
