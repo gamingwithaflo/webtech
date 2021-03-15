@@ -252,6 +252,7 @@ footer {
   background-color:#61dafb;
   margin-top:3rem;
   position:relative;
+  display:none;
 }
 .control-menu h3 {
   padding-top:1rem;
