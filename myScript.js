@@ -9,6 +9,4 @@ function toggleDisplay(element) {
 function registerEvents() {
     let elementName = document.getElementsByClassName("menu-button")[0];
     elementName.addEventListener("click",toggleDisplay, false);
- 
- 
 }

@@ -248,7 +248,31 @@ footer {
   padding: auto;
   display: block;
 }
-
+.control-menu {
+  background-color:#61dafb;
+  margin-top:3rem;
+  position:relative;
+}
+.control-menu h3 {
+  padding-top:1rem;
+  text-align: center;
+}
+.control-menu-section input {
+  margin-left:1rem;
+  margin-bottom: 1rem;
+}
+.control-menu-section h4 {
+  margin-left: 1rem;
+}
+.control-menu-section img{
+  position:absolute;
+  left: 80%;
+  bottom: 3%;
+  
+}
+.aside-none{
+  display:none;
+}
 /* breakpoints */
 @media (min-width: 768px) {
   
