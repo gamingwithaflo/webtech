@@ -27,10 +27,8 @@ function checkIfMenu1 (event){
               return;
               }
       }
-
  //Page does not have an aside
-  } else {
-      
+  } else {    
       let mainTag = document.getElementById("main");
       let asideTag = document.getElementsByTagName("aside")[0];
       let OpenMenu2 = document.getElementsByClassName("control-menu")[0];
@@ -49,16 +47,15 @@ function checkIfMenu1 (event){
       } else {
           return;
       }      
+  }    
   }
-      let elementContent = document.getElementsByClassName("menu-content-option")[0];
+  let elementContent = document.getElementsByClassName("menu-content-option")[0];
       elementContent.classList.toggle("menu-content-option__show");
       let h3Title = document.createElement("h3");
       let text = document.createTextNode("Change element appearance \"" + event.target.getAttribute("name") + "\"");
       h3Title.appendChild(text);
       let ParentClass = document.getElementsByClassName("control-menu")[0];
-      ParentClass.insertBefore(h3Title, ParentClass.firstChild);
-      console.log(activeTarget);      
-  }
+      ParentClass.insertBefore(h3Title, ParentClass.firstChild); 
 }
 
 function closeTheChangePanel(){
@@ -70,7 +67,7 @@ if (ActiveAside === true){
   let mainTag = document.getElementById("main");
   let asideTag = document.getElementsByTagName("aside")[0];
   let OpenMenu2 = document.getElementsByClassName("control-menu")[0];
-  asideTag.add("aside-none");
+  asideTag.classList.add("aside-none");
   mainTag.classList.remove("main-grid");
   OpenMenu2.classList.remove("control-menu__show");
   }
