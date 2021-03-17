@@ -345,6 +345,11 @@ footer {
     position: sticky;
     top: 5rem;
   }
+  .aside-history {
+    height: auto;
+    position: static;
+    top: 0;
+  }
 
   .col {
     padding: 4rem;

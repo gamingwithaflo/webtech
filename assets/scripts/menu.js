@@ -48,7 +48,11 @@ function checkIfMenu1(event) {
       let nameClass = event.target.classList[0];
       activeTarget = nameClass.split("_")[0];
       console.log(activeTarget);
-      mainTag.classList.add("main-grid");
+      let CheckIfItIsHistory = !!document.getElementsByClassName("history");
+      if (CheckIfItIsHistory) {
+      } else {
+        mainTag.classList.add("main-grid");
+      }
       OpenMenu2.classList.add("control-menu__show");
       //if it is visuable you know something is already active so you need to switch it.
     } else {
@@ -92,7 +96,10 @@ function closeTheChangePanel() {
     let asideTag = document.getElementsByTagName("aside")[0];
     let OpenMenu2 = document.getElementsByClassName("control-menu")[0];
     asideTag.classList.add("aside-none");
-    mainTag.classList.remove("main-grid");
+    if (activeTarget === "history") {
+    } else {
+      mainTag.classList.remove("main-grid");
+    }
     OpenMenu2.classList.remove("control-menu__show");
   }
   let ParentClass = document.getElementsByClassName("control-menu")[0];
