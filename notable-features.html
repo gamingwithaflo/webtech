@@ -26,47 +26,6 @@
     </nav>
 
     <main id="main" class="main-grid content">
-      <aside class="main-grid__aside aside">
-
-        <article class="control-menu control-menu__block">
-          <!--DOM manipulation adds a <h3> here-->
-          <section class="control-menu-section">
-          <h4>Font-size:</h4>
-          <input name="fontsize-scale" type="range" min="50" max="150">
-          <h4>Color:</h4>
-          <input name="favcolor" type="color" value="#000000">
-          <img name="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
-          </section>
-        </article>
-
-        <header class="aside__title">Table of content</header>
-        <nav>
-          <ul>
-            <li><a href="#virtual-dom" class="nav-aside__item">Virtual DOM</a></li>
-            <li><a href="#lifecycle-methods" class="nav-aside__item">Lifecyle methods</a></li>
-            <li>
-              <a href="#jsx" class="nav-aside__item">JSX</a>
-              <ul>
-                <li>
-                  <a href="#nested-elements" class="nav-aside__item">Nested elements</a>
-                  <ul>
-                    <li><a href="#attributes" class="nav-aside__item">Attributes</a></li>
-                  </ul>
-                </li>
-                <li><a href="#javascript-expressions" class="nav-aside__item">JavaScript expressions</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#reactHooks" class="nav-aside__item">React Hooks</a>
-              <ul>
-                <li><a href="#rules-of-hooks" class="nav-aside__item">Rules of hooks</a></li>
-              </ul>
-            </li>
-            <li><a href="#sources" class="nav-aside__item">Sources</a></li>
-          </ul>
-        </nav>
-      </aside>
-
       <article class="main-grid__article">
         <header class="main-grid__header">
           <h1 class="header__title">Notable features</h1>
@@ -190,6 +149,47 @@ class App extends React.Component {
           </ol>
         </section>
       </article>
+
+      <aside class="main-grid__aside aside">
+
+        <article class="control-menu control-menu__block">
+          <!--DOM manipulation adds a <h3> here-->
+          <section class="control-menu-section">
+            <h4>Font-size:</h4>
+            <input name="fontsize-scale" type="range" min="50" max="150">
+            <h4>Color:</h4>
+            <input name="favcolor" type="color" value="#000000">
+            <img name="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
+          </section>
+        </article>
+
+        <header class="aside__title">Table of content</header>
+        <nav>
+          <ul>
+            <li><a href="#virtual-dom" class="nav-aside__item">Virtual DOM</a></li>
+            <li><a href="#lifecycle-methods" class="nav-aside__item">Lifecyle methods</a></li>
+            <li>
+              <a href="#jsx" class="nav-aside__item">JSX</a>
+              <ul>
+                <li>
+                  <a href="#nested-elements" class="nav-aside__item">Nested elements</a>
+                  <ul>
+                    <li><a href="#attributes" class="nav-aside__item">Attributes</a></li>
+                  </ul>
+                </li>
+                <li><a href="#javascript-expressions" class="nav-aside__item">JavaScript expressions</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#reactHooks" class="nav-aside__item">React Hooks</a>
+              <ul>
+                <li><a href="#rules-of-hooks" class="nav-aside__item">Rules of hooks</a></li>
+              </ul>
+            </li>
+            <li><a href="#sources" class="nav-aside__item">Sources</a></li>
+          </ul>
+        </nav>
+      </aside>
     </main>
 
     <footer>
