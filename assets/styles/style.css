@@ -373,12 +373,6 @@ footer {
     margin-top: 40px;
     grid-area: aside;
     overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .main-grid__aside::-webkit-scrollbar {
-    display: none;
   }
 
   .main-grid__header {
