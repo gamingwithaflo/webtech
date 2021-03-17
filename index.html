@@ -37,6 +37,19 @@
     </header>
 
     <main id="main" class="content">
+      <aside class="main-grid__aside aside aside-none">
+        <article class="control-menu">
+          <!--DOM manipulation adds a <h3> here-->
+          <section class="control-menu-section">
+          <h4>Font-size:</h4>
+          <input name="fontsize-scale" type="range" min="50" max="150">
+          <h4>Color:</h4>
+          <input name="favcolor" type="color" value="#000000">
+          <img name="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
+          </section>
+        </article>
+        </aside>
+        <article>
       <div class="row">
         <section class="col">
           <h2>What is React?</h2>
@@ -84,6 +97,7 @@
           <img src="assets/images/history.png" alt="React icon on timeline from 2013 to 2016">
         </div>
       </div>
+      </article>
     </main>
 
     <footer>
@@ -93,22 +107,15 @@
         </section>
       </div>
       <button class="button menu-button" id="menu-index">Change appearance of elements</button>
-      <nav class="menu-content-option" id="menu-conetent-option-index">
+      <nav class="menu-content-option" id="menu-content-option-index">
         <h3>possible elements to change</h3>
-        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
-        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
-        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
-        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
-        <a href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
+        <a name="header" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
+        <a name="body" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
+        <a name="article" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
+        <a name="section" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
+        <a name="footer" href="#bottom"  class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
       </nav>
     </footer>
+    <script src="myScript.js"></script>
   </body>
-  <script>
-    document.getElementById("menu-index").addEventListener("click", toggleDisplay, false);
-
-      function toggleDisplay () {
-        let content = document.getElementById("menu-conetent-option-index");
-        content.classList.toggle("menu-content-option__show");
-      }
-  </script>
 </html>
