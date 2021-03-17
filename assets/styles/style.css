@@ -18,18 +18,21 @@ a[target="_blank"]::after {
 article a,
 .link--background-blue {
   color: black;
-  background-color: rgba(187,239,253,0.6);
+  background-color: rgba(187, 239, 253, 0.6);
 }
 article a:hover,
 .link--background-blue:hover {
-  background-color: rgb(187,239,253);
+  background-color: rgb(187, 239, 253);
 }
 
 .scroll {
   overflow: auto;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   scroll-margin-top: 4.5rem;
 }
 
@@ -40,7 +43,7 @@ img {
 .info {
   border-left: 8px solid #c00000;
   background-color: #eeeeee;
-  margin: 20px 0px 30px 0px;
+  margin: 20px 0 30px 0;
   padding: 5px 15px;
   overflow: auto;
 }
@@ -100,10 +103,10 @@ img {
   color: rgb(97, 218, 251);
 }
 .button--background-light-blue {
-  background-color: rgba(187,239,253,0.6);
+  background-color: rgba(187, 239, 253, 0.6);
 }
 .button--background-light-blue:hover {
-  background-color: rgb(187,239,253);
+  background-color: rgb(187, 239, 253);
 }
 .button--background-blue {
   background-color: rgb(120, 224, 252);
@@ -151,10 +154,10 @@ img {
 /* navigation aside */
 .nav-aside__item {
   color: inherit;
-  font-size: .875rem;
+  font-size: inherit;
 }
 .nav-aside__item:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* header */
@@ -235,8 +238,8 @@ aside > nav {
 .table tr:nth-child(even) {
   background: #ccc;
 }
-.table>*>:not(caption)>*>* {
-  padding: .5rem;
+.table > * > :not(caption) > * > * {
+  padding: 0.5rem;
 }
 .table thead {
   background-color: #aaa;
@@ -259,49 +262,49 @@ footer {
 }
 /* Menu (in footer) */
 .menu-content-option {
-  display:none;
-  max-width:15rem;
+  display: none;
+  max-width: 15rem;
   text-align: center;
   margin: auto;
 }
 .menu-content-option__show a {
-  display:block;
+  display: block;
 }
 
 .menu-content-option__show {
-  display:block
+  display: block;
 }
-.menu-button{
-  margin:auto;
+.menu-button {
+  margin: auto;
   display: block;
 }
 .control-menu {
-  background-color:#61dafb;
-  margin-top:3rem;
-  position:relative;
-  display:block;
+  background-color: #61dafb;
+  margin-top: 3rem;
+  position: relative;
+  display: block;
 }
 .control-menu__block {
-  display:none;
+  display: none;
 }
 .control-menu h3 {
-  padding-top:1rem;
+  padding-top: 1rem;
   text-align: center;
 }
 .control-menu-section input {
-  margin-left:1rem;
+  margin-left: 1rem;
   margin-bottom: 1rem;
 }
 .control-menu-section h4 {
   margin-left: 1rem;
 }
-.control-menu-section img{
-  position:absolute;
-  left: 80%;
-  bottom: 3%;
+.control-menu-section img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
-.aside-none{
-  display:none;
+.aside-none {
+  display: none;
 }
 
 /* assessment */
@@ -349,6 +352,11 @@ footer {
     position: sticky;
     top: 5rem;
   }
+  .aside-history {
+    height: auto;
+    position: static;
+    top: 0;
+  }
 
   .col {
     padding: 4rem;
@@ -363,7 +371,7 @@ footer {
     margin-top: 0;
   }
 
-  .table>:not(caption)>*>*:nth-child(-n+2) {
+  .table > :not(caption) > * > *:nth-child(-n + 2) {
     white-space: nowrap;
   }
 

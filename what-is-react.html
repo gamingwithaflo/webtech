@@ -32,25 +32,25 @@
                 </header>
 
                 <section>
-                    <h2 id="components">Components</h2>
-                    <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
-                    <p>React has a few different kinds of components, but we’ll start with React.Component subclasses:</p>
-                    <pre class="info info--blue">
-                        <code>
-        class ShoppingList extends React.Component {
-          render() {
-            return (
-              &lt;div className="shopping-list"&gt;
-                &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&gt;
-                &lt;ul&gt;
-                  &lt;li&gt;Instagram&lt;/li&gt;
-                  &lt;li&gt;WhatsApp&lt;/li&gt;
-                  &lt;li&gt;Oculus&lt;/li&gt;
-                &lt;/ul&gt;
-              &lt;/div&gt;
-            );
-          }
-        }
+                  <h2 id="components">Components</h2>
+                  <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
+                  <p>React has a few different kinds of components, but we’ll start with React.Component subclasses:</p>
+                  <pre class="info info--blue">
+                      <code>
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      &lt;div className="shopping-list"&gt;
+        &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Instagram&lt;/li&gt;
+          &lt;li&gt;WhatsApp&lt;/li&gt;
+          &lt;li&gt;Oculus&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    );
+  }
+}
 
         // Example usage: &lt;ShoppingList name="Mark" /&gt;
                       </code>
@@ -111,26 +111,27 @@
                         <input name="fontsize-scale" type="range" min="50" max="150">
                         <h4>Color:</h4>
                         <input name="favcolor" type="color" value="#000000">
-                        <img name="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
+                        <img class="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
                     </section>
                 </article>
             </aside>
         </main>
 
         <footer>
-            <div class="content">
-                <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
-                <hr>
-                <button class="button menu-button" id="menu-what-is-react">Change appearance of elements</button>
-                <nav class="menu-content-option" id="menu-content-option-what-is-react">
-                    <h3>possible elements to change</h3>
-                    <a name="header" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
-                    <a name="body" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
-                    <a name="article" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
-                    <a name="section" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
-                    <a name="footer" href="#"  class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
-                </nav>
-            </div>
+          <div class="content">
+            <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
+            <hr>
+            <button class="button menu-button" id="menu-what-is-react">Change appearance of elements</button>
+            <nav class="menu-content-option" id="menu-content-option-what-is-react">
+              <h3>Changeable items</h3>
+              <a  href="#" class="header_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
+              <a  href="#" class="body_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
+              <a  href="#" class="aside_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">aside</a>
+              <a  href="#" class="article_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
+              <a  href="#" class="section_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
+              <a href="#" class="footer_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
+            </nav>
+          </div>
         </footer>
 
         <script src="assets/scripts/menu.js"></script>
