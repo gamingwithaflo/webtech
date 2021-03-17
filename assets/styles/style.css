@@ -12,7 +12,7 @@ a {
 }
 a[target="_blank"]::after {
   content: url(../images/external.svg);
-  margin: 0 .2rem;
+  margin-left: .2rem;
 }
 
 article a,
@@ -78,7 +78,7 @@ img {
   border: 2px solid transparent;
   display: inline-block;
   font-weight: bold;
-  /*border-radius: .3rem;*/
+  appearance: none;
 }
 .button--border-blue {
   border: 2px solid rgb(120, 224, 252);
@@ -225,11 +225,12 @@ aside > nav {
 /* table */
 .table {
   border-spacing: 0;
+  overflow: auto;
 }
 .table tr:nth-child(even) {
   background: #ccc;
 }
-.table>:not(caption)>*>* {
+.table>*>:not(caption)>*>* {
   padding: .5rem;
 }
 .table thead {
@@ -307,6 +308,11 @@ footer {
 .legend {
   background: #20232a;
   color: white;
+}
+
+/* form */
+.form__control-button {
+  margin-right: .5rem;
 }
 
 

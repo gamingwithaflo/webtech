@@ -14,12 +14,12 @@ export default class Question {
         section.setAttribute('class', 'question');
 
         // title
-        var title = document.createElement("h3");
+        const title = document.createElement("h3");
         title.innerText = this.title;
         section.appendChild(title);
 
         // problem statement
-        var problemStatement = document.createElement("p");
+        const problemStatement = document.createElement("p");
         problemStatement.innerText = this.problemStatement;
         section.appendChild(problemStatement);
 
