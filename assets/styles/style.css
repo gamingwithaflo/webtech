@@ -11,7 +11,7 @@ a {
   word-break: break-all;
 }
 a[target="_blank"]::after {
-  content: url(static/images/external.svg);
+  content: url(../images/external.svg);
   margin: 0 .2rem;
 }
 
@@ -37,11 +37,18 @@ img {
   max-width: 100%;
 }
 
-.blockquote {
+.info {
   border-left: 8px solid #c00000;
   background-color: #eeeeee;
   margin: 20px 0px 30px 0px;
   padding: 5px 15px;
+  overflow: auto;
+}
+.info:empty {
+  display: none;
+}
+.info--blue {
+  border-left-color: #61dafb;
 }
 
 /* global */
@@ -67,10 +74,11 @@ img {
 
 /* button */
 .button {
-  padding: 1rem 1.5rem;
+  padding: .8rem 1.5rem;
   border: 2px solid transparent;
   display: inline-block;
-  border-radius: .3rem;
+  font-weight: bold;
+  /*border-radius: .3rem;*/
 }
 .button--border-blue {
   border: 2px solid rgb(120, 224, 252);
@@ -90,6 +98,12 @@ img {
 }
 .link--text-blue:hover {
   color: rgb(97, 218, 251);
+}
+.button--background-light-blue {
+  background-color: rgba(187,239,253,0.6);
+}
+.button--background-light-blue:hover {
+  background-color: rgb(187,239,253);
 }
 .button--background-blue {
   background-color: rgb(120, 224, 252);
@@ -119,6 +133,7 @@ img {
 .nav__row {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .nav__item {
   padding: .5rem;
@@ -233,7 +248,6 @@ footer {
   display:none;
   max-width:15rem;
   text-align: center;
-  padding:auto;
   margin: auto;
 }
 .menu-content-option__show a {
@@ -245,7 +259,6 @@ footer {
 }
 .menu-button{
   margin:auto;
-  padding: auto;
   display: block;
 }
 .control-menu {
@@ -254,7 +267,6 @@ footer {
   position:relative;
   display:block;
 }
-
 .control-menu__block {
   display:none;
 }
@@ -273,11 +285,23 @@ footer {
   position:absolute;
   left: 80%;
   bottom: 3%;
-  
+
 }
 .aside-none{
   display:none;
 }
+
+/* assessment */
+.question {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.legend {
+  background: #20232a;
+  color: white;
+}
+
 /* breakpoints */
 @media (min-width: 768px) {
   
@@ -344,9 +368,5 @@ footer {
 @media (min-width: 1400px) {
   .content {
     max-width: 1400px;
-  }
-  
-  .blockquote {
-    margin-left: -10px;
   }
 }
