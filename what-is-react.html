@@ -38,11 +38,7 @@
           <img name="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
           </section>
         </article>
-        </aside>
-      <header>
-        <h1 class="header__title">What is React?</h1>
-      </header>
-
+      </aside>
       <article>
         <header class="main-grid__header">
           <h1 class="header__title">What is React?</h1>
@@ -52,7 +48,8 @@
           <h2 id="components">Components</h2>
           <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
           <p>React has a few different kinds of components, but we’ll start with React.Component subclasses:</p>
-          <pre class="scroll">
+          <pre class="info info--blue">
+              <code>
 class ShoppingList extends React.Component {
   render() {
     return (
@@ -69,6 +66,7 @@ class ShoppingList extends React.Component {
 }
 
 // Example usage: &lt;ShoppingList name="Mark" /&gt;
+              </code>
           </pre>
           <p>
           We’ll get to the funny XML-like tags soon.
@@ -84,11 +82,13 @@ class ShoppingList extends React.Component {
             In particular, render returns a <strong>React element</strong>, which is a lightweight description of what to render.
             Most React ""developers use a special syntax called “JSX” which makes these structures easier to write. The &lt;div /&gt; syntax is transformed at build time to React.createElement('div'). The example above is equivalent to:
           </p>
-          <pre class="scroll">
+          <pre class="info info--blue">
+              <code>
 return React.createElement('div', {className: 'shopping-list'},
   React.createElement('h1', /* ... h1 children ... */),
   React.createElement('ul', /* ... ul children ... */)
 );
+              </code>
           </pre>
           <p>
             <a href="https://babeljs.io/repl/#?presets=react&code_lz=DwEwlgbgBAxgNgQwM5IHIILYFMC8AiJACwHsAHUsAOwHMBaOMJAFzwD4AoKKYQgRlYDKJclWpQAMoyZQAZsQBOUAN6l5ZJADpKmLAF9gAej4cuwAK5wTXbg1YBJSswTV5mQ7c7XgtgOqEETEgAguTuYFamtgDyMBZmSGFWhhYchuAQrADc7EA" target="_blank">See full expanded version</a>
@@ -121,17 +121,19 @@ return React.createElement('div', {className: 'shopping-list'},
     <footer>
       <div class="content">
         <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
+        <hr>
+        <button class="button menu-button" id="menu-what-is-react">Change appearance of elements</button>
+        <nav class="menu-content-option" id="menu-content-option-what-is-react">
+            <h3>possible elements to change</h3>
+            <a name="header" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
+            <a name="body" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
+            <a name="article" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
+            <a name="section" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
+            <a name="footer" href="#"  class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
+        </nav>
       </div>
-      <button class="button menu-button" id="menu-what-is-react">Change appearance of elements</button>
-      <nav class="menu-content-option" id="menu-content-option-what-is-react">
-        <h3>possible elements to change</h3>
-        <a name="header" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
-        <a name="body" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
-        <a name="article" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
-        <a name="section" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
-        <a name="footer" href="#bottom"  class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
-      </nav>
     </footer>
+
     <script src="assets/scripts/menu.js"></script>
   </body>
 </html>

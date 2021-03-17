@@ -21,7 +21,6 @@ export default class Assessment {
         // message
         const message = document.createElement("div");
         message.setAttribute('class', 'info info--blue message');
-        // form.appendChild(message);
 
         // loop questions
         for (let question of this.questions) {
@@ -35,27 +34,16 @@ export default class Assessment {
         // form button submit
         const send = document.createElement("input");
         send.setAttribute('type', 'submit');
-        send.setAttribute('class', 'button button--background-blue');
+        send.setAttribute('class', 'button form__control-button button--background-blue');
         section.appendChild(send);
 
         // form button reset
         const reset = document.createElement("input");
         reset.setAttribute('type', 'reset');
-        reset.setAttribute('class', 'button button--background-light-blue');
+        reset.setAttribute('class', 'button form__control-button button--background-light-blue');
         section.appendChild(reset);
 
         form.appendChild(section);
-
-        // reset event listener
-        form.addEventListener('reset', (event) => {
-            // reset message
-            message.remove();
-
-            // scroll to top
-            window.scroll({
-                top: 0
-            });
-        });
 
         // submit event listener
         form.addEventListener('submit', (event) => {
@@ -68,7 +56,7 @@ export default class Assessment {
             // check if answer is correct and loop form data entries
             for (let x of new FormData(form).entries()) {
                 // filter and loop questions on title
-                this.questions.filter((e) => e.title == x[0]).forEach((e) => {
+                this.questions.filter((e) => e.title === x[0]).forEach((e) => {
                     // make answers lowercase and check if equal
                     if (e.correctAnswer.toLowerCase() === x[1].toLowerCase()) {
                         // add to score
@@ -80,6 +68,17 @@ export default class Assessment {
             // set message with score and insert before form element
             message.innerText = `${this.score === this.questions.length ? "Congratulations! " : ""}You scored ${this.score} out of ${this.questions.length} points.`;
             form.parentElement.insertBefore(message, form);
+
+            // scroll to top
+            window.scroll({
+                top: 0
+            });
+        });
+
+        // reset event listener
+        form.addEventListener('reset', (event) => {
+            // reset message
+            message.remove();
 
             // scroll to top
             window.scroll({
