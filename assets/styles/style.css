@@ -295,8 +295,8 @@ footer {
 }
 .control-menu-section img {
   position: absolute;
-  left: 80%;
-  bottom: 3%;
+  right: 0;
+  bottom: 0;
 }
 .aside-none {
   display: none;
