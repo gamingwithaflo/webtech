@@ -27,6 +27,7 @@
 
     <main id="main" class="main-grid content">
       <aside class="main-grid__aside aside">
+
         <article class="control-menu control-menu__block">
           <!--DOM manipulation adds a <h3> here-->
           <section class="control-menu-section">
@@ -37,7 +38,8 @@
           <img name="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
           </section>
         </article>
-        <h4 class="aside__title">Table of content</h4>
+
+        <header class="aside__title">Table of content</header>
         <nav>
           <ul>
             <li><a href="#virtual-dom" class="nav-aside__item">Virtual DOM</a></li>
@@ -65,11 +67,11 @@
         </nav>
       </aside>
 
-      <header class="main-grid__header">
-        <h1 class="header__title">Notable features</h1>
-      </header>
-
       <article class="main-grid__article">
+        <header class="main-grid__header">
+          <h1 class="header__title">Notable features</h1>
+        </header>
+
         <section id="virtual-dom">
           <h2>Virtual DOM</h2>
           <p>
@@ -105,25 +107,25 @@
             An example of JSX code:
           </p>
           <pre class="scroll">
-            class App extends React.Component {
-              render() {
-                return (
-                  &lt;div&gt;
-                    &lt;p&gt;Header&lt;/p&gt;
-                    &lt;p&gt;Content&lt;/p&gt;
-                    &lt;p&gt;Footer&lt;/p&gt;
-                  &lt;/div&gt;
-                );
-              }
-            }
+class App extends React.Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;p&gt;Header&lt;/p&gt;
+        &lt;p&gt;Content&lt;/p&gt;
+        &lt;p&gt;Footer&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
           </pre>
 
           <section>
             <h3 id="nested-elements">Nested elements</h3>
             <p>
               Multiple elements on the same level need to be wrapped in a single React element such as the
-              &lt;/div&gt; element shown above, a fragment delineated by 
-              &lt;fragment&gt; or in its shorthand form 
+              &lt;/div&gt; element shown above, a fragment delineated by
+              &lt;fragment&gt; or in its shorthand form
               &lt;&gt;, or returned as an array.
             </p>
 
@@ -143,13 +145,13 @@
               JavaScript expressions (but not statements) can be used inside JSX with curly brackets {}:
             </p>
             <pre class="scroll">
-              &lt;h1&gt;{10+1}&lt;/h1&gt;
+&lt;h1&gt;{10+1}&lt;/h1&gt;
             </pre>
             <p>
               The example above will render
             </p>
             <pre class="scroll">
-              &lt;h1&gt;11&lt;/h1&gt;
+&lt;h1&gt;11&lt;/h1&gt;
             </pre>
           </section>
         </section>
@@ -161,7 +163,7 @@
             React provides a few built-in hooks like useState, useContext, useReducer and useEffect. Others are documented in the Hooks API Reference. useState , useReducer and useEffect, which are the most used, are for controlling state and side effects respectively.
           </p>
           <section>
-            <h4 id="rules-of-hooks">Rules of Hooks</h4>
+            <h3 id="rules-of-hooks">Rules of Hooks</h3>
             <p>There are rules of hooks which describe the characteristic code pattern that hooks rely on. It is the modern way to handle state with React.</p>
             <ol>
               <li>Hooks should only be called at the top level (not inside loops or if statements).</li>
