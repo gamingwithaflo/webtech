@@ -26,18 +26,19 @@
     </nav>
 
     <main id="main" class="content">
-      <aside class="main-grid__aside aside aside-none">
-        <article class="control-menu">
-          <!--DOM manipulation adds a <h3> here-->
-          <section class="control-menu-section">
-          <h4>Font-size:</h4>
-          <input name="fontsize-scale" type="range" min="50" max="150">
-          <h4>Color:</h4>
-          <input name="favcolor" type="color" value="#000000">
-          <img class="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
-          </section>
-        </article>
-        </aside>
+        <aside class="main-grid__aside aside aside-none">
+          <article class="control-menu">
+            <!--DOM manipulation adds a <h3> here-->
+            <section class="control-menu-section">
+            <h4>Font-size:</h4>
+            <input name="fontsize-scale" type="range" min="50" max="150">
+            <h4>Color:</h4>
+            <input name="favcolor" type="color" value="#000000">
+            <img class="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
+            </section>
+          </article>
+          </aside>
+          <article>
       <header>
         <h1 class="header__title">History of React</h1>
       </header>
@@ -315,13 +316,14 @@
         <hr>
         <button class="button menu-button" id="menu-history">Change appearance of elements</button>
         <nav class="menu-content-option" id="menu-content-option-history">
-          <h3>possible elements to change</h3>
-          <a name="header" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
-          <a name="body" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
-          <a name="article" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
-          <a name="section" href="#" class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
-          <a name="footer" href="#"  class="header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
-        </nav>
+            <h3>Changeable items</h3>
+            <a  href="#" class="header_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
+            <a  href="#" class="body_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
+            <a  href="#" class="aside_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">aside</a>
+            <a  href="#" class="article_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
+            <a  href="#" class="section_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
+            <a href="#" class="footer_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
+          </nav>
       </div>
     </footer>
 

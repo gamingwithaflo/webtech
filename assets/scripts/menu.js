@@ -19,11 +19,15 @@ function checkIfMenu1(event) {
     //checks if it is blocked (not visuable) (nothing is active already)
     if (trueOrFalse) {
       OpenMenu2.classList.remove("control-menu__block");
-      activeTarget = event.target.getAttribute("name");
+      let nameClass = event.target.classList[0];
+      activeTarget = nameClass.split("_")[0];
+      console.log(activeTarget);
       //if it is visuable you know something is already active so you need to switch it.
     } else {
-      if (activeTarget != event.target.getAttribute("name")) {
-        activeTarget = event.target.getAttribute("name");
+      if (activeTarget != event.target.classList[0].split("_")[0]) {
+        let nameClass = event.target.classList[0];
+        activeTarget = nameClass.split("_")[0];
+        console.log(activeTarget);
         let ParentClass = document.getElementsByClassName("control-menu")[0];
         let elements = ParentClass.getElementsByTagName("h3");
         ParentClass.removeChild(elements[0]);
@@ -41,14 +45,18 @@ function checkIfMenu1(event) {
     //checks if it is blocked (not visuable) (nothing is active already)
     if (trueOrFalse) {
       asideTag.classList.remove("aside-none");
-      activeTarget = event.target.getAttribute("name");
+      let nameClass = event.target.classList[0];
+      activeTarget = nameClass.split("_")[0];
+      console.log(activeTarget);
       mainTag.classList.add("main-grid");
       OpenMenu2.classList.add("control-menu__show");
       //if it is visuable you know something is already active so you need to switch it.
     } else {
       //Check if it is not the same as the previous target.
-      if (activeTarget != event.target.getAttribute("name")) {
-        activeTarget = event.target.getAttribute("name");
+      if (activeTarget != event.target.classList[0].split("_")[0]) {
+        let nameClass = event.target.classList[0];
+        activeTarget = nameClass.split("_")[0];
+        console.log(activeTarget);
         let ParentClass = document.getElementsByClassName("control-menu")[0];
         let elements = ParentClass.getElementsByTagName("h3");
         ParentClass.removeChild(elements[0]);
@@ -64,12 +72,14 @@ function checkIfMenu1(event) {
   )[0];
   elementContent.classList.toggle("menu-content-option__show");
   let h3Title = document.createElement("h3");
+  let nameClass = event.target.classList[0];
+  let actualTitel = nameClass.split("_")[0];
   let text = document.createTextNode(
-    'Change element appearance "' + event.target.getAttribute("name") + '"'
+    'Change element appearance "' + actualTitel + '"'
   );
   h3Title.appendChild(text);
-  let ParentClass = document.getElementsByClassName("control-menu")[0];
-  ParentClass.insertBefore(h3Title, ParentClass.firstChild);
+  let parentClass = document.getElementsByClassName("control-menu")[0];
+  parentClass.insertBefore(h3Title, parentClass.firstChild);
 }
 
 function closeTheChangePanel() {
@@ -98,6 +108,7 @@ function lettertype(event) {
   }
 }
 function colorText(event) {
+  console.log(activeTarget);
   let CurrentlyActive = document.getElementsByTagName(activeTarget);
   let value = event.target.value;
   for (i = 0; i < CurrentlyActive.length; i++) {
