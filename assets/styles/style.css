@@ -8,7 +8,7 @@ body {
 a {
   text-decoration: none;
   padding: .1rem;
-  word-break: break-all;
+  overflow-wrap: break-word;
 }
 a[target="_blank"]::after {
   content: url(../images/external.svg);
@@ -244,7 +244,7 @@ footer {
   background-color: #20232a;
   color: #eeebe3;
   font-size: .875rem;
-  word-break: break-all;
+  overflow-wrap: break-word;
   padding: 1rem 0;
   margin-top: 1rem;
 }
