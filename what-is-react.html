@@ -1,55 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.">
-    <meta name="keywords" content="React, React.js, JavaScript, libary, HTML, framework, components, JSX, example, subclasses, about react">
-    <title>What is React | React</title>
-    <link rel="stylesheet" href="assets/styles/style.css">
-    <link rel="icon" href="assets/images/favicon.ico">
-  </head>
-  <body>
-    <nav class="skip content">
-      <a href="#main">Skip to main content</a>
-    </nav>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.">
+        <meta name="keywords" content="React, React.js, JavaScript, libary, HTML, framework, components, JSX, example, subclasses, about react">
+        <title>What is React | React</title>
+        <link rel="stylesheet" href="assets/styles/style.css">
+        <link rel="icon" href="assets/images/favicon.ico">
+    </head>
+    <body>
+        <nav class="skip content">
+            <a href="#main">Skip to main content</a>
+        </nav>
 
-    <nav class="nav">
-      <div class="nav__row content">
-        <a href="index.html" class="nav__item nav__item--name">React</a>
-        <a href="what-is-react.html" class="nav__item nav__item--active">What is React</a>
-        <a href="getting-started.html" class="nav__item">Getting started</a>
-        <a href="notable-features.html" class="nav__item">Notable features</a>
-        <a href="history.html" class="nav__item">History</a>
-        <a href="assessment.html" class="nav__item">Assessment</a>
-      </div>
-    </nav>
+        <nav class="nav">
+            <div class="nav__row content">
+                <a href="index.html" class="nav__item nav__item--name">React</a>
+                <a href="what-is-react.html" class="nav__item nav__item--active">What is React</a>
+                <a href="getting-started.html" class="nav__item">Getting started</a>
+                <a href="notable-features.html" class="nav__item">Notable features</a>
+                <a href="history.html" class="nav__item">History</a>
+                <a href="assessment.html" class="nav__item">Assessment</a>
+            </div>
+        </nav>
 
-    <main id="main" class="content">
+        <main id="main" class="content">
+            <article>
+                <header class="main-grid__header">
+                    <h1 class="header__title">What is React?</h1>
+                </header>
 
-      <aside class="main-grid__aside aside aside-none">
-        <article class="control-menu">
-          <!--DOM manipulation adds a <h3> here-->
-          <section class="control-menu-section">
-          <h4>Font-size:</h4>
-          <input name="fontsize-scale" type="range" min="50" max="150">
-          <h4>Color:</h4>
-          <input name="favcolor" type="color" value="#000000">
-          <img class="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
-          </section>
-        </article>
-      </aside>
-      <article>
-        <header class="main-grid__header">
-          <h1 class="header__title">What is React?</h1>
-        </header>
-
-        <section>
-          <h2 id="components">Components</h2>
-          <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
-          <p>React has a few different kinds of components, but we’ll start with React.Component subclasses:</p>
-          <pre class="info info--blue">
-              <code>
+                <section>
+                  <h2 id="components">Components</h2>
+                  <p>React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
+                  <p>React has a few different kinds of components, but we’ll start with React.Component subclasses:</p>
+                  <pre class="info info--blue">
+                      <code>
 class ShoppingList extends React.Component {
   render() {
     return (
@@ -65,76 +52,88 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: &lt;ShoppingList name="Mark" /&gt;
-              </code>
-          </pre>
-          <p>
-          We’ll get to the funny XML-like tags soon.
-          We use components to tell React what we want to see on the screen.\
-            When our data changes, React will efficiently update and re-render our components.
-          </p>
-          <p>
-            Here, ShoppingList is a <strong>React component class</strong>, or <strong>React component type</strong>.
-            A component takes in parameters, called props (short for “properties”), and returns a hierarchy of views to display via the render method.
-          </p>
-          <p>
-            The render method returns a description of what you want to see on the screen. React takes the description and displays the result.
-            In particular, render returns a <strong>React element</strong>, which is a lightweight description of what to render.
-            Most React ""developers use a special syntax called “JSX” which makes these structures easier to write. The &lt;div /&gt; syntax is transformed at build time to React.createElement('div'). The example above is equivalent to:
-          </p>
-          <pre class="info info--blue">
-              <code>
-return React.createElement('div', {className: 'shopping-list'},
-  React.createElement('h1', /* ... h1 children ... */),
-  React.createElement('ul', /* ... ul children ... */)
-);
-              </code>
-          </pre>
-          <p>
-            <a href="https://babeljs.io/repl/#?presets=react&code_lz=DwEwlgbgBAxgNgQwM5IHIILYFMC8AiJACwHsAHUsAOwHMBaOMJAFzwD4AoKKYQgRlYDKJclWpQAMoyZQAZsQBOUAN6l5ZJADpKmLAF9gAej4cuwAK5wTXbg1YBJSswTV5mQ7c7XgtgOqEETEgAguTuYFamtgDyMBZmSGFWhhYchuAQrADc7EA" target="_blank">See full expanded version</a>
-          </p>
-          <p>
-            If you’re curious, createElement() is described in more detail in the API reference, but we won’t be using it in this tutorial.
-            Instead, we will keep using JSX.
-          </p>
-          <p>
-            JSX comes with the full power of JavaScript. You can put <em>any</em> JavaScript expressions within braces inside JSX.
-            Each React element is a JavaScript object that you can store in a variable or pass around in your program.
-          </p>
-          <p>
-            The ShoppingList component above only renders built-in DOM components like &lt;div /&gt; and &lt;li /&gt;.
-            But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing &lt;ShoppingList /&gt;.
-            Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
-          </p>
-        </section>
+        // Example usage: &lt;ShoppingList name="Mark" /&gt;
+                      </code>
+                  </pre>
+                    <p>
+                        We’ll get to the funny XML-like tags soon.
+                        We use components to tell React what we want to see on the screen.\
+                        When our data changes, React will efficiently update and re-render our components.
+                    </p>
+                    <p>
+                        Here, ShoppingList is a <strong>React component class</strong>, or <strong>React component type</strong>.
+                        A component takes in parameters, called props (short for “properties”), and returns a hierarchy of views to display via the render method.
+                    </p>
+                    <p>
+                        The render method returns a description of what you want to see on the screen. React takes the description and displays the result.
+                        In particular, render returns a <strong>React element</strong>, which is a lightweight description of what to render.
+                        Most React ""developers use a special syntax called “JSX” which makes these structures easier to write. The &lt;div /&gt; syntax is transformed at build time to React.createElement('div'). The example above is equivalent to:
+                    </p>
+                    <pre class="info info--blue">
+                      <code>
+        return React.createElement('div', {className: 'shopping-list'},
+          React.createElement('h1', /* ... h1 children ... */),
+          React.createElement('ul', /* ... ul children ... */)
+        );
+                      </code>
+                  </pre>
+                    <p>
+                        <a href="https://babeljs.io/repl/#?presets=react&code_lz=DwEwlgbgBAxgNgQwM5IHIILYFMC8AiJACwHsAHUsAOwHMBaOMJAFzwD4AoKKYQgRlYDKJclWpQAMoyZQAZsQBOUAN6l5ZJADpKmLAF9gAej4cuwAK5wTXbg1YBJSswTV5mQ7c7XgtgOqEETEgAguTuYFamtgDyMBZmSGFWhhYchuAQrADc7EA" target="_blank">See full expanded version</a>
+                    </p>
+                    <p>
+                        If you’re curious, createElement() is described in more detail in the API reference, but we won’t be using it in this tutorial.
+                        Instead, we will keep using JSX.
+                    </p>
+                    <p>
+                        JSX comes with the full power of JavaScript. You can put <em>any</em> JavaScript expressions within braces inside JSX.
+                        Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+                    </p>
+                    <p>
+                        The ShoppingList component above only renders built-in DOM components like &lt;div /&gt; and &lt;li /&gt;.
+                        But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing &lt;ShoppingList /&gt;.
+                        Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+                    </p>
+                </section>
 
-        <section>
-          <h2 id="sources">Sources</h2>
-          <ol>
-            <li>This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
-            <li>All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021 from <a href="https://reactjs.org/" target="_blank">https://reactjs.org/</a></li>
-          </ol>
-        </section>
-      </article>
-    </main>
+                <section>
+                    <h2 id="sources">Sources</h2>
+                    <ol>
+                        <li>This page was last edited on 19 February 2021, at 16:20 (UTC).</li>
+                        <li>All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021 from <a href="https://reactjs.org/" target="_blank">https://reactjs.org/</a></li>
+                    </ol>
+                </section>
+            </article>
+            <aside class="main-grid__aside aside aside-none">
+                <article class="control-menu">
+                    <!--DOM manipulation adds a <h3> here-->
+                    <section class="control-menu-section">
+                        <h4>Font-size:</h4>
+                        <input name="fontsize-scale" type="range" min="50" max="150">
+                        <h4>Color:</h4>
+                        <input name="favcolor" type="color" value="#000000">
+                        <img class="exit" src="https://cdn2.iconfinder.com/data/icons/arrows-and-universal-actions-icon-set/256/cancel-512.png" width="50" height="50" alt="cross to close the window">
+                    </section>
+                </article>
+            </aside>
+        </main>
 
-    <footer>
-      <div class="content">
-        <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
-        <hr>
-        <button class="button menu-button" id="menu-what-is-react">Change appearance of elements</button>
-        <nav class="menu-content-option" id="menu-content-option-what-is-react">
-          <h3>Changeable items</h3>
-          <a  href="#" class="header_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
-          <a  href="#" class="body_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
-          <a  href="#" class="aside_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">aside</a>
-          <a  href="#" class="article_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
-          <a  href="#" class="section_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
-          <a href="#" class="footer_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
-        </nav>
-      </div>
-    </footer>
+        <footer>
+          <div class="content">
+            <p>This website was made by students of the University Utrecht as a homework assignment for the subject webtechnologies.</p>
+            <hr>
+            <button class="button menu-button" id="menu-what-is-react">Change appearance of elements</button>
+            <nav class="menu-content-option" id="menu-content-option-what-is-react">
+              <h3>Changeable items</h3>
+              <a  href="#" class="header_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">header</a>
+              <a  href="#" class="body_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">body</a>
+              <a  href="#" class="aside_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">aside</a>
+              <a  href="#" class="article_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">article</a>
+              <a  href="#" class="section_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">section</a>
+              <a href="#" class="footer_menu_title header-introduction__link header-introduction__text link--text-blue button button--border-blue">footer</a>
+            </nav>
+          </div>
+        </footer>
 
-    <script src="assets/scripts/menu.js"></script>
-  </body>
+        <script src="assets/scripts/menu.js"></script>
+    </body>
 </html>
