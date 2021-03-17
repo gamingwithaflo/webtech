@@ -228,12 +228,12 @@ aside > nav {
 /* table */
 .table {
   border-spacing: 0;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 .table tr:nth-child(even) {
   background: #ccc;
 }
-.table > * > :not(caption) > * > * {
+.table > :not(caption) > * > * {
   padding: 0.5rem;
 }
 .table thead {
