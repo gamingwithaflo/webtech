@@ -1,0 +1,24 @@
+{
+  "name": "webtech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assets/app/app.js",
+  "scripts": {
+    "start": "node assets/app/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gamingwithaflo/webtech.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gamingwithaflo/webtech/issues"
+  },
+  "homepage": "https://github.com/gamingwithaflo/webtech#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  }
+}
