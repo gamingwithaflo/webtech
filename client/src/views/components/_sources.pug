@@ -1,0 +1,13 @@
+mixin sources(sources)
+    section.note
+        h2#sources Sources
+        ol
+            each item in sources
+                li
+                    | #{item.text}
+                    if item.date
+                        |  #{'Retrieved on ' + item.date + '.'}
+                    if item.link
+                        |  #{'Retrieved from '}
+                        a(href=item.link, target="_blank")= item.link
+                        | .

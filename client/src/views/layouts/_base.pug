@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        meta(name='description' content=description)
+        meta(name='keywords' content=keywords)
+        title= title
+        link(rel="stylesheet" href="styles/main.css")
+        link(rel="icon" href="images/favicon.ico")
+    body
+        include ../includes/_skip
+        include ../includes/_navigation
+        header
+            h1= header
+        main#main.content
+            block content
+        include ../includes/_footer

@@ -1,0 +1,27 @@
+/*
+ * notes
+ */
+%note-border {
+  border-left-style: solid;
+  border-left-width: 8px;
+}
+
+.note {
+  background-color: #eeeeee;
+  margin: 20px 0px 30px 0px;
+  padding: 5px 15px;
+  overflow: auto;
+
+  &:empty {
+    display: none;
+  }
+
+  &--red {
+    @extend %note-border;
+    border-left-color: #c00000;
+  }
+  &--blue {
+    @extend %note-border;
+    border-left-color: #61dafb;
+  }
+}

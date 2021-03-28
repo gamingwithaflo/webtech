@@ -1,0 +1,15 @@
+-
+    const values = {
+        'What is React': 'what-is-react',
+        'Getting started': 'getting-started',
+        'Notable features': 'notable-features',
+        'History': 'history',
+        'Assessment': 'assessment'
+    };
+
+// TODO nav__row
+nav.nav
+    .nav__row.content
+        a.nav__item.nav__item--name(href='/') React
+        each url, name in values
+            a.nav__item(href=url) #{name}

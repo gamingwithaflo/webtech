@@ -1,0 +1,45 @@
+/*
+ * navigation
+ */
+.nav {
+  background-color: #20232a;
+  padding: 0.75rem 0;
+  z-index: 1;
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__item {
+    padding: 0.5rem;
+    color: white;
+
+    &--name {
+      font-weight: bold;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 0;
+    position: sticky;
+    top: 0;
+
+    &__row {
+      flex-direction: row;
+    }
+
+    &__item {
+      margin: 0 0.5rem 0 0;
+      padding: 1.2rem 0.5rem;
+    }
+  }
+}
+
+// TODO
+.nav__item--name,
+.nav__item:hover,
+.nav__item--active {
+  color: #61dafb;
+}
