@@ -1,14 +1,22 @@
 import express from "express";
 import path from "path";
+import dotenv from "dotenv";
+import fs from "fs";
 
 // controllers
 import * as topicController from "./controllers/topic";
+
+// set environment variables
+if (fs.existsSync(".env")) {
+    //TODO logger
+    console.debug("Using .env file to supply config environment variables");
+    dotenv.config({ path: ".env" });
+}
 
 // create express server
 const app = express();
 
 // express configuration
-const port = 8080;
 app.set("port", process.env.PORT || 8080);
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'pug');

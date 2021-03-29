@@ -18,6 +18,8 @@ npm start
 Output: localhost started and url printed with default port `client 8080` and `server 8081`.
 
 ## Development
+**Scripts**
+
 | Script | Description |
 | --------- | --------- |
 | `build-sass` | compile sass to css |
@@ -30,7 +32,9 @@ Output: localhost started and url printed with default port `client 8080` and `s
 | `watch-sass` | watch sass and reload on changes |
 | `watch-ts` | watch ts and reload on changes |
 
-Use env file to set custom properties when needed
+**Environment variables**
+
+Copy and rename .env.example to .env and set environment variables when needed
 - default port 8080
 
 ## Motivation
