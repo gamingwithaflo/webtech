@@ -3,7 +3,7 @@ export default class Question {
     problemStatement: string;
     correctAnswer: string;
 
-    constructor(title, problemStatement, correctAnswer) {
+    constructor(title: string, problemStatement: string, correctAnswer: string) {
         this.title = title;
         this.problemStatement = problemStatement;
         this.correctAnswer = correctAnswer;

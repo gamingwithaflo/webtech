@@ -1,9 +1,9 @@
 import Question from './question.js';
 
 export default class MultipleChoice extends Question{
-    answers: Array<String>;
+    answers: Array<string>;
 
-    constructor(title, problemStatement, correctAnswer, answers) {
+    constructor(title: string, problemStatement: string, correctAnswer: string, answers: Array<string>) {
         super(title, problemStatement, correctAnswer);
         this.answers = answers;
     }
