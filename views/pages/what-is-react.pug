@@ -1,0 +1,80 @@
+extends ../layouts/_base
+include ../components/_sources
+
+block content
+    -
+        const sources = [
+            {
+                text: 'This page was last edited on 19 February 2021, at 16:20 (UTC).'
+            },
+            {
+                text: 'All context cited from: "Reactjs.org (JavaScript library)." (2021).',
+                date: 'February 19, 2021',
+                link: 'https://reactjs.org'
+            }
+        ];
+
+    article
+        section
+            h2#components Components
+            p React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
+                |  It lets you compose complex UIs from small and isolated pieces of code called “components”.
+            p React has a few different kinds of components, but we’ll start with React.
+
+            p Component subclasses:
+
+            pre.note.note--blue
+                code
+                    | class ShoppingList extends React.Component {
+                    |   render() {
+                    |     return (
+                    |       &lt;div className="shopping-list"&gt;
+                    |       &lt;h1&gt;Shopping List for {this.props.name}&lt;/h1&gt;
+                    |       &lt;ul&gt;
+                    |       &lt;li&gt;Instagram&lt;/li&gt;
+                    |       &lt;li&gt;WhatsApp&lt;/li&gt;
+                    |       &lt;li&gt;Oculus&lt;/li&gt;
+                    |       &lt;/ul&gt;
+                    |       &lt;/div&gt;
+                    |     );
+                    |   }
+                    | }
+                    |
+                    | // Example usage: &lt;ShoppingList name="Mark" /&gt;
+
+            p We’ll get to the funny XML-like tags soon.
+                |  We use components to tell React what we want to see on the screen.
+                |  When our data changes, React will efficiently update and re-render our components.
+
+            p Here, ShoppingList is a #[strong React component class], or #[strong React component type].
+                |  A component takes in parameters, called props (short for “properties”), and returns a hierarchy of views to display via the render method.
+
+            p The render method returns a description of what you want to see on the screen.
+                |  React takes the description and displays the result.
+                |  In particular, render returns a #[strong React element], which is a lightweight description of what to render.
+                |  Most React ""developers use a special syntax called “JSX” which makes these structures easier to write.
+                |  The &lt;div /&gt; syntax is transformed at build time to React.createElement('div').
+
+            p The example above is equivalent to:
+
+            pre.note.note--blue
+                code
+                    | return React.createElement('div', {className: 'shopping-list'},
+                    |   React.createElement('h1', /* ... h1 children ... */),
+                    |   React.createElement('ul', /* ... ul children ... */)
+                    | );
+
+            p
+                a(href='https://babeljs.io/repl/#?presets=react&code_lz=DwEwlgbgBAxgNgQwM5IHIILYFMC8AiJACwHsAHUsAOwHMBaOMJAFzwD4AoKKYQgRlYDKJclWpQAMoyZQAZsQBOUAN6l5ZJADpKmLAF9gAej4cuwAK5wTXbg1YBJSswTV5mQ7c7XgtgOqEETEgAguTuYFamtgDyMBZmSGFWhhYchuAQrADc7EA', target="_blank") See full expanded version
+
+            p If you’re curious, createElement() is described in more detail in the API reference, but we won’t be using it in this tutorial.
+                |  Instead, we will keep using JSX.
+
+            p JSX comes with the full power of JavaScript. You can put #[em any] JavaScript expressions within braces inside JSX.
+                |  Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+
+            p The ShoppingList component above only renders built-in DOM components like &lt;div /&gt; and &lt;li /&gt;.
+                |  But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing &lt;ShoppingList /&gt;.
+                |  Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+
+        +sources(sources)
