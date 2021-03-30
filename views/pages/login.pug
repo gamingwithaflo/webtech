@@ -1,0 +1,17 @@
+extends ../layouts/_base
+
+block content 
+    h1 Login here
+    form(action='/login' method='POST')
+      -if(messages.error)
+      .alert.alert-danger #{messages.error}
+      p
+        | Email: 
+        input(type='email' name='email' placeholder='Enter your Email' required='')
+      p
+        | Password: 
+        input(type='password' name='password' placeholder='Enter your password' required='')
+      p
+        input(type='submit' value='Submit')
+    a(href='register') Register
+
