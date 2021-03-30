@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
 const flash = require("express-flash");
+
 // controllers
 import * as topicController from "./controllers/topic";
 
@@ -72,7 +73,13 @@ app.get("/history", (req: any, res: any) => {
   res.render("pages/history");
 });
 app.get("/assessment", (req: any, res: any) => {
-  res.render("pages/assessment");
+  res.render("pages/assessment", { name: req.user.name });
+});
+app.post("/logout", (req: any, res: any) => {
+  //passport set this up for us to use automaticly
+  console.log("is the right thing called");
+  req.logout();
+  res.redirect("login");
 });
 app.get("/login", (req: any, res: any) => {
   res.render("pages/login");
@@ -105,5 +112,17 @@ app.post("/register", (req: any, res: any) => {
 });
 // TODO api
 app.get("/topics", topicController.getTopics);
+
+//protects the informations from being accessable if you are not logged in
+function checkIfLoggedIn(req: any, res: any, next: any) {
+  //function from passport which checks if you are logged in.
+  if (req.isAuthenticated()) {
+    //user is logged in and everything is right.
+    return next();
+  } else {
+    // if you are not logged in you will be redirected.
+    res.redirect("login");
+  }
+}
 
 export default app;
