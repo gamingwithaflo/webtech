@@ -73,22 +73,25 @@ app.get("/history", (req: any, res: any) => {
 app.get("/assessment", (req: any, res: any) => {
   res.render("pages/assessment");
 });
+app.get("/profile", checkIfLoggedIn, (req: any, res, any) => {
+  res.render("pages/profile", { name: req.user.name });
+});
 app.post("/logout", (req: any, res: any) => {
   //passport set this up for us to use automaticly
   console.log("is the right thing called");
   req.logout();
   res.redirect("login");
 });
-app.get("/login", (req: any, res: any) => {
+app.get("/login", checkIfNotLoggedIn, (req: any, res: any) => {
   res.render("pages/login");
 });
-app.get("/register", (req: any, res: any) => {
+app.get("/register", checkIfNotLoggedIn, (req: any, res: any) => {
   res.render("pages/register");
 });
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "assessment",
+    successRedirect: "profile",
     failureRedirect: "login",
     failureFlash: true,
   })
@@ -127,6 +130,14 @@ function checkIfLoggedIn(req: any, res: any, next: any) {
   } else {
     // if you are not logged in you will be redirected.
     res.redirect("login");
+  }
+}
+//if you al already logged in you are not allowed to use these files/recources
+function checkIfNotLoggedIn(req: any, res: any, next: any) {
+  if (req.isAuthenticated()) {
+    res.redirect("profile");
+  } else {
+    return next();
   }
 }
 
