@@ -28,10 +28,8 @@ const users: {
 // create express server
 const app = express();
 import StartupPassport from "./passport-configuration";
-StartupPassport(
-  passport,
-  (email: any) => users.find((user) => user.email === email),
-  (id: any) => users.find((user) => user.id === id)
+StartupPassport(passport, CheckIfEmailIsUsed, (id: any) =>
+  users.find((user) => user.id === id)
 );
 
 // express configuration
@@ -73,7 +71,7 @@ app.get("/history", (req: any, res: any) => {
   res.render("pages/history");
 });
 app.get("/assessment", (req: any, res: any) => {
-  res.render("pages/assessment", { name: req.user.name });
+  res.render("pages/assessment");
 });
 app.post("/logout", (req: any, res: any) => {
   //passport set this up for us to use automaticly
@@ -98,14 +96,21 @@ app.post(
 app.post("/register", (req: any, res: any) => {
   //normally we need to push this to the database
   try {
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-    });
-    console.info(users);
-    res.redirect("login");
+    const EmailUsed = CheckIfEmailIsUsed(req.body.email);
+    console.log(EmailUsed);
+    if (EmailUsed == null) {
+      users.push({
+        id: Date.now().toString(),
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+      });
+      console.info(users);
+      res.redirect("login");
+    } else {
+      req.flash("error", "That email is already used");
+      res.redirect("register");
+    }
   } catch {
     res.redirect("register");
   }
@@ -123,6 +128,10 @@ function checkIfLoggedIn(req: any, res: any, next: any) {
     // if you are not logged in you will be redirected.
     res.redirect("login");
   }
+}
+
+function CheckIfEmailIsUsed(email: string) {
+  return users.find((user) => user.email === email);
 }
 
 export default app;

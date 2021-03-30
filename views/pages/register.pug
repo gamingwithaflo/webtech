@@ -3,6 +3,8 @@ extends ../layouts/_base
 block content 
     h1 Register here
     form(action='/register' method='POST')
+      -if(messages.error)
+      .alert.alert-danger #{messages.error}
       p
         | Name: 
         input(type='text' name='name' placeholder='Enter your Name' required='')
