@@ -19,26 +19,14 @@ function StartupPassport(passport: any, getUserById: any) {
       }
     });
   };
-
-  const use = (serializeAfter: any) => {
-    passport.use(new LocalStrategy({ usernameField: "email" }, identifyUser));
-    serializeAfter(deserialize);
-  }
-
-  const serialize = (deserializeAfter: any) => {
-    passport.serializeUser((user: any, done: any) => done(null, user.user_id));
-    deserializeAfter();
-  }
-
-  const deserialize = () => {
-    passport.deserializeUser((id: any, done: any) => {
-      console.log(id);
-      return done(null, getUserById(id));
-    });
-  }
-
-  use(serialize);
+  
+  passport.use(new LocalStrategy({ usernameField: "email" }, identifyUser));
+  passport.serializeUser((user: any, done: any) => done(null, user.user_id));
   // because our default username is not equal to user we need to change that (but password default is allready good)
+  passport.deserializeUser((id: any, done: any) => {
+    console.log(id);
+    return done(null, getUserById(id));
+  });
 
 }
 
