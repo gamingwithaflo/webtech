@@ -31,9 +31,7 @@ const users: {
 // create express server
 const app = express();
 import StartupPassport from "./passport-configuration";
-StartupPassport(passport, (id: any) =>
-  users.find((user) => user.id === id)
-);
+StartupPassport(passport);
 
 // express configuration
 app.set("port", process.env.PORT || 8080);
@@ -112,7 +110,12 @@ app.post("/register", (req: any, res: any) => {
         res.redirect("register");
       } else if (typeof result == 'undefined'){    // no user found (inside database);
         console.log("register user not found");
-        db.run("INSERT INTO user VALUES (?, ?, ?, ?)", [Math.floor(Math.random() * 1000000), req.body.name, req.body.email, req.body.password], (err: any) => console.log(err)); // user id is hier gewoon letterlijk een random getal
+        db.run("INSERT INTO user VALUES (?, ?, ?, ?)",
+          [Math.floor(Math.random() * 1000000), req.body.name, req.body.email, req.body.password],
+          (err: any) => {
+            console.log("error is: " + err)
+          }); // user id is hier gewoon letterlijk een random getald
+        res.redirect("login");
       } else {    // user found (inside database);
         console.log("register user found");
         req.flash("error", "That email is already used");

@@ -3,7 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./db/webtech.db");
 
-function StartupPassport(passport: any, getUserById: any) {
+function StartupPassport(passport: any) {
   const identifyUser = (email: any, password: any, done: any) => {
     db.get("select * from user where mail_address = ? and password = ?", [email, password], (err: any, result: any) => {
       if(err) {
@@ -19,13 +19,22 @@ function StartupPassport(passport: any, getUserById: any) {
       }
     });
   };
-  
+
   passport.use(new LocalStrategy({ usernameField: "email" }, identifyUser));
   passport.serializeUser((user: any, done: any) => done(null, user.user_id));
   // because our default username is not equal to user we need to change that (but password default is allready good)
   passport.deserializeUser((id: any, done: any) => {
     console.log(id);
-    return done(null, getUserById(id));
+    db.get("select * from user where user_id = ?", [id], (err: any, result: any) => {
+      if(err) {
+        console.log(err);
+        return done(err);
+      } else if (typeof result == 'undefined') {
+        return done(null, false, { message: "No user with that id" });
+      } else {
+        return done(null, result);
+      }
+    });
   });
 
 }
