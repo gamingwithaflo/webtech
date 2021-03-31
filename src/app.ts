@@ -50,6 +50,10 @@ app.use(
 app.use(passport.initialize());
 app.use(flash());
 app.use(passport.session());
+app.use(function (req, res, next) {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
 
 // TODO controllers
 // routes
@@ -103,25 +107,32 @@ app.post("/register", (req: any, res: any) => {
   /* WHY THE TRY CATCH HERE?!?!?!?! */
 
   try {
-    db.get("select * from user where mail_address = ?", [req.body.email], (err: any, result: any) => {
-      console.log("register user check");
-      if(err) {
-        console.log(err);
-        res.redirect("register");
-      } else if (typeof result == 'undefined'){    // no user found (inside database);
-        console.log("register user not found");
-        db.run("INSERT INTO user VALUES (?, ?, ?, ?)",
-          [Math.floor(Math.random() * 1000000), req.body.name, req.body.email, req.body.password],
-          (err: any) => {
-            console.log("error is: " + err)
-          }); // user id is hier gewoon letterlijk een random getald
-        res.redirect("login");
-      } else {    // user found (inside database);
-        console.log("register user found");
-        req.flash("error", "That email is already used");
-        res.redirect("register");
+    db.get(
+      "select * from user where mail_address = ?",
+      [req.body.email],
+      (err: any, result: any) => {
+        console.log("register user check");
+        if (err) {
+          console.log(err);
+          res.redirect("register");
+        } else if (typeof result == "undefined") {
+          // no user found (inside database);
+          console.log("register user not found");
+          db.run("INSERT INTO user VALUES (?, ?, ?, ?)", [
+            Math.floor(Math.random() * 1000000),
+            req.body.name,
+            req.body.email,
+            req.body.password,
+          ]); // user id is hier gewoon letterlijk een random getald
+          res.redirect("login");
+        } else {
+          // user found (inside database);
+          console.log("register user found");
+          req.flash("error", "That email is already used");
+          res.redirect("register");
+        }
       }
-    });
+    );
   } catch {
     console.log("register errrrr");
     res.redirect("register");

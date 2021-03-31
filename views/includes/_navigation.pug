@@ -10,6 +10,11 @@
 // TODO nav__row
 nav.nav
     .nav__row.content
-        a.nav__item.nav__item--name(href='/') React
+        a.nav__item.nav__item--name(href='/') React   
         each url, name in values
             a.nav__item(href=url) #{name}
+        -if(isAuthenticated)
+           a.nav__item.nav__item(href="profile") profile
+        -if(!isAuthenticated)
+           a.nav__item.nav__item(href="login") login
+           a.nav__item.nav__item(href="register") register

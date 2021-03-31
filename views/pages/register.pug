@@ -1,19 +1,19 @@
 extends ../layouts/_base
 
 block content 
-    h1 Register here
-    form(action='/register' method='POST')
+    form.login_register(action='/register' method='POST')
+      h2 Register form
       -if(messages.error)
       .alert.alert-danger #{messages.error}
       p
         | Name: 
-        input(type='text' name='name' placeholder='Enter your Name' required='')
+        input.email(type='text' name='name' placeholder='Enter your Name' required='')
       p
         | Email: 
-        input(type='email' name='email' placeholder='Enter your password' required='')
+        input.email(type='email' name='email' placeholder='Enter your Email' required='')
       p
         | Password:
-        input(type='password' name='password' placeholder='Enter your Password' required='')
+        input.password(type='password' name='password' placeholder='Enter your Password' required='')
       p 
-        input(type='submit' value='Submit')
-    a(href='login') login 
+        input.bttnRegister(type='submit' value='Create account')
+      a.inlog(href='login') Login page
