@@ -8,6 +8,9 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
 const flash = require("express-flash");
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("./db/webtech.db");
+console.log("shit exists: ", fs.existsSync("./db/webtech.db"));
 
 // controllers
 import * as topicController from "./controllers/topic";
@@ -28,9 +31,7 @@ const users: {
 // create express server
 const app = express();
 import StartupPassport from "./passport-configuration";
-StartupPassport(passport, CheckIfEmailIsUsed, (id: any) =>
-  users.find((user) => user.id === id)
-);
+StartupPassport(passport);
 
 // express configuration
 app.set("port", process.env.PORT || 8080);
@@ -98,23 +99,31 @@ app.post(
 );
 app.post("/register", (req: any, res: any) => {
   //normally we need to push this to the database
+
+  /* WHY THE TRY CATCH HERE?!?!?!?! */
+
   try {
-    const EmailUsed = CheckIfEmailIsUsed(req.body.email);
-    console.log(EmailUsed);
-    if (EmailUsed == null) {
-      users.push({
-        id: Date.now().toString(),
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-      });
-      console.info(users);
-      res.redirect("login");
-    } else {
-      req.flash("error", "That email is already used");
-      res.redirect("register");
-    }
+    db.get("select * from user where mail_address = ?", [req.body.email], (err: any, result: any) => {
+      console.log("register user check");
+      if(err) {
+        console.log(err);
+        res.redirect("register");
+      } else if (typeof result == 'undefined'){    // no user found (inside database);
+        console.log("register user not found");
+        db.run("INSERT INTO user VALUES (?, ?, ?, ?)",
+          [Math.floor(Math.random() * 1000000), req.body.name, req.body.email, req.body.password],
+          (err: any) => {
+            console.log("error is: " + err)
+          }); // user id is hier gewoon letterlijk een random getald
+        res.redirect("login");
+      } else {    // user found (inside database);
+        console.log("register user found");
+        req.flash("error", "That email is already used");
+        res.redirect("register");
+      }
+    });
   } catch {
+    console.log("register errrrr");
     res.redirect("register");
   }
 });
@@ -139,10 +148,6 @@ function checkIfNotLoggedIn(req: any, res: any, next: any) {
   } else {
     return next();
   }
-}
-
-function CheckIfEmailIsUsed(email: string) {
-  return users.find((user) => user.email === email);
 }
 
 export default app;
