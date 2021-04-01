@@ -34,3 +34,8 @@ nav.nav
                     a.nav__item.nav__item--link.nav__item--active(href=item.url)= item.text
                 else
                     a.nav__item.nav__item--link(href=item.url)= item.text
+            -if (isAuthenticated)
+                a.nav__item.nav__item--link(href="profile") profile
+            -if (!isAuthenticated)
+                a.nav__item.nav__item--link(href="login") login
+                a.nav__item.nav__item--link(href="register") register

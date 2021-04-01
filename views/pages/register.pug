@@ -1,0 +1,19 @@
+extends ../layouts/_base
+
+block content 
+    form.login_register(action='/register' method='POST')
+      h2 Register form
+      -if(messages.error)
+      .alert.alert-danger #{messages.error}
+      p
+        | Name: 
+        input.email(type='text' name='name' placeholder='Enter your Name' required='')
+      p
+        | Email: 
+        input.email(type='email' name='email' placeholder='Enter your Email' required='')
+      p
+        | Password:
+        input.password(type='password' name='password' placeholder='Enter your Password' required='')
+      p 
+        input.bttnRegister(type='submit' value='Create account')
+      a.inlog(href='login') Login page
