@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import MultipleChoice from "../../models/multiplechoice";
-import Open from "../../models/open";
-import Question from "../../models/question";
+import MultipleChoice from "../models/multiplechoice";
+import Open from "../models/open";
+import Question from "../models/question";
 
 // TODO experimental
 enum QuestionType {
