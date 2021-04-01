@@ -5,10 +5,11 @@ import fs from "fs";
 import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
+import StartupPassport from "./config/passport";
+import flash from "express-flash";
+import sqlite3 from "sqlite3";
 
 // TODO use import
-const flash = require("express-flash");
-const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./db/webtech.db");
 
 // TODO
@@ -28,7 +29,6 @@ const users: {
 
 // express server
 const app = express();
-import StartupPassport from "./passport-configuration";
 StartupPassport(passport);
 
 // express configuration

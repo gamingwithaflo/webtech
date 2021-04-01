@@ -1,7 +1,8 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
-const LocalStrategy = require("passport-local").Strategy;
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("./db/webtech.db");
+import passportLocal from "passport-local";
+import sqlite3 from "sqlite3";
+
+const LocalStrategy = passportLocal.Strategy;
+const db = new sqlite3.Database("../db/webtech.db");
 
 function StartupPassport(passport: any) {
   const identifyUser = (email: any, password: any, done: any) => {
