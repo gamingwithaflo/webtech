@@ -1,18 +1,22 @@
 doctype html
-html
+html(lang='en')
     head
-        meta(charset='utf-8')
-        meta(name='viewport' content='width=device-width, initial-scale=1')
-        meta(name='description' content=description)
-        meta(name='keywords' content=keywords)
-        title= title
-        link(rel="stylesheet" href="css/main.css")
-        link(rel="icon" href="images/favicon.ico")
+        - let data = {}
+        block setData
+
+        include ../includes/_head
     body
         include ../includes/_skip
+
         include ../includes/_navigation
-        header
-            h1= header
+
+        block banner
+
         main#main.content
             block content
+
         include ../includes/_footer
+
+        block scripts
+
+        script(src='js/mobile.js')

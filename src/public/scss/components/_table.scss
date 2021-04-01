@@ -1,0 +1,27 @@
+/*
+ * table
+ */
+.table {
+  border-spacing: 0;
+  /*overflow: auto;*/
+
+  thead {
+    background-color: $gray-light;
+  }
+
+  tr:nth-child(even) {
+    background: $gray-lighter;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  > :not(caption) > * > * {
+    padding: 0.5rem;
+  }
+
+  > :not(caption) > * > *:nth-child(-n + 2) {
+    white-space: nowrap;
+  }
+}

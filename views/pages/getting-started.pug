@@ -1,4 +1,162 @@
 extends ../layouts/_base
 
+include ../components/_header
+include ../components/_link
+include ../components/_blockquote
+include ../components/_sources
+
+block setData
+    -
+        // page values
+        data.url = "getting-started";
+        data.title = "Getting started";
+        data.description = "This page is an overview of the React documentation and related resources. React is a JavaScript library for building user interfaces. Learn what React is all about on our homepage or in the tutorial.";
+
+        // sources
+        data.sources = [
+            {
+                text: 'This page was last edited on 19 February 2021, at 16:20 (UTC).'
+            },
+            {
+                text: 'All context cited from: "Reactjs.org (JavaScript library)." (2021). Retrieved February 19, 2021',
+                url: 'https://reactjs.org'
+            }
+        ];
+
 block content
-    p hello getting started
+    article
+        +header('Getting Started')
+
+        section
+            h2#try-react Try React
+            p This page is an overview of the React documentation and related resources.
+            p.
+                #[strong React] is a JavaScript library for building user interfaces.
+                React has been designed from the start for gradual adoption, and #[strong you can use as little or as much React as you need].
+                Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app, the links in this section will help you get started.
+
+            section
+                h3#online-playgrounds Online playgrounds
+                p.
+                    If you’re interested in playing around with React, you can use an online code playground.
+                    Try a Hello World template on #[+link("https://reactjs.org/redirect-to-codepen/hello-world", "_blank", "CodePen")], #[+link("https://codesandbox.io/s/new", "_blank", "CodeSandbox")] or #[+link("https://stackblitz.com/fork/react", "_blank", "Stackblitz")].
+                p.
+                    If you prefer to use your own text editor, you can also #[+link("https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html", "_blank", "download this HTML file")], edit it, and open it from the local filesystem in your browser.
+                    It does a slow runtime code transformation, so we’d only recommend using this for simple demos.
+
+            section
+                h3#add-react-to-a-website Add React to a website
+                p.
+                    You can #[+link("https://reactjs.org/docs/add-react-to-a-website.html", "_blank", "add React to an HTML page in one minute")].
+                    You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+
+            section
+                h3#create-a-new-react-app Create a new React app
+                p.
+                    When starting a React project, a #[+link("https://reactjs.org/docs/add-react-to-a-website.html", "_blank", "simple HTML page with script tags")] might still be the best option.
+                    It only takes a minute to set up!
+                p.
+                    As your application grows, you might want to consider a more integrated setup.
+                    There are several JavaScript toolchains we recommend for larger applications.
+                    Each of them can work with little to no configuration and lets you take full advantage of the rich React ecosystem.
+                    #[+link("https://reactjs.org/docs/create-a-new-react-app.html", "_blank", "Learn how")].
+
+        section
+            h2#learn-react Learn React
+            p People come to React from different backgrounds and with different learning styles. Whether you prefer a more theoretical or a practical approach, we hope you’ll find this section helpful.
+            ul
+                li If you prefer to #[strong learn by doing], start with our #[+link("https://reactjs.org/tutorial/tutorial.html", "_blank", "practical tutorial")].
+                li If you prefer to #[strong learn concepts step by step], start with our #[+link("https://reactjs.org/docs/hello-world.html", "_blank", "guide to main concepts")].
+            p Like any unfamiliar technology, React does have a learning curve. With practice and some patience, you #[em will] get the hang of it.
+
+            section
+                h3#first-examples First examples
+                p.
+                    The #[+link("https://reactjs.org/", "_blank", "React homepage")] contains a few small React examples with a live editor.
+                    Even if you don’t know anything about React yet, try changing their code and see how it affects the result.
+
+            section
+                h3#react-for-beginners React for beginners
+                p.
+                    If you feel that the React documentation goes at a faster pace than you’re comfortable with, check out #[+link("https://www.taniarascia.com/getting-started-with-react/", "_blank", "this overview of React by Tania Rascia")].
+                    It introduces the most important React concepts in a detailed, beginner-friendly way.
+                    Once you’re done, give the documentation another try!
+
+            section
+                h3#react-for-designers React for designers
+                p If you’re coming from a design background, #[+link("https://reactfordesigners.com/", "_blank", "these resources")] are a great place to get started.
+
+            section
+                h3#javascript-resources JavaScript resources
+                p.
+                    The React documentation assumes some familiarity with programming in the JavaScript language.
+                    You don’t have to be an expert, but it’s harder to learn both React and JavaScript at the same time.
+                p.
+                    We recommend going through #[+link("https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript", "_blank", "this JavaScript overview")] to check your knowledge level.
+                    It will take you between 30 minutes and an hour but you will feel more confident learning React.
+                +blockquote(class="note--red")
+                    p #[strong Tip]
+                    p Whenever you get confused by something in JavaScript, #[+link("https://developer.mozilla.org/en-US/docs/Web/JavaScript", "_blank", "MDN")] and #[+link("https://javascript.info/", "_blank", "javascript.info")] are great websites to check. There are also #[+link("https://reactjs.org/community/support.html", "_blank", "community support forums")] where you can ask for help.
+
+            section
+                h3#practical-tutorial Practical tutorial
+                p.
+                    If you prefer to #[strong learn by doing], check out our #[+link("https://reactjs.org/tutorial/tutorial.html", "_blank", "practical tutorial")].
+                    In this tutorial, we build a tic-tac-toe game in React.
+                    You might be tempted to skip it because you’re not into building games — but give it a chance.
+                    The techniques you’ll learn in the tutorial are fundamental to building #[em any] React apps, and mastering it will give you a much deeper understanding.
+
+            section
+                h3#step-by-step-guide Step-by-step guide
+                p.
+                    If you prefer to #[strong learn concepts step by step], our #[+link("https://reactjs.org/docs/hello-world.html", "_blank", "guide to main concepts")] is the best place to start.
+                    Every next chapter in it builds on the knowledge introduced in the previous chapters so you won’t miss anything as you go along.
+
+            section
+                h3#thinking-in-react Thinking in React
+                p.
+                    Many React users credit reading #[+link("https://reactjs.org/docs/thinking-in-react.html", "_blank", "Thinking in React")] as the moment React finally “clicked” for them.
+                    It’s probably the oldest React walkthrough but it’s still just as relevant.
+
+            section
+                h3#recommended-courses Recommended courses
+                p.
+                    Sometimes people find third-party books and video courses more helpful than the official documentation.
+                    We maintain #[+link("https://reactjs.org/community/courses.html", "_blank", "a list of commonly recommended resources")], some of which are free.
+
+            section
+                h3#advanced-concepts Advanced concepts
+                p.
+                    Once you’re comfortable with the #[+link("https://reactjs.org/docs/hello-world.html", "_blank", "main concepts")] and played with React a little bit, you might be interested in more advanced topics.
+                    This section will introduce you to the powerful, but less commonly used React features like #[+link("https://reactjs.org/docs/context.html", "_blank", "context")] and #[+link("https://reactjs.org/docs/refs-and-the-dom.html", "_blank", "refs")].
+
+            section
+                h3#api-reference API reference
+                p.
+                    This documentation section is useful when you want to learn more details about a particular React API.
+                    For example, #[+link("https://reactjs.org/docs/react-component.html", "_blank", "React.Component API reference")] can provide you with details on how #[code setState()] works, and what different lifecycle methods are useful for.
+
+            section
+                h3#glossary-and-faq Glossary and FAQ
+                p.
+                    The #[+link("https://reactjs.org/docs/glossary.html", "_blank", "glossary")] contains an overview of the most common terms you’ll see in the React documentation.
+                    There is also a FAQ section dedicated to short questions and answers about common topics, including #[+link("https://reactjs.org/docs/faq-ajax.html", "_blank", "making AJAX requests")], #[+link("https://reactjs.org/docs/faq-state.html", "_blank", "component state")], and #[+link("https://reactjs.org/docs/faq-structure.html", "_blank", "file structure")].
+
+        section
+            h2#staying-informed Staying informed
+            p The #[+link("https://reactjs.org/blog/", "_blank", "React blog")] is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted there first.
+            p You can also follow the #[+link("https://twitter.com/reactjs", "_blank", "@reactjs account")] on Twitter, but you won’t miss anything essential if you only read the blog.
+            p Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the #[+link("https://github.com/facebook/react/blob/master/CHANGELOG.md", "_blank", "CHANGELOG.md file in the React repository")], as well as on the #[+link("https://github.com/facebook/react/releases", "_blank", "Releases")] page.
+
+        section
+            h2#versioned-documentation Versioned documentation
+            p.
+                This documentation always reflects the latest stable version of React.
+                Since React 16, you can find older versions of the documentation on a #[+link("https://reactjs.org/versions", "_blank", "separate page")].
+                Note that documentation for past versions is snapshotted at the time of the release, and isn’t being continuously updated.
+
+        section
+            h2#something-missing Something Missing?
+            p If something is missing in the documentation or if you found some part confusing, please #[+link("https://github.com/reactjs/reactjs.org/issues/new", "_blank", "file an issue for the documentation repository")] with your suggestions for improvement, or tweet at the #[+link("https://twitter.com/reactjs", "_blank", "@reactjs account")].
+
+        +sources(data.sources)

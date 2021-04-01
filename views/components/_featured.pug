@@ -1,0 +1,9 @@
+mixin featured(data)
+    div.grid
+        div.image
+            img(src=data.image).max-width
+        section
+            h2= data.title
+            p= data.subtitle
+            p= data.description
+            a(href=data.url).button.button--border-darkblue #{data.button}

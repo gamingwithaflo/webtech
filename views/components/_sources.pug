@@ -1,13 +1,8 @@
-mixin sources(sources)
+mixin sources(data)
     section.note
         h2#sources Sources
         ol
-            each item in sources
-                li
-                    | #{item.text}
-                    if item.date
-                        |  #{'Retrieved on ' + item.date + '.'}
-                    if item.link
-                        |  #{'Retrieved from '}
-                        a(href=item.link, target="_blank")= item.link
-                        | .
+            each item in data
+                li= item.text
+                    if item.url
+                        span  #[a(href=item.url, target="_blank")= item.url]

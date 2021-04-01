@@ -1,3 +1,33 @@
 /*
- * banners
+ * banner
  */
+.banner {
+  background-color: $gray-base;
+  padding: 3rem 0;
+  text-align: center;
+
+  &__title {
+    color: $blue-base;
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+  }
+
+  &__description {
+    color: $blue-light;
+    font-size: 1.8rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .button {
+    margin: .5rem auto;
+  }
+
+  @media (min-width: $screen-tablet) {
+    padding: 5.5rem 0;
+    margin-bottom: 3rem;
+
+    .button {
+      margin: 0 .5rem;
+    }
+  }
+}

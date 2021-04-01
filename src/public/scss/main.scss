@@ -4,6 +4,7 @@
  */
 
 // abstracts
+@import "./abstracts/mixins";
 @import "./abstracts/variables";
 
 // base
@@ -18,8 +19,6 @@
 @import "./components/table";
 
 // layout
-@import "./layout/aside";
 @import "./layout/footer";
-@import "./layout/header";
 @import "./layout/main";
 @import "./layout/navigation";

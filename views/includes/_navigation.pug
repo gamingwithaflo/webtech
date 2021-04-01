@@ -1,15 +1,36 @@
 -
-    const values = {
-        'What is React': 'what-is-react',
-        'Getting started': 'getting-started',
-        'Notable features': 'notable-features',
-        'History': 'history',
-        'Assessment': 'assessment'
-    };
+    data.navigation = [
+        {
+            text: 'What is React',
+            url: 'what-is-react'
+        },
+        {
+            text: 'Getting started',
+            url: 'getting-started'
+        },
+        {
+            text: 'Notable features',
+            url: 'notable-features'
+        },
+        {
+            text: 'History',
+            url: 'history'
+        },
+        {
+            text: 'Assessment',
+            url: 'assessment'
+        }
+    ];
 
 // TODO nav__row
 nav.nav
     .nav__row.content
-        a.nav__item.nav__item--name(href='/') React
-        each url, name in values
-            a.nav__item(href=url) #{name}
+        a.nav__name(href='/') React
+        button.nav__item.nav__item--mobile
+            img(src='images/nav.svg')
+        div.nav__list
+            each item in data.navigation
+                if item.url === data.url
+                    a.nav__item.nav__item--link.nav__item--active(href=item.url)= item.text
+                else
+                    a.nav__item.nav__item--link(href=item.url)= item.text
