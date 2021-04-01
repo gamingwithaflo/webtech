@@ -8,6 +8,9 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
 const flash = require("express-flash");
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("./db/webtech.db");
+console.log("shit exists: ", fs.existsSync("./db/webtech.db"));
 
 // controllers
 import * as topicController from "./controllers/topic";
@@ -28,11 +31,7 @@ const users: {
 // create express server
 const app = express();
 import StartupPassport from "./passport-configuration";
-StartupPassport(
-  passport,
-  (email: any) => users.find((user) => user.email === email),
-  (id: any) => users.find((user) => user.id === id)
-);
+StartupPassport(passport);
 
 // express configuration
 app.set("port", process.env.PORT || 8080);
@@ -51,6 +50,10 @@ app.use(
 app.use(passport.initialize());
 app.use(flash());
 app.use(passport.session());
+app.use(function (req, res, next) {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
 
 // TODO controllers
 // routes
@@ -73,7 +76,10 @@ app.get("/history", (req: any, res: any) => {
   res.render("pages/history");
 });
 app.get("/assessment", (req: any, res: any) => {
-  res.render("pages/assessment", { name: req.user.name });
+  res.render("pages/assessment");
+});
+app.get("/profile", checkIfLoggedIn, (req: any, res, any) => {
+  res.render("pages/profile", { name: req.user.name });
 });
 app.post("/logout", (req: any, res: any) => {
   //passport set this up for us to use automaticly
@@ -81,32 +87,54 @@ app.post("/logout", (req: any, res: any) => {
   req.logout();
   res.redirect("login");
 });
-app.get("/login", (req: any, res: any) => {
+app.get("/login", checkIfNotLoggedIn, (req: any, res: any) => {
   res.render("pages/login");
 });
-app.get("/register", (req: any, res: any) => {
+app.get("/register", checkIfNotLoggedIn, (req: any, res: any) => {
   res.render("pages/register");
 });
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "assessment",
+    successRedirect: "profile",
     failureRedirect: "login",
     failureFlash: true,
   })
 );
 app.post("/register", (req: any, res: any) => {
   //normally we need to push this to the database
+
+  /* WHY THE TRY CATCH HERE?!?!?!?! */
+
   try {
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-    });
-    console.info(users);
-    res.redirect("login");
+    db.get(
+      "select * from user where mail_address = ?",
+      [req.body.email],
+      (err: any, result: any) => {
+        console.log("register user check");
+        if (err) {
+          console.log(err);
+          res.redirect("register");
+        } else if (typeof result == "undefined") {
+          // no user found (inside database);
+          console.log("register user not found");
+          db.run("INSERT INTO user VALUES (?, ?, ?, ?)", [
+            Math.floor(Math.random() * 1000000),
+            req.body.name,
+            req.body.email,
+            req.body.password,
+          ]); // user id is hier gewoon letterlijk een random getald
+          res.redirect("login");
+        } else {
+          // user found (inside database);
+          console.log("register user found");
+          req.flash("error", "That email is already used");
+          res.redirect("register");
+        }
+      }
+    );
   } catch {
+    console.log("register errrrr");
     res.redirect("register");
   }
 });
@@ -122,6 +150,14 @@ function checkIfLoggedIn(req: any, res: any, next: any) {
   } else {
     // if you are not logged in you will be redirected.
     res.redirect("login");
+  }
+}
+//if you al already logged in you are not allowed to use these files/recources
+function checkIfNotLoggedIn(req: any, res: any, next: any) {
+  if (req.isAuthenticated()) {
+    res.redirect("profile");
+  } else {
+    return next();
   }
 }
 
