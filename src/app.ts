@@ -1,10 +1,10 @@
 import express from "express";
-import {SERVER_PORT} from "./config/env";
+import * as env from "./config/env";
 import path from "path";
 import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
-import StartupPassport from "./config/passport";
+// import StartupPassport from "./config/passport";
 import flash from "express-flash";
 
 // router imports
@@ -16,22 +16,23 @@ const app = express();
 // StartupPassport(passport);
 
 // express configuration
-app.set("port", SERVER_PORT);
+app.set("port", env.SERVER_PORT);
 app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
     session({
-        secret: "secret",
+        secret: env.SESSION_SECRET,
         saveUninitialized: false,
         resave: false,
     })
 );
 app.use(passport.initialize());
-app.use(flash());
 app.use(passport.session());
-app.use(function (req, res, next) {
+app.use(flash());
+// TODO
+app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
   next();
 });

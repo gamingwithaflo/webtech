@@ -40,6 +40,7 @@ npm run watch-sass
 
 Copy and rename .env.example to .env and set environment variables when needed
 - default port 8080
+- session secret
 - database connection details
 
 ## Motivation

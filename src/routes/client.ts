@@ -1,4 +1,5 @@
 import express from "express";
+import * as passportConfig from "../config/passport";
 
 const clientRouter = express.Router();
 
@@ -21,9 +22,9 @@ clientRouter.get('/assessment', assessmentController.assessment);
 // TODO
 clientRouter.get('/login', userController.login);
 clientRouter.get('/register', userController.register);
-clientRouter.get('/profile', userController.profile);
-// apiRouter.post('/login', userController.action);
-// apiRouter.post('/register', userController.action);
-// apiRouter.post('/logout', userController.action);
+clientRouter.get('/profile', passportConfig.isAuthenticated, userController.profile);
+clientRouter.post('/login', userController.postLogin);
+clientRouter.post('/register', userController.postRegister);
+clientRouter.post('/logout', userController.logout);
 
 export default clientRouter;
