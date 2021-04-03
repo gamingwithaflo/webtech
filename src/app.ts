@@ -4,7 +4,6 @@ import path from "path";
 import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
-// import StartupPassport from "./config/passport";
 import flash from "express-flash";
 
 // router imports
@@ -13,7 +12,6 @@ import clientRouter from "./routes/client";
 
 // express server
 const app = express();
-// StartupPassport(passport);
 
 // express configuration
 app.set("port", env.SERVER_PORT);
@@ -21,13 +19,11 @@ app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(
-    session({
-        secret: env.SESSION_SECRET,
-        saveUninitialized: false,
-        resave: false,
-    })
-);
+app.use(session({
+    secret: env.SESSION_SECRET,
+    saveUninitialized: false,
+    resave: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

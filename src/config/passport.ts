@@ -2,10 +2,11 @@ import passport from "passport";
 import passportLocal from "passport-local";
 import sqlite3 from "sqlite3";
 import { Request, Response, NextFunction } from "express";
+import * as env from "./env";
 
 const LocalStrategy = passportLocal.Strategy;
 const initiate = sqlite3.verbose();
-const db = new initiate.Database("./db/webtech.db");
+const db = new initiate.Database(env.DB_LOCATION);
 
 const identifyUser = (email: any, password: any, done: any) => {
   db.get("select * from user where mail_address = ? and password = ?", [email, password], (err: any, result: any) => {

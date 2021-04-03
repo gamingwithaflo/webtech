@@ -11,3 +11,4 @@ if (fs.existsSync(".env")) {
 // environment variables
 export const SERVER_PORT = process.env.PORT || 8080;
 export const SESSION_SECRET = process.env.SESSION_SECRET || "verysecret";
+export const DB_LOCATION = process.env.DB_LOCATION || "./db/webtech.db";

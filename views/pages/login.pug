@@ -1,8 +1,16 @@
 extends ../layouts/_base
 
-block content 
+include ../components/_header
+
+block setData
+    -
+        // page values
+        data.url = "login";
+        data.title = "Login";
+
+block content
+    +header('Login form')
     form.login_register(action='/login' method='POST')
-        h1 Login form
         if(messages.error)
             .alert.alert-danger #{messages.error}
         p
@@ -12,5 +20,6 @@ block content
             | Password:
             input.password(type='password' name='password' placeholder='Enter your password' required='')
         p
+            a(href='register') Create account
+        p
             input.bttnInlog(type='submit' value='Log in')
-            a.register(href='register') Create account

@@ -1,8 +1,9 @@
 import passport from "passport";
 import sqlite3 from "sqlite3";
 import { Request, Response, NextFunction } from "express";
+import * as env from "../config/env";
 
-const db = new sqlite3.Database("./db/webtech.db");
+const db = new sqlite3.Database(env.DB_LOCATION);
 
 // TODO
 export const login = (req: Request, res: Response) => {

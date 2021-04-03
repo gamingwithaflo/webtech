@@ -67,14 +67,14 @@
       &--mobile {
         display: none;
       }
-
-      &--right {
-        margin-left: auto;
-      }
     }
     &__list {
       display: flex !important;
       flex-direction: row;
+
+      .nav__item:last-child {
+        margin-left: auto;
+      }
     }
   }
 }
