@@ -13,8 +13,12 @@ block content
         +header('Profile Page')
         section.box_with_field
             h2 Personal information
-            p Name: #{name}
-            p Email: #{email}
+            p  
+               strong Name: 
+               | #{user.name}
+            p 
+                strong Email:  
+                | #{user.mail_address}
             form(action='/logout' method='POST')
                 p
                     button(type='submit') Log out

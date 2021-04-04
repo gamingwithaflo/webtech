@@ -15,7 +15,8 @@ export const register = (req: Request, res: Response) => {
 };
 
 export const profile = (req: Request, res: Response) => {
-  res.render("pages/profile", { email: req.user.email });
+  res.render("pages/profile", { user: req.user });
+  console.info(req.user);
 };
 
 export const postLogin = async (
