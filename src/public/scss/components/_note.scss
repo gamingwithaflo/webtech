@@ -1,11 +1,6 @@
 /*
- * notes
+ * note
  */
-%note-border {
-  border-left-style: solid;
-  border-left-width: 8px;
-}
-
 .note {
   background-color: #eeeeee;
   margin: 20px 0px 30px 0px;
@@ -17,11 +12,9 @@
   }
 
   &--red {
-    @extend %note-border;
-    border-left-color: #c00000;
+    @include note-style($red-base);
   }
   &--blue {
-    @extend %note-border;
-    border-left-color: #61dafb;
+    @include note-style($blue-base);
   }
 }

@@ -1,8 +1,16 @@
 extends ../layouts/_base
 
+include ../components/_header
+
+block setData
+    -
+        // page values
+        data.url = "profile";
+        data.title = "Profile";
+
 block content
-    h1 Profile Page
+    +header('Profile Page')
     p #{name}
     form(action='/logout' method='POST')
-      p
-         button(type='submit') Log out
+        p
+            button(type='submit') Log out

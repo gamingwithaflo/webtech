@@ -1,4 +1,13 @@
 extends ../layouts/_base
 
-block content  
-    p hello assessment
+block setData
+    -
+        data.url = "assessment";
+        data.title = "Assessment";
+
+block content
+    noscript
+        div.note.note--blue Enable Javascript to view this page.
+
+block scripts
+    script(src='js/assessment.js')

@@ -1,12 +1,38 @@
-// typography
-$text-font: Helvetica, Arial, sans-serif;
-
 // colors
-//TODO
+$blue-base: #61dafb;
+$blue-light: lighten($blue-base, 10%);
+$blue-lighter: lighten($blue-base, 20%);
+$blue-dark: darken($blue-base, 10%);
+
+$gray-base: #282c34;
+$gray-light: #aaa;
+$gray-lighter: #ccc;
+$gray-dark: #20232a;
+
+$red-base: #c00000;
+
+// Typography
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base: $font-family-sans-serif;
+
+$font-size-base: 14px;
+$font-size-small: ceil(($font-size-base * .85));
+$font-size-large: ceil(($font-size-base * 1.25));
+
+$font-size-h1: floor(($font-size-base * 2.6));
+$font-size-h2: floor(($font-size-base * 2.15));
+$font-size-h3: floor(($font-size-base * 1.7));
+$font-size-h4: floor(($font-size-base * 1.25));
+$font-size-h5: $font-size-base;
+$font-size-h6: floor(($font-size-base * .85));
+
+$line-height-base: 1.5;
 
 // breakpoints
-$breakpoints: (
-  'small': 600px,
-  'medium': 800px,
-  'large': 900px
-);
+$screen-phone: 480px;
+$screen-tablet: 768px;
+$screen-desktop: 992px;
+$screen-desktop-large: 1200px;
+
+// container
+$content-large: 1140px;

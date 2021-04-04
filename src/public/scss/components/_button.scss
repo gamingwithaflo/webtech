@@ -1,3 +1,36 @@
 /*
- * buttons
+ * button
  */
+.button {
+  padding: .8rem 1.5rem;
+  display: inline-block;
+  font-weight: bold;
+
+  // colors
+  &--blue {
+    @include button-style(#000, $blue-base, $blue-base);
+  }
+  &--darkblue {
+    @include button-style(#000, $blue-dark, $blue-dark);
+  }
+
+  &--border-blue {
+    @include button-style($blue-base, transparent, $blue-base);
+  }
+  &--border-darkblue {
+    @include button-style($blue-dark, transparent, $blue-dark);
+  }
+
+  // sizes
+  &--small {
+    @include button-size($font-size-small);
+  }
+  &--large {
+    @include button-size($font-size-large);
+  }
+
+  // other
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}

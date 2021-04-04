@@ -1,12 +1,10 @@
 # Webtechnologies assignment
-
 Hello there
-
 
 ## Getting started
 Install dependencies
 ```
-cd <server or client directory>
+cd <project-directory>
 npm install
 ```
 
@@ -15,7 +13,6 @@ Build and run application
 npm run build
 npm start
 ```
-Output: localhost started and url printed with default port `client 8080` and `server 8081`.
 
 ## Development
 **Scripts**
@@ -24,7 +21,7 @@ Output: localhost started and url printed with default port `client 8080` and `s
 | --------- | --------- |
 | `build-sass` | compile sass to css |
 | `build-ts` |  compile ts to js |
-| `build` | compile sass, ts and run (linting), copy-static-assets |
+| `build` | compile sass, ts and run linting, copy-static-assets |
 | `copy-static-assets` | copy static assets to dist |
 | `lint` | run eslint rules |
 | `start` | start server |
@@ -32,10 +29,19 @@ Output: localhost started and url printed with default port `client 8080` and `s
 | `watch-sass` | watch sass and reload on changes |
 | `watch-ts` | watch ts and reload on changes |
 
+**Development reloading examples**
+```
+npm run watch-node
+npm run watch-ts
+npm run watch-sass
+```
+
 **Environment variables**
 
 Copy and rename .env.example to .env and set environment variables when needed
 - default port 8080
+- session secret
+- database connection details
 
 ## Motivation
 // todo verantwoording

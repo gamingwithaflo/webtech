@@ -1,0 +1,23 @@
+// button
+@mixin button-style($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $border;
+
+  &:hover {
+    color: $color;
+    background-color: darken($background, 20%);
+    border-color: darken($border, 20%);
+  }
+}
+
+@mixin button-size($font-size) {
+  font-size: $font-size;
+}
+
+// note
+@mixin note-style($color) {
+  border-left: 8px solid $color;
+}

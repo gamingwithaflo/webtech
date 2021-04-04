@@ -1,0 +1,12 @@
+mixin table(th, data)
+    div.overflow-auto
+        table.table
+            thead
+                tr
+                    each item in th
+                        th= item
+            tbody
+                each item in data
+                    tr
+                        each i in item
+                            td= i

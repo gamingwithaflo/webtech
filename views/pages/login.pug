@@ -1,17 +1,25 @@
 extends ../layouts/_base
 
-block content 
-    form.login_register(action='/login' method='POST')
-      h2 Login form
-      -if(messages.error)
-      .alert.alert-danger #{messages.error}
-      p
-        | Email: 
-        input.email(type='email' name='email' placeholder='Enter your Email' required='')
-      p
-        | Password: 
-        input.password(type='password' name='password' placeholder='Enter your password' required='')
-      p
-        input.bttnInlog(type='submit' value='Log in')
-      a.register(href='register') Create account
+include ../components/_header
 
+block setData
+    -
+        // page values
+        data.url = "login";
+        data.title = "Login";
+
+block content
+    +header('Login form')
+    form.login_register(action='/login' method='POST')
+        if(messages.error)
+            .alert.alert-danger #{messages.error}
+        p
+            | Email:
+            input.email(type='email' name='email' placeholder='Enter your Email' required='')
+        p
+            | Password:
+            input.password(type='password' name='password' placeholder='Enter your password' required='')
+        p
+            a(href='register') Create account
+        p
+            input.bttnInlog(type='submit' value='Log in')

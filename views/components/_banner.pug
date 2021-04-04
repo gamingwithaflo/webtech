@@ -1,0 +1,12 @@
+mixin banner(title, description, buttons)
+    header.banner
+        div.content
+            h1.banner__title= title
+            p.banner__description= description
+            div.row
+                each button in buttons
+                    case button.style
+                        when 'border'
+                            a(href=button.url).button.button--large.button--border-blue #{button.text}
+                        default
+                            a(href=button.url).button.button--large.button--blue #{button.text}
