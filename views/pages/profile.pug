@@ -9,8 +9,21 @@ block setData
         data.title = "Profile";
 
 block content
-    +header('Profile Page')
-    p #{name}
-    form(action='/logout' method='POST')
-        p
-            button(type='submit') Log out
+    article 
+        +header('Profile Page')
+        section.box_with_field
+            h2 Personal information
+            p Name: #{name}
+            p Email: #{email}
+            form(action='/logout' method='POST')
+                p
+                    button(type='submit') Log out
+        section.box_with_field 
+            h2 Quiz attempts
+            table 
+                tr
+                    th Quiz
+                    th Grade 
+                tr
+                    td React 
+                    td 7.8

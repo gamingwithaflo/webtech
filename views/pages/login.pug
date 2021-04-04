@@ -10,7 +10,7 @@ block setData
 
 block content
     form.login_register(action='/login' method='POST')
-        h1 Register form
+        h1 Inlog form
         if(messages.error)
             .alert.alert-danger #{messages.error}
         p
