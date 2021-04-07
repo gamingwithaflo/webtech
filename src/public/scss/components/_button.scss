@@ -3,7 +3,7 @@
  */
 
 .button {
-  padding: .8rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   display: inline-block;
   font-weight: bold;
 
@@ -40,4 +40,12 @@
   &:not(:disabled) {
     cursor: pointer;
   }
+}
+
+.log_out {
+  border: 2px solid black;
+  border-radius: 5px;
+  background: #ff5047;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  text-align: center;
 }

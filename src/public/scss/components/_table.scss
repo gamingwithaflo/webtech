@@ -26,3 +26,29 @@
     white-space: nowrap;
   }
 }
+
+.table_attempts {
+  border-spacing: 0;
+  width: 100%;
+  margin-right: 1rem;
+
+  thead {
+    background-color: $gray-light;
+  }
+
+  tr:nth-child(even) {
+    background: $gray-lighter;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  > :not(caption) > * > * {
+    padding: 0.5rem;
+  }
+
+  > :not(caption) > * > *:nth-child(-n + 2) {
+    white-space: nowrap;
+  }
+}

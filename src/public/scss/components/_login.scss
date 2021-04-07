@@ -6,11 +6,11 @@
   background: #20232a;
   width: 300px;
   border-radius: 6px;
-  margin: 0 auto 0 auto;
+  margin: 1rem auto 28rem auto;
   padding: 0px 0px 70px 0px;
   border: #61dafb 4px solid;
   color: white;
-  h2 {
+  h1 {
     text-align: center;
   }
   p {
@@ -45,7 +45,6 @@
       text-align: center;
 
       margin-top: 0.25rem;
-      margin-left: 0.5rem;
       float: left;
       font-size: 0.8em;
     }
@@ -86,6 +85,7 @@
       border: #27ae60 1px solid;
 
       margin-top: 0.25rem;
+      margin-left: 0.5rem;
       float: left;
       font-size: 0.8em;
     }
@@ -99,6 +99,7 @@
       border: #3498db 1px solid;
 
       margin-top: 0.25rem;
+      margin-left: 4.5rem;
       float: left;
       font-size: 0.8em;
     }

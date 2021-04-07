@@ -14,7 +14,9 @@ export default class UserController {
      * route GET /profile
      */
     profile(req: Request, res: Response) {
-        res.render("pages/profile");
+        res.render("pages/profile", {
+            user: req.user
+        });
     }
 
     /*
