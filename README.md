@@ -41,9 +41,15 @@ npm run watch-sass
 Copy and rename .env.example to .env and set environment variables when needed
 - default port 8080
 - session secret
-- database connection details
 
-## Motivation
-// todo verantwoording
-- sass
-- typescript
+## API
+Assessment
+```
+GET: api/assessment/topics
+GET: api/assessment/quizzes/<id>
+```
+Attempts
+```
+GET: api/attempts/topics
+POST: api/attempts/topics
+```

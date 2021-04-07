@@ -1,10 +1,25 @@
 /*
  * reset
  */
+
 body {
   margin: 0;
 }
 
 button {
   margin: 0;
+}
+
+details {
+  summary{
+    cursor: pointer;
+
+    h1, h2, h3, h4, h5, h6 {
+      display: inline;
+    }
+  }
+
+  .button {
+    display: block;
+  }
 }

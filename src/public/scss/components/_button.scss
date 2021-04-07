@@ -1,6 +1,7 @@
 /*
  * button
  */
+
 .button {
   padding: .8rem 1.5rem;
   display: inline-block;
@@ -13,12 +14,18 @@
   &--darkblue {
     @include button-style(#000, $blue-dark, $blue-dark);
   }
+  &--gray {
+    @include button-style(#000, #d8d8d8, #d8d8d8);
+  }
 
   &--border-blue {
     @include button-style($blue-base, transparent, $blue-base);
   }
   &--border-darkblue {
     @include button-style($blue-dark, transparent, $blue-dark);
+  }
+  &--border-gray {
+    @include button-style(#000, transparent, #d8d8d8);
   }
 
   // sizes

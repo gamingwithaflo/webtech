@@ -1,7 +1,10 @@
-import Question from './question.js';
+import Question from './question';
+import {ChildEntity, Column} from "typeorm";
 
-export default class MultipleChoice extends Question{
-    answers: Array<string>;
+@ChildEntity()
+export default class MultipleChoice extends Question {
+    @Column("simple-array")
+    answers: string[];
 
     constructor(title: string, problemStatement: string, correctAnswer: string, answers: Array<string>) {
         super(title, problemStatement, correctAnswer);

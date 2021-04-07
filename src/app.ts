@@ -1,40 +1,86 @@
+import "reflect-metadata";
 import express from "express";
-import * as env from "./config/env";
+import EnvConfig from "./config/envconfig";
 import path from "path";
 import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
 import flash from "express-flash";
+import Logger from "./utils/logger";
+import ApiRouter from "./routes/api";
+import ClientRouter from "./routes/client";
+import {Connection} from "typeorm";
+import AuthRouter from "./routes/auth";
+import PassportConfig from "./config/passportconfig";
+import Dataconfig from "./config/dataconfig";
 
-// router imports
-import apiRouter from "./routes/api";
-import clientRouter from "./routes/client";
+export default class App {
+    private app;
+    private env;
+    private logger;
+    private connection;
 
-// express server
-const app = express();
+    constructor(connection: Connection) {
+        this.app = express();
+        this.env = new EnvConfig();
+        this.logger = new Logger(App.name);
+        this.connection = connection;
+        this.initialize().catch((error) => this.logger.error(error));
+    }
 
-// express configuration
-app.set("port", env.SERVER_PORT);
-app.set("views", path.join(__dirname, "../views"));
-app.set("view engine", "pug");
-app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({
-    secret: env.SESSION_SECRET,
-    saveUninitialized: false,
-    resave: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-// TODO
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.isAuthenticated();
-  next();
-});
+    /*
+     * initialize configurations for app
+     * @return void
+     */
+    private async initialize() {
+        // express and required packages configuration
+        this.app.set("port", this.env.getServerPort());
+        this.app.set("view engine", "pug");
+        this.app.use(express.static(path.join(__dirname, "public")));
+        this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(session({
+            secret: this.env.getSessionSecret(),
+            saveUninitialized: true,
+            resave: true
+        }));
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
+        this.app.use(flash());
 
-// routers
-app.use("/api", apiRouter);
-app.use("/", clientRouter);
+        // passport
+        new PassportConfig().initialize()
+            .then(() => this.logger.log("Setup passport config"));
 
-export default app;
+        // pug template engine
+        this.app.set("views", path.join(__dirname, "../views"));
+
+        // TODO auth
+        this.app.use((req, res, next) => {
+            res.locals.user = req.user;
+            next();
+        });
+        this.app.use((req, res, next) => {
+            res.locals.isAuthenticated = req.isAuthenticated();
+            next();
+        });
+
+        // routers
+        this.app.use("/api", new ApiRouter().getRouter());
+        this.app.use("/", new ClientRouter().getRouter());
+        this.app.use("/", new AuthRouter().getRouter());
+
+        // set default data
+        await new Dataconfig().initialize(this.connection).catch((error) => this.logger.error(error));
+    }
+
+    /*
+     * listen to port
+     * @return Server
+     */
+    listen() {
+        return this.app.listen(this.app.get("port"), () => {
+            this.logger.log(`Running at http://localhost:${this.app.get("port")} in ${this.app.get("env")} mode`);
+            this.logger.log("Press ctrl-c to stop");
+        });
+    }
+}

@@ -9,7 +9,7 @@ block setData
         data.title = "Login";
 
 block content
-    +header('Login form')
+    +header('Login')
     form.login_register(action='/login' method='POST')
         if(messages.error)
             .alert.alert-danger #{messages.error}
