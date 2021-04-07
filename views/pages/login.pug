@@ -9,8 +9,8 @@ block setData
         data.title = "Login";
 
 block content
-    +header('Login form')
     form.login_register(action='/login' method='POST')
+        h1 Inlog form
         if(messages.error)
             .alert.alert-danger #{messages.error}
         p
@@ -20,6 +20,6 @@ block content
             | Password:
             input.password(type='password' name='password' placeholder='Enter your password' required='')
         p
-            a(href='register') Create account
+            a.register(href='register') Create account
         p
             input.bttnInlog(type='submit' value='Log in')
