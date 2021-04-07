@@ -6,11 +6,11 @@
   background: #20232a;
   width: 300px;
   border-radius: 6px;
-  margin: 1rem auto 28rem auto;
-  padding: 0px 0px 70px 0px;
+  margin: 0 auto;
+  padding: 0 0 70px 0;
   border: #61dafb 4px solid;
   color: white;
-  h1 {
+  h2 {
     text-align: center;
   }
   p {
@@ -21,38 +21,37 @@
       float: left;
       background: #2ecc71;
       width: 125px;
-      padding-top: 0.6rem;
-      padding-bottom: 0.6rem;
+      padding-top: .6rem;
+      padding-bottom: .6rem;
       color: white;
       border-radius: 4px;
       border: #2ecc71 1px solid;
       text-align: center;
 
-      margin-top: 0.25rem;
-      margin-left: 0.5rem;
-      float: left;
-      font-size: 0.8em;
+      margin-top: .25rem;
+      margin-left: .5rem;
+      font-size: .8em;
     }
     &.register {
       float: left;
       background: #3498db;
       width: 125px;
-      padding-top: 0.6rem;
-      padding-bottom: 0.6rem;
+      padding-top: .6rem;
+      padding-bottom: .6rem;
       color: white;
       border-radius: 4px;
       border: #2980b9 1px solid;
       text-align: center;
 
-      margin-top: 0.25rem;
-      float: left;
-      font-size: 0.8em;
+      margin-top: .25rem;
+      margin-left: .5rem;
+      font-size: .8em;
     }
   }
   .alert.alert-danger {
     color: white;
     margin-left: 1rem;
-    font-size: 0.9em;
+    font-size: .9em;
   }
   input {
     &.email {
@@ -62,7 +61,6 @@
       padding: 8px;
       width: 250px;
       color: black;
-      margin-top: 10px;
       font-size: 1em;
       border-radius: 4px;
       margin: 0 auto;
@@ -78,30 +76,27 @@
     &.bttnInlog {
       background: #2ecc71;
       width: 125px;
-      padding-top: 0.7rem;
-      padding-bottom: 0.7rem;
+      padding-top: .7rem;
+      padding-bottom: .7rem;
       color: white;
       border-radius: 4px;
       border: #27ae60 1px solid;
 
-      margin-top: 0.25rem;
-      margin-left: 0.5rem;
+      margin-top: .25rem;
       float: left;
-      font-size: 0.8em;
+      font-size: .8em;
     }
     &.bttnRegister {
       background: #3498db;
       width: 125px;
-      padding-top: 0.7rem;
-      padding-bottom: 0.7rem;
+      padding-top: .7rem;
+      padding-bottom: .7rem;
       color: white;
       border-radius: 4px;
       border: #3498db 1px solid;
 
-      margin-top: 0.25rem;
-      margin-left: 4.5rem;
-      float: left;
-      font-size: 0.8em;
+      margin-top: .25rem;
+      font-size: .8em;
     }
   }
 }
