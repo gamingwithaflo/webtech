@@ -19,11 +19,11 @@ export default class PassportConfig {
      */
     async initialize() {
         passport.serializeUser<any, any>((req, user, done) => {
-            done(undefined, user);
+            done(null, user);
         });
 
         passport.deserializeUser(async (id, done) => {
-            this.userController.findByIds([id])
+            await this.userController.findOne(id)
                 .then((user: any) => {
                     done(null, user);
                 });
@@ -34,12 +34,12 @@ export default class PassportConfig {
                 await this.userController.findOne({ email: email })
                     .then((user: any) => {
                         if (!user) {
-                            return done(undefined, false, {message: `Email ${email} not found.`});
+                            return done(null, false, {message: `Email ${email} not found.`});
                         }
                         if (user.comparePassword(password)) {
-                            return done(undefined, user);
+                            return done(null, user);
                         }
-                        return done(undefined, false, {message: "Invalid email or password."});
+                        return done(null, false, {message: "Invalid email or password."});
                     })
                     .catch((error: any) => {
                         return done(error);
@@ -57,5 +57,16 @@ export default class PassportConfig {
             return next();
         }
         res.redirect("/login");
+    }
+
+    /*
+     * check if user is not authenticated
+     * @return void
+     */
+    static isNotAuthenticated(req: Request, res: Response, next: NextFunction) {
+        if (req.isAuthenticated()) {
+            res.redirect("/profile");
+        }
+        next();
     }
 }
