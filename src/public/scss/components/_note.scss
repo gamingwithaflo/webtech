@@ -1,14 +1,23 @@
 /*
  * note
  */
+
 .note {
   background-color: #eeeeee;
-  margin: 20px 0px 30px 0px;
-  padding: 5px 15px;
+  margin: 20px 0 30px 0;
+  padding: 1.5rem;
   overflow: auto;
 
   &:empty {
     display: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1.5rem 0;
+  }
+
+  &--background-gray-dark {
+    background: $gray-dark;
   }
 
   &--red {

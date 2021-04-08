@@ -1,0 +1,10 @@
+/*
+ * breadcrumb
+ */
+
+.breadcrumb {
+    a:not(:last-child):after {
+        content: '>';
+        margin-left: .3rem;
+    }
+}

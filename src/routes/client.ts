@@ -1,45 +1,52 @@
 import express from "express";
-import * as passportConfig from "../config/passport";
+import PassportConfig from "../config/passportconfig";
+import BaseRouter from "./baserouter";
+import HomeController from "../controllers/homecontroller";
+import WhatIsReactController from "../controllers/whatisreactcontroller";
+import GettingStartedController from "../controllers/gettingstartedcontroller";
+import NotableFeaturesController from "../controllers/notablefeaturescontroller";
+import HistoryController from "../controllers/historycontroller";
+import AssessmentController from "../controllers/assessmentcontroller";
+import UserController from "../controllers/usercontroller";
+import AuthController from "../controllers/authcontroller";
 
-const clientRouter = express.Router();
+export default class ClientRouter implements BaseRouter {
+    private homeController;
+    private whatIsReactController;
+    private gettingStartedController;
+    private notableFeaturesController;
+    private historyController;
+    private assessmentController;
+    private userController;
+    private authController;
 
-// controllers
-import * as homeController from "../controllers/home";
-import * as whatIsReactController from "../controllers/whatisreact";
-import * as gettingStartedController from "../controllers/gettingstarted";
-import * as notableFeaturesController from "../controllers/notablefeatures";
-import * as historyController from "../controllers/history";
-import * as assessmentController from "../controllers/assessment";
-import * as userController from "../controllers/user";
+    constructor() {
+        this.homeController = new HomeController();
+        this.whatIsReactController = new WhatIsReactController();
+        this.gettingStartedController = new GettingStartedController();
+        this.notableFeaturesController = new NotableFeaturesController();
+        this.historyController = new HistoryController();
+        this.assessmentController = new AssessmentController();
+        this.userController = new UserController();
+        this.authController = new AuthController();
+    }
 
-clientRouter.get("/", homeController.index);
-clientRouter.get("/what-is-react", whatIsReactController.whatIsReact);
-clientRouter.get("/getting-started", gettingStartedController.gettingStarted);
-clientRouter.get(
-  "/notable-features",
-  notableFeaturesController.notableFeatures
-);
-clientRouter.get("/history", historyController.history);
-clientRouter.get("/assessment", assessmentController.assessment);
+    /*
+     * get router
+     * @return express router
+     */
+    getRouter() {
+        const clientRouter = express.Router();
 
-// TODO
-clientRouter.get(
-  "/login",
-  passportConfig.checkNotAuthenticated,
-  userController.login
-);
-clientRouter.get(
-  "/register",
-  passportConfig.checkNotAuthenticated,
-  userController.register
-);
-clientRouter.get(
-  "/profile",
-  passportConfig.isAuthenticated,
-  userController.profile
-);
-clientRouter.post("/login", userController.postLogin);
-clientRouter.post("/register", userController.postRegister);
-clientRouter.post("/logout", userController.logout);
+        clientRouter.get('/', (req, res) => this.homeController.index(req, res));
+        clientRouter.get('/what-is-react', (req, res) => this.whatIsReactController.whatIsReact(req, res));
+        clientRouter.get('/getting-started', (req, res) => this.gettingStartedController.gettingStarted(req, res));
+        clientRouter.get('/notable-features', (req, res) => this.notableFeaturesController.notableFeatures(req, res));
+        clientRouter.get('/history', (req, res) => this.historyController.history(req, res));
+        clientRouter.get('/assessment', (req, res) => this.assessmentController.assessment(req, res));
 
-export default clientRouter;
+        clientRouter.get('/profile', PassportConfig.isAuthenticated, (req, res) => this.userController.profile(req, res));
+
+        return clientRouter;
+    }
+}

@@ -1,6 +1,7 @@
 /*
  * base
  */
+
 body {
   font-family: $font-family-base;
   line-height: $line-height-base;
@@ -31,5 +32,11 @@ a {
   &[target="_blank"]::after {
     content: url(../images/external.svg);
     margin-left: 0.2rem;
+  }
+}
+
+details {
+  summary, .button {
+    margin: 1rem 0;
   }
 }

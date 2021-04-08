@@ -1,8 +1,9 @@
 /*
  * button
  */
+
 .button {
-  padding: 0.8rem 1.5rem;
+  padding: .8rem 1.5rem;
   display: inline-block;
   font-weight: bold;
 
@@ -13,12 +14,18 @@
   &--darkblue {
     @include button-style(#000, $blue-dark, $blue-dark);
   }
+  &--gray {
+    @include button-style(#000, #d8d8d8, #d8d8d8);
+  }
 
   &--border-blue {
     @include button-style($blue-base, transparent, $blue-base);
   }
   &--border-darkblue {
     @include button-style($blue-dark, transparent, $blue-dark);
+  }
+  &--border-gray {
+    @include button-style(#000, transparent, #d8d8d8);
   }
 
   // sizes
@@ -39,6 +46,6 @@
   border: 2px solid black;
   border-radius: 5px;
   background: #ff5047;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: .5rem;
   text-align: center;
 }

@@ -1,15 +1,27 @@
-import app from "./app";
+import App from "./app";
+import {createConnection} from "typeorm";
+import Logger from "./utils/logger";
 
-/*
- * Start express server
- */
-const server = app.listen(app.get("port"), () => {
-    console.log(
-        "App is running at http://localhost:%d in %s mode",
-        app.get("port"),
-        app.get("env")
-    );
-    console.log("Press CTRL-C to stop");
-});
+export class Server {
+    private logger;
 
-export default server;
+    constructor() {
+        this.logger = new Logger(Server.name);
+    }
+
+    /*
+     * create app and typeorm connection
+     */
+    run() {
+        createConnection()
+            .then(async connection => {
+                new App(connection).listen();
+            })
+            .catch(error => {
+                this.logger.error(error);
+            });
+    }
+}
+
+// start
+new Server().run();

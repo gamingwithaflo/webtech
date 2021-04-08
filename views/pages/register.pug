@@ -9,8 +9,8 @@ block setData
         data.title = "Register";
 
 block content
-    form.login_register(action='/register' method='POST')
-        h1 Register form
+    form.login_register(action='/register' method='post')
+        +header('Register')
         if(messages.error)
           .alert.alert-danger #{messages.error}
         p
