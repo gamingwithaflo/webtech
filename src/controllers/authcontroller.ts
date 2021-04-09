@@ -28,9 +28,14 @@ export default class AuthController {
             if (err) {
                 return next(err);
             }
-            if (!user) { return res.redirect('/login'); }
+            if (!user) {
+                req.flash("error", "Email or password unknown");
+                return res.redirect('/login');
+            }
             req.logIn(user, function(err) {
-                if (err) { return next(err); }
+                if (err) {
+                    return next(err);
+                }
                 return res.redirect('/profile');
             });
         })(req, res, next);

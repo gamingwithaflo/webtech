@@ -15,6 +15,19 @@ npm start
 ```
 
 ## Development
+**API**
+
+Assessment
+```
+GET: api/assessment/topics
+GET: api/assessment/quizzes/<id>
+```
+Attempts
+```
+GET: api/attempts/topics
+POST: api/attempts/topics
+```
+
 **Scripts**
 
 | Script | Description |
@@ -41,15 +54,3 @@ npm run watch-sass
 Copy and rename .env.example to .env and set environment variables when needed
 - default port 8080
 - session secret
-
-## API
-Assessment
-```
-GET: api/assessment/topics
-GET: api/assessment/quizzes/<id>
-```
-Attempts
-```
-GET: api/attempts/topics
-POST: api/attempts/topics
-```
