@@ -7,3 +7,5 @@ coverage/*
 /src/public/
 # custom definition files
 /src/types/
+# other
+/tmp

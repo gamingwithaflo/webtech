@@ -24,7 +24,7 @@ export default class UserController {
      * route GET /api/users/current
      */
     // TODO
-    currentUser(req: Request, res: Response) {
+    current(req: Request, res: Response) {
         res.send(req.user);
     }
 }

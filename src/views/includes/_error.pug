@@ -1,0 +1,6 @@
+include ../components/_alert
+
+if (messages.info)
+    +alert(class="note--blue")= messages.info
+if (messages.error)
+    +alert(class="note--red")= messages.error
