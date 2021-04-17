@@ -9,20 +9,6 @@ block setData
         data.url = "profile";
         data.title = "Profile";
 
-        data.profileexample = {
-            th: ["Quiz", "Grade"],
-            grades: [
-                {
-                    quiz: "React",
-                    grade: 7.8
-                },
-                {
-                    quiz: "React2",
-                    grade: 9
-                }
-            ]
-        };
-
 block content
     article.pushdown
         +header('Profile Page')
@@ -30,11 +16,13 @@ block content
         section.box_with_field
             h2 Personal information
             p #[strong Name]: #{user.name}
+            form(action='/change_name' method='get')
+                p
+                    button.change_input(type='submit') change Name
             p #[strong Email]: #{user.email}
+            form(action='/change_email' method='get')
+                p
+                    button.change_input(type='submit') change Email      
             form(action='/logout' method='post')
                 p
                     button.log_out(type='submit') Log out
-
-        section.box_with_field
-            h2 Quiz attempts record
-            +table(data.profileexample.th, data.profileexample.grades)
