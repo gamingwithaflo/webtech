@@ -114,28 +114,54 @@ export default class AuthController {
   }
 
   async changed_name(req: Request, res: Response, next: NextFunction) {
-    let newName = req.body.name;
-    console.info(req.user);
-
     let user = req.user as User;
-
-    await this.userRepository
-      .createQueryBuilder()
-      .update(User)
-      .set({ name: newName })
-      .where("id = :userId", { userId: user.id })
-      .execute();
-    user.name = newName;
-    req.logIn(user, function (err) {
-      if (err) {
-        return next(err);
-      }
-      return res.redirect("/profile");
-      req.flash("info", "Your account is successfully created!");
-    });
+    let newName = req.body.name;
+    if (newName == req.body.second_check) {
+      console.log("if statement doorgaat die");
+      await this.userRepository
+        .createQueryBuilder()
+        .update(User)
+        .set({ name: newName })
+        .where("id = :userId", { userId: user.id })
+        .execute();
+      user.name = newName;
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
+        return res.redirect("/profile");
+      });
+    } else {
+      //
+      console.log("komt die hier");
+      req.flash("error", "the 2 names do not correspond");
+      res.redirect("/change_name");
+    }
   }
-  changed_email(req: Request, res: Response) {
-    res.redirect("/profile");
+  async changed_email(req: Request, res: Response, next: NextFunction) {
+    let user = req.user as User;
+    let newEmail = req.body.email;
+    if (newEmail == req.body.second_check) {
+      console.log("if statement doorgaat die");
+      await this.userRepository
+        .createQueryBuilder()
+        .update(User)
+        .set({ email: newEmail })
+        .where("id = :userId", { userId: user.id })
+        .execute();
+      user.email = newEmail;
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
+        return res.redirect("/profile");
+      });
+    } else {
+      //
+      console.log("komt die hier");
+      req.flash("error", "the 2 emails do not correspond");
+      res.redirect("/change_email");
+    }
   }
   /*
    * hash password
