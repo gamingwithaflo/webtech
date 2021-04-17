@@ -12,9 +12,11 @@ block content
     form.login_register(action='/changed_name' method='post')
         +header('Change Name')
         p
-          | New Email:
+          | New Name:
           input.email(type='text' name='name' placeholder='Enter your new name' required='')
         p
-          | confirm new email:
+          | confirm new Name:
           input.email(type='text' name='second_check' placeholder='confirm your name' required='')
+          input(type='hidden' name="email" value=user.email)
+          input(type='hidden' name="old_user_name" value=user.name)
           input.bttnRegister(type='submit' value='change name')

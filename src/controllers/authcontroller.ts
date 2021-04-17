@@ -99,7 +99,7 @@ export default class AuthController {
    *
    */
   change_name(req: Request, res: Response) {
-    res.render("pages/change-name");
+    res.render("pages/change-name", { user: req.user });
   }
   /*
    * get change_email
@@ -113,8 +113,26 @@ export default class AuthController {
     res.render("pages/report");
   }
 
-  changed_name(req: Request, res: Response) {
-    res.redirect("/profile");
+  async changed_name(req: Request, res: Response, next: NextFunction) {
+    let newName = req.body.name;
+    console.info(req.user);
+
+    let user = req.user as User;
+
+    await this.userRepository
+      .createQueryBuilder()
+      .update(User)
+      .set({ name: newName })
+      .where("id = :userId", { userId: user.id })
+      .execute();
+    user.name = newName;
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect("/profile");
+      req.flash("info", "Your account is successfully created!");
+    });
   }
   changed_email(req: Request, res: Response) {
     res.redirect("/profile");

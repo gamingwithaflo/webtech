@@ -50,7 +50,7 @@ export default class AuthRouter implements BaseRouter {
     authRouter.post(
       "/changed_name",
       PassportConfig.isAuthenticated,
-      (req, res, next) => this.authController.changed_name(req, res)
+      (req, res, next) => this.authController.changed_name(req, res, next)
     );
     return authRouter;
   }

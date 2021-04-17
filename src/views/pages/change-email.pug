@@ -17,4 +17,7 @@ block content
         p
           | confirm new email:
           input.email(type='text' name='second_check' placeholder='confirm your name' required='')
+          input(type='hidden' name="old_value_email " value=user.email)
+          input(type='hidden' name="password" value=user.password)
+          input(type='hidden' name="name" value=user.name)
           input.bttnRegister(type='submit' value='change name') 
