@@ -1,6 +1,6 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import User from "./user";
-import Quiz from "./quiz";
+import Question from "./question";
 
 @Entity()
 export default class Attempt {
@@ -13,6 +13,9 @@ export default class Attempt {
     @ManyToOne(() => User, user => user.attempts)
     user: User;
 
-    @ManyToOne(() => Quiz, quiz => quiz.attempts)
-    quiz: Quiz;
+    @ManyToOne(() => Question, question => question.attempts)
+    question: Question;
+
+    @Column({name: "date_time_attempt"})
+    dateTimeAttempt: Date;
 }

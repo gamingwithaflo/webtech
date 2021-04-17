@@ -1,7 +1,6 @@
 import Question from "./question";
 import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import Topic from "./topic";
-import Attempt from "./attempt";
 
 @Entity()
 export default class Quiz {
@@ -16,9 +15,6 @@ export default class Quiz {
 
     @OneToMany(() => Question, question => question.quiz)
     questions: Question[];
-
-    @OneToMany(() => Attempt, attempt => attempt.user)
-    attempts: Attempt[];
 
     // score: number;
     // currentQuestion: object;
