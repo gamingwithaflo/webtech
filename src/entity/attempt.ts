@@ -8,7 +8,7 @@ export default class Attempt {
     id: number;
 
     @Column()
-    grade: number;
+    grade: boolean; //vraag is goed of niet goed beantwoord
 
     @ManyToOne(() => User, user => user.attempts)
     user: User;
@@ -17,5 +17,5 @@ export default class Attempt {
     question: Question;
 
     @Column({name: "date_time_attempt"})
-    dateTimeAttempt: Date;
+    dateTimeAttempt: number;
 }
