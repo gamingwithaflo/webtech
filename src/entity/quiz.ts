@@ -4,7 +4,7 @@ import Topic from "./topic";
 
 @Entity()
 export default class Quiz {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: number;
 
     @Column()

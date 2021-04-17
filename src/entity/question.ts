@@ -5,7 +5,7 @@ import Attempt from "./attempt";
 @Entity()
 @TableInheritance({ column: { type: "varchar", name: "type" } })
 export default class Question {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: number;
 
     @Column()

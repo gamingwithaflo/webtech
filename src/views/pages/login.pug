@@ -11,8 +11,6 @@ block setData
 block content
     form.login_register(action='/login' method='post')
         +header('Login')
-        if(messages.error)
-            .alert.alert-danger #{messages.error}
         p
             | Email:
             input.email(type='email' name='email' placeholder='Enter your Email' required='')

@@ -3,7 +3,7 @@ import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity()
 export default class Topic {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: number;
 
     @Column()
