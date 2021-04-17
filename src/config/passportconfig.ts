@@ -32,14 +32,14 @@ export default class PassportConfig {
         passport.use(
             new this.localStrategy({ usernameField: "email" }, async (email, password, done) => {
                 await this.userController.findOne({ email: email })
-                    .then((user: any) => {
+                    .then(async (user: any) => {
                         if (!user) {
-                            return done(null, false, {message: `Email ${email} not found.`});
+                            return done(null, false);
                         }
-                        if (user.comparePassword(password)) {
+                        if (await user.validatePassword(password)) {
                             return done(null, user);
                         }
-                        return done(null, false, {message: "Invalid email or password."});
+                        return done(null, false);
                     })
                     .catch((error: any) => {
                         return done(error);

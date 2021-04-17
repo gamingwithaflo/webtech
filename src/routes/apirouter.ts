@@ -3,7 +3,7 @@ import BaseRouter from "./baserouter";
 import UserController from "../controllers/usercontroller";
 import TopicController from "../controllers/topiccontroller";
 import QuizController from "../controllers/quizcontroller";
-import Attemptcontroller from "../controllers/attemptcontroller";
+import AttemptController from "../controllers/attemptcontroller";
 
 export default class ApiRouter implements BaseRouter {
     private userController;
@@ -15,7 +15,7 @@ export default class ApiRouter implements BaseRouter {
         this.userController = new UserController();
         this.topicController = new TopicController();
         this.quizController = new QuizController();
-        this.attemptController = new Attemptcontroller();
+        this.attemptController = new AttemptController();
     }
 
     /*
@@ -37,7 +37,7 @@ export default class ApiRouter implements BaseRouter {
      */
     private getApiUsersRouter() {
         const usersRouter = express.Router();
-        usersRouter.get("/current", (req, res) => this.userController.currentUser(req, res));
+        usersRouter.get("/current", (req, res) => this.userController.current(req, res));
 
         return usersRouter;
     }

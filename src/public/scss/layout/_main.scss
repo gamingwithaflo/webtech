@@ -2,7 +2,6 @@
  * main
  */
 
-// TODO
 .row {
   display: flex;
   flex-direction: column;
@@ -51,6 +50,7 @@ img {
   display: grid;
   align-items: center;
   margin-bottom: 3rem;
+  text-align: center;
 
   & > * {
     padding: 0 1rem;
@@ -63,6 +63,7 @@ img {
   @media (min-width: $screen-tablet) {
     grid-template-columns: 1.3fr 1fr;
     grid-column-gap: 20px;
+    text-align: inherit;
 
     & section {
       grid-row: 1;

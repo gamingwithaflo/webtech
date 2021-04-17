@@ -1,9 +1,10 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import Attempt from "./attempt";
+import bcrypt from "bcrypt";
 
 @Entity()
 export default class User {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: number;
 
     @Column()
@@ -20,9 +21,9 @@ export default class User {
 
     /*
      * compare current user password with input
-     * @return boolean
+     * @return promise<boolean>
      */
-    comparePassword(password: string) {
-        return this.password === password;
+    async validatePassword(password: string) {
+        return await bcrypt.compare(password, this.password);
     }
 }

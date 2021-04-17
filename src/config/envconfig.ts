@@ -23,10 +23,10 @@ export default class EnvConfig {
 
     /*
      * get server port
-     * @return server_port: string | 8080
+     * @return server_port: string | 3000
      */
     getServerPort() {
-        return process.env.PORT || 8080;
+        return process.env.PORT || 3000;
     }
 
     /*

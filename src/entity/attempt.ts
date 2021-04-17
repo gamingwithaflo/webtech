@@ -4,7 +4,7 @@ import Question from "./question";
 
 @Entity()
 export default class Attempt {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: number;
 
     @Column()

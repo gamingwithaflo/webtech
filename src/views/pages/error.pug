@@ -1,0 +1,15 @@
+extends ../layouts/_base
+
+include ../components/_header
+
+block setData
+    -
+        data.title = "Uhoh, error page";
+
+block content
+    article
+        +header('Uhoh')
+
+        section
+            h2 Page not found
+            p All available pages are in the navigation bar on top of the site.
