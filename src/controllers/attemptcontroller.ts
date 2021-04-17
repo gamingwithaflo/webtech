@@ -1,6 +1,7 @@
 import {getRepository, Repository} from "typeorm";
 import {Request, Response} from "express";
 import Attempt from "../entity/attempt";
+import User from "../entity/user"
 
 export default class Attemptcontroller {
     private attemptRepository: Repository<Attempt>;
@@ -15,31 +16,37 @@ export default class Attemptcontroller {
      */
     async getAttempts(req: Request, res: Response) {
       if(req.user) {
-        // @ts-ignore
-        const userId = req.user.id;
+        const user = req.user as User;
+        const userId = user.id;
 
         const items = await this.attemptRepository
             .createQueryBuilder("attempt")
-            .where("attempt.user_id = :user_id", {user_id: userId})
+            .where("attempt.user.id = :user_id", {user_id: userId})
             .getMany();
 
         res.json(items);
       } else {
-        res.redirect("/login");
+        const errMsg = { msg: "User is not logged in" };
+        res.json(errMsg);
       }
     }
 
     async getLastAttempt(req: Request, res: Response) {
       if(req.user) {
+        const user = req.user as User;
+        const userId = user.id;
+
         const item = await this.attemptRepository
           .createQueryBuilder("attempt")
+          .where("attempt.user.id = :user_id", {user_id: userId})
           .orderBy("dateTimeAttempt", "DESC")
           .limit(1)
           .getOne();
 
           res.json(item);
       } else {
-        res.redirect("/login");
+        const errMsg = { msg: "User is not logged in" };
+        res.json(errMsg);
       }
     }
 
@@ -67,7 +74,8 @@ export default class Attemptcontroller {
           ])
           .execute();
       } else {
-        res.redirect("/login");
+        const errMsg = { msg: "User is not logged in" };
+        res.json(errMsg);
       }
     }
 }
