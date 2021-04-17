@@ -4,7 +4,7 @@ import Quiz from "./quiz";
 
 @Entity()
 export default class Attempt {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: number;
 
     @Column()

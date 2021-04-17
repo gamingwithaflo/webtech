@@ -1,0 +1,40 @@
+extends ../layouts/_base
+
+include ../components/_header
+include ../components/_table
+
+block setData
+    -
+        // page values
+        data.url = "profile";
+        data.title = "Profile";
+
+        data.profileexample = {
+            th: ["Quiz", "Grade"],
+            grades: [
+                {
+                    quiz: "React",
+                    grade: 7.8
+                },
+                {
+                    quiz: "React2",
+                    grade: 9
+                }
+            ]
+        };
+
+block content
+    article.pushdown
+        +header('Profile Page')
+
+        section.box_with_field
+            h2 Personal information
+            p #[strong Name]: #{user.name}
+            p #[strong Email]: #{user.email}
+            form(action='/logout' method='post')
+                p
+                    button.log_out(type='submit') Log out
+
+        section.box_with_field
+            h2 Quiz attempts record
+            +table(data.profileexample.th, data.profileexample.grades)

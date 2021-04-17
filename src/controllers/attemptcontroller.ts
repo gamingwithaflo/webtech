@@ -2,7 +2,7 @@ import {getRepository, Repository} from "typeorm";
 import {Request, Response} from "express";
 import Attempt from "../entity/attempt";
 
-export default class Attemptcontroller {
+export default class AttemptController {
     private attemptRepository: Repository<Attempt>;
 
     constructor() {
@@ -19,7 +19,7 @@ export default class Attemptcontroller {
 
     /*
      * post attempt
-     * @route GET /api/attempts
+     * @route POST /api/attempts
      */
     postAttempt(req: Request, res: Response) {
         // TODO api: check if user logged in and set attempt

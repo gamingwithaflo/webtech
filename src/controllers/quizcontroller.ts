@@ -14,11 +14,10 @@ export default class QuizController {
      * route GET /api/assessment/quizzes/:quizId
      */
     async getQuiz(req: Request, res: Response) {
-        const paramQuizId = escape(req.params.quizId);
         const items = await this.quizRepository
             .createQueryBuilder("quiz")
             .leftJoinAndSelect("quiz.questions", "question")
-            .where("quiz.id = :id", { id: paramQuizId })
+            .where("quiz.id = :id", { id: req.params.quizId })
             .getMany();
 
         res.send(items);

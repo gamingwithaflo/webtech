@@ -7,12 +7,12 @@ import passport from "passport";
 import session from "express-session";
 import flash from "express-flash";
 import Logger from "./utils/logger";
-import ApiRouter from "./routes/api";
-import ClientRouter from "./routes/client";
+import ApiRouter from "./routes/apirouter";
+import ClientRouter from "./routes/clientrouter";
+import AuthRouter from "./routes/authrouter";
 import {Connection} from "typeorm";
-import AuthRouter from "./routes/auth";
 import PassportConfig from "./config/passportconfig";
-import Dataconfig from "./config/dataconfig";
+import DataConfig from "./config/dataconfig";
 
 export default class App {
     private app;
@@ -39,9 +39,9 @@ export default class App {
         this.app.use(express.static(path.join(__dirname, "public")));
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(session({
-            secret: this.env.getSessionSecret(),
+            resave: true,
             saveUninitialized: true,
-            resave: true
+            secret: this.env.getSessionSecret()
         }));
         this.app.use(passport.initialize());
         this.app.use(passport.session());
@@ -52,9 +52,9 @@ export default class App {
             .then(() => this.logger.log("Setup passport config"));
 
         // pug template engine
-        this.app.set("views", path.join(__dirname, "../views"));
+        this.app.set("views", path.join(__dirname, "../src/views"));
 
-        // TODO auth
+        // authentication
         this.app.use((req, res, next) => {
             res.locals.user = req.user;
             next();
@@ -69,8 +69,20 @@ export default class App {
         this.app.use("/", new ClientRouter().getRouter());
         this.app.use("/", new AuthRouter().getRouter());
 
+        // error handling for page not found, ajax and general
+        this.app.use((req, res) => {
+            res.status(404).render("pages/error");
+        });
+        this.app.use((err: any, req: any, res: any, next: any) => {
+            if (req.xhr) {
+                res.status(500).send('Ajax failed');
+            } else {
+                res.status(500).send('Something failed');
+            }
+        });
+
         // set default data
-        await new Dataconfig().initialize(this.connection).catch((error) => this.logger.error(error));
+        await new DataConfig().initialize(this.connection).catch((error) => this.logger.error(error));
     }
 
     /*
