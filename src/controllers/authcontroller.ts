@@ -159,13 +159,13 @@ export default class AuthController {
 
             let numTrue = 0;
             for (let i = 0; i < items.length; i++) {
-                if (items[i]) {
+                if (items[i].grade) {
                     numTrue++;
                 }
             }
             if (items.length > 0) {
                 const msg = (numTrue / items.length) * 100;
-                return msg;
+                return Math.round(msg) + "%";
             } else {
                 return "No attempts";
             }
@@ -185,20 +185,21 @@ export default class AuthController {
                 .createQueryBuilder("attempt")
                 .select(["attempt.grade"])
                 .where(
-                    "attempt.user.id = :userId & attempt.date_time_attempt > :lastLogin",
-                    {userId: user.id, lastLogin: user.loginTime}
+                    "attempt.user.id = :userId",
+                    {userId: user.id}
                 )
+                .andWhere("attempt.date_time_attempt > :lastLogin", {lastLogin: user.loginTime})
                 .getMany();
 
             let numTrue = 0;
             for (let i = 0; i < items.length; i++) {
-                if (items[i]) {
+                if (items[i].grade) {
                     numTrue++;
                 }
             }
             if (items.length > 0) {
                 const msg = (numTrue / items.length) * 100;
-                return msg;
+                return Math.round(msg) + "%";
             } else {
                 return "no attempts";
             }
