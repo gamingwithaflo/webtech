@@ -64,7 +64,7 @@ export default class ApiRouter implements BaseRouter {
         attemptsRouter.get("/", (req, res) => this.attemptController.getAttempts(req, res));
         attemptsRouter.post("/", (req, res) => this.attemptController.postAttempt(req, res));
         attemptsRouter.get("/last", (req, res) => this.attemptController.getLastAttempt(req, res));
-
+        attemptsRouter.get("/totalpercent", (req, res) => this.attemptController.getTotalPercentage(req, res));
         return attemptsRouter;
     }
 }

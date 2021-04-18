@@ -4,6 +4,8 @@ import Attempt from "../entity/attempt";
 import Question from "../entity/question";
 import User from "../entity/user"
 
+/* Attempt API */
+
 export default class AttemptController {
     private attemptRepository: Repository<Attempt>;
     private questionRepository: Repository<Question>;
@@ -11,6 +13,58 @@ export default class AttemptController {
     constructor() {
         this.attemptRepository = getRepository(Attempt);
         this.questionRepository = getRepository(Question);
+    }
+
+    //get request for total percentage of correct attempts
+    async getTotalPercentage(req: Request, res: Response) {
+      const user = req.user as User;
+      if(user) {
+        const items = await this.attemptRepository
+          .createQueryBuilder("attempt")
+          .select(["attempt.grade"])
+          .where("attempt.user.id = :userId", {userId: user.id})
+          .getMany();
+
+        console.log(items.length);
+
+        let numTrue = 0;
+        for(let i = 0; i < items.length; i++) {
+          if(items[i]) {
+            numTrue++;
+          }
+        }
+        console.log(numTrue);
+        const msg = { percent: Math.round(numTrue / items.length * 100) }
+        res.json(msg);
+      } else {
+        const errMsg = { msg: "User is not logged in" };
+        res.json(errMsg);
+      }
+    }
+
+    //get request for session percentage of correct attempts
+    async getSessionPercentage(req: Request, res: Response) {
+      const user = req.user as User;
+      if(user) {
+        const items = await this.attemptRepository
+          .createQueryBuilder("attempt")
+          .select(["attempt.grade"])
+          .where("attempt.user.id = :userId & attempt.date_time_attempt > :lastLogin", {userId: user.id, lastLogin: user.loginTime})
+          .getMany();
+
+        let numTrue = 0;
+        for(let i = 0; i < items.length; i++) {
+          if(items[i]) {
+            numTrue++;
+          }
+        }
+
+        const msg = { percent: Math.round(numTrue / items.length * 100) }
+        res.json(msg);
+      } else {
+        const errMsg = { msg: "User is not logged in" };
+        res.json(errMsg);
+      }
     }
 
     /*
@@ -27,8 +81,7 @@ export default class AttemptController {
             .where("attempt.user.id = :user_id", {user_id: userId})
             .getMany();
 
-        const msg = { login: user.loginTime };
-        res.json(msg);
+        res.json(items);
       } else {
         const errMsg = { msg: "User is not logged in" };
         res.json(errMsg);
