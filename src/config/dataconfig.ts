@@ -1,3 +1,10 @@
+/*
+
+Lots of initialization data for the database
+inits: 1 (example) user, 2 topics, 2 quizzes per topic, and 3 questions per quiz
+
+*/
+
 import Logger from "../utils/logger";
 import User from "../entity/user";
 import Quiz from "../entity/quiz";

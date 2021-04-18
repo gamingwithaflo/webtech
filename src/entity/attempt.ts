@@ -1,3 +1,10 @@
+/*
+
+- Attempt table for sqlite -
+dateTimeAttempt is a unix timestamp
+
+*/
+
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import User from "./user";
 import Question from "./question";

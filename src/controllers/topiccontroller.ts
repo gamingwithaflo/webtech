@@ -1,3 +1,9 @@
+/*
+
+For retrieving the quizzes of a topic (api)
+
+*/
+
 import { Request, Response } from "express";
 import {getRepository, Repository} from "typeorm";
 import Topic from "../entity/topic";

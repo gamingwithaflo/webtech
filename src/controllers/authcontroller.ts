@@ -1,3 +1,13 @@
+/*
+
+Authcontroller handles
+  user registration,
+  user/session login,
+  password hashing,
+  and changing user email/name.
+
+*/
+
 import { getRepository, Repository } from "typeorm";
 import User from "../entity/user";
 import { NextFunction, Request, Response } from "express";

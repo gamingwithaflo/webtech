@@ -1,3 +1,9 @@
+/*
+
+THIS IS THE MAIN FILE
+
+*/
+
 import App from "./app";
 import {createConnection} from "typeorm";
 import Logger from "./utils/logger";

@@ -1,3 +1,10 @@
+/*
+
+- Topic table for sqlite -
+nothing much to say about this
+
+*/
+
 import Quiz from "./quiz";
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 
