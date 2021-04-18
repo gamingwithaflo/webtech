@@ -51,7 +51,7 @@ export default class DataConfig {
           "JavaScript Library",
           ["JavaScript Library", "programming language", "platform"]
         );
-        await connection.manger
+        await connection.manager
           .save(questionBasic12)
           .then(() =>
             this.logger.log(`Created example ${questionBasic12.title}`)
@@ -87,7 +87,7 @@ export default class DataConfig {
           "front-end development",
           ["back-end development", "front-end-development"]
         );
-        await connection.manger
+        await connection.manager
           .save(questionBasic22)
           .then(() =>
             this.logger.log(`Created example ${questionBasic22.title}`)
@@ -136,7 +136,7 @@ export default class DataConfig {
         topicBasic.quizzes = [quizBasic1, quizBasic2];
         await connection.manager
           .save(topicBasic)
-          .then(() => this.logger.log(`Created example ${topicA.title}`))
+          .then(() => this.logger.log(`Created example ${topicBasic.title}`))
           .catch((error) => this.logger.error(error));
 
         /* CREATE QUESTIONS FROM NF1 */
