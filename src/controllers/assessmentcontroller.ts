@@ -6,6 +6,8 @@ export default class AssessmentController {
      * @route GET /assessment
      */
     assessment(req: Request, res: Response) {
-        res.render("pages/assessment");
+        res.render("pages/assessment", {
+            user: req.user
+        });
     }
 }

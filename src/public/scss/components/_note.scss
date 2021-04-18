@@ -16,6 +16,40 @@
     margin: 1.5rem 0;
   }
 
+  .controls {
+    margin-top: 1rem;
+
+    input {
+      width: 100%;
+    }
+
+    .button {
+      display: block;
+      font-size: $font-size-base;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    > *:not(:first-child) {
+      margin-top: .5rem;
+    }
+
+    @media (min-width: $screen-tablet) {
+      input {
+        width: initial;
+      }
+
+      .button {
+        display: inline-block;
+      }
+
+      > *:not(:first-child) {
+        margin-top: 0;
+        margin-left: .5rem;
+      }
+    }
+  }
+
   &--background-gray-dark {
     background: $gray-dark;
   }

@@ -2,23 +2,23 @@
     data.navigation = [
         {
             text: 'What is React',
-            url: 'what-is-react'
+            url: '/what-is-react'
         },
         {
             text: 'Getting started',
-            url: 'getting-started'
+            url: '/getting-started'
         },
         {
             text: 'Notable features',
-            url: 'notable-features'
+            url: '/notable-features'
         },
         {
             text: 'History',
-            url: 'history'
+            url: '/history'
         },
         {
             text: 'Assessment',
-            url: 'assessment'
+            url: '/assessment'
         }
     ];
 
@@ -26,20 +26,18 @@
         data.navigation.push(
             {
                 text: 'Report',
-                url:'report'
-            }
-        )
-        data.navigation.push(
+                url: '/report'
+            },
             {
                 text: 'Profile',
-                url: 'profile'
+                url: '/profile'
             }
         )
     } else {
         data.navigation.push(
             {
                 text: 'Login',
-                url: 'login'
+                url: '/login'
             }
         )
     }
@@ -48,7 +46,7 @@ nav.nav
     .nav__row.content
         a.nav__name(href='/') React
         button.nav__item.nav__item--mobile
-            img(src='images/nav.svg')
+            img(src='/images/nav.svg')
         div.nav__list
             each item in data.navigation
                 if item.url === data.url

@@ -23,7 +23,7 @@ export default class Attempt {
     @ManyToOne(() => Question, question => question.attempts)
     question: Question;
 
-    @Column({name: "date_time_attempt"})
+    @Column({name: "date_time_attempt", type: "datetime"})
     dateTimeAttempt: number;
 
     @Column({name: "user_answer"})

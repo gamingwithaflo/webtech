@@ -17,6 +17,9 @@
   &--gray {
     @include button-style(#000, #d8d8d8, #d8d8d8);
   }
+  &--darkgray {
+    @include button-style(#000, darken(#d8d8d8, 20%), darken(#d8d8d8, 20%));
+  }
 
   &--border-blue {
     @include button-style($blue-base, transparent, $blue-base);
@@ -36,8 +39,12 @@
     @include button-size($font-size-large);
   }
 
+  &--disabled {
+    opacity: .5;
+  }
+
   // other
-  &:not(:disabled) {
+  &:not(&--disabled) {
     cursor: pointer;
   }
 }

@@ -10,5 +10,5 @@ block content
         div.note.note--blue Enable Javascript to view this page.
 
 block scripts
-    script(src='js/assessment.js')
-    //script(src='js/assessmentbundle.js')
+    script var userLoggedIn = #{!!user};
+    script(src='/js/assessment.js')
