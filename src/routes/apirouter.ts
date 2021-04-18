@@ -63,6 +63,7 @@ export default class ApiRouter implements BaseRouter {
         const attemptsRouter = express.Router();
         attemptsRouter.get("/", (req, res) => this.attemptController.getAttempts(req, res));
         attemptsRouter.post("/", (req, res) => this.attemptController.postAttempt(req, res));
+        attemptsRouter.get("/last", (req, res) => this.attemptController.getLastAttempt(req, res));
 
         return attemptsRouter;
     }
