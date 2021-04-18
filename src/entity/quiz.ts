@@ -22,7 +22,4 @@ export default class Quiz {
 
     @OneToMany(() => Question, question => question.quiz)
     questions: Question[];
-
-    // score: number;
-    // currentQuestion: object;
 }

@@ -6,7 +6,7 @@
   border-style: solid;
   border-color: $border;
 
-  &:hover {
+  &:not(.button--disabled):hover {
     color: $color;
     background-color: darken($background, 20%);
     border-color: darken($border, 20%);

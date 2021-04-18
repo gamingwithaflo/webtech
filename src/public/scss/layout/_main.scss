@@ -2,6 +2,10 @@
  * main
  */
 
+main {
+  min-height: 80vh;
+}
+
 .row {
   display: flex;
   flex-direction: column;
@@ -26,7 +30,7 @@ section.col {
   flex: 1.4;
 }
 
-article a {
+article:not(.article--nolinkstyle) a {
   color: black;
   background-color: $blue-lighter;
 

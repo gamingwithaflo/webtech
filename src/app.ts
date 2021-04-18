@@ -43,7 +43,8 @@ export default class App {
         this.app.set("port", this.env.getServerPort());
         this.app.set("view engine", "pug");
         this.app.use(express.static(path.join(__dirname, "public")));
-        this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(session({
             resave: true,
             saveUninitialized: true,
@@ -77,7 +78,9 @@ export default class App {
 
         // error handling for page not found, ajax and general
         this.app.use((req, res) => {
-            res.status(404).render("pages/error");
+            if (req.path !== "/api/*") {
+                res.status(404).render("pages/error");
+            }
         });
         this.app.use((err: any, req: any, res: any, next: any) => {
             if (req.xhr) {

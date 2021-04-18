@@ -3,8 +3,35 @@
  */
 
 .breadcrumb {
-    a:not(:last-child):after {
-        content: '>';
-        margin-left: .3rem;
+    > * {
+        display: block !important;
+    }
+
+    &> :not(:first-child) {
+        margin-top: .5rem;
+    }
+
+    a {
+        cursor: pointer;
+
+        &:not(:last-child):after {
+            content: '>';
+            margin-left: .3rem;
+        }
+    }
+
+    span {
+        font-weight: bold;
+    }
+
+    @media (min-width: $screen-tablet) {
+        > * {
+            display: inline-block !important;
+        }
+
+        &> :not(:first-child) {
+            margin-top: 0;
+            margin-left: .5rem;
+        }
     }
 }

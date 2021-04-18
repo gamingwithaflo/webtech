@@ -8,7 +8,7 @@ two types of questions: mpc and open
 import Question from './question';
 import {ChildEntity, Column} from "typeorm";
 
-@ChildEntity()
+@ChildEntity("mcq")
 export default class MultipleChoice extends Question {
     @Column("simple-array")
     answers: string[];

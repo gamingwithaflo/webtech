@@ -1,6 +1,6 @@
 import passport from "passport";
 import passportLocal from "passport-local";
-import { Request, Response, NextFunction } from "express";
+import {Request, Response, NextFunction} from "express";
 import User from "../entity/user";
 import {getRepository, Repository} from "typeorm";
 
@@ -30,8 +30,8 @@ export default class PassportConfig {
         });
 
         passport.use(
-            new this.localStrategy({ usernameField: "email" }, async (email, password, done) => {
-                await this.userController.findOne({ email: email })
+            new this.localStrategy({usernameField: "email"}, async (email, password, done) => {
+                await this.userController.findOne({email: email})
                     .then(async (user: any) => {
                         if (!user) {
                             return done(null, false);

@@ -10,7 +10,7 @@ import Quiz from "./quiz";
 import Attempt from "./attempt";
 
 @Entity()
-@TableInheritance({ column: { type: "varchar", name: "type" } })
+@TableInheritance({ column: { name: "type", type: "varchar" } })
 export default class Question {
     @PrimaryGeneratedColumn("uuid")
     id: number;
@@ -21,11 +21,14 @@ export default class Question {
     @Column()
     problemStatement: string;
 
-    @Column()
+    @Column({ select: false })
     correctAnswer: string;
 
     @ManyToOne(() => Quiz, quiz => quiz.questions)
     quiz: Quiz;
+
+    @Column()
+    type: string
 
     @OneToMany(() => Attempt, attempt => attempt.user)
     attempts: Attempt[];
