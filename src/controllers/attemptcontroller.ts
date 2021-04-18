@@ -75,6 +75,7 @@ export default class AttemptController {
         newAttempt.user = req.user as User;
         newAttempt.question = questionFromId;
         newAttempt.dateTimeAttempt = Date.now();
+        newAttempt.userAnswer = postAnswer;
 
         await this.attemptRepository.save(newAttempt);
 

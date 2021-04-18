@@ -18,4 +18,7 @@ export default class Attempt {
 
     @Column({name: "date_time_attempt"})
     dateTimeAttempt: number;
+
+    @Column({name: "user_answer"})
+    userAnswer: string;
 }
