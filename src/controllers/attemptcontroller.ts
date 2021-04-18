@@ -27,7 +27,8 @@ export default class AttemptController {
             .where("attempt.user.id = :user_id", {user_id: userId})
             .getMany();
 
-        res.json(items);
+        const msg = { login: user.loginTime };
+        res.json(msg);
       } else {
         const errMsg = { msg: "User is not logged in" };
         res.json(errMsg);

@@ -16,7 +16,7 @@ export default class User {
   @Column()
   password: string;
 
-  @Column({ name: "login_time" })
+  @Column({ name: "login_time", nullable: true })
   loginTime: number;
 
   @OneToMany(() => Attempt, (attempt) => attempt.user)

@@ -41,7 +41,7 @@ export default class AuthController {
       }
       const timestamp = Date.now();
       console.info(user + "start");
-      await this.userRepository
+      await getRepository(User)
         .createQueryBuilder()
         .update(User)
         .set({ loginTime: timestamp })
@@ -81,7 +81,7 @@ export default class AuthController {
     const user = new User();
     user.name = req.body.name;
     user.email = req.body.email;
-    user.loginTime = 0;
+    user.loginTime = Date.now();
     user.password = await AuthController.hashPassword(req.body.password);
 
     // save user
