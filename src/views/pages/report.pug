@@ -9,23 +9,20 @@ block setData
         data.url = "results";
         data.title = "Results";
 
-        data.profileexample = {
-            th: ["scope", "Correctness percentage"],
-            grades: [
-                {
-                    quiz: "Current session attemps",
-                    grade: "70%"
-                },
-                {
-                    quiz: "All session attemps",
-                    grade: "50%"
-                }
-            ]
-        };
-
 block content
     article.pushdown
         +header('Results Page')
         section.box_with_field
-            h2 Current session correctness percentage
-            +table(data.profileexample.th, data.profileexample.grades)
+            h2  correctness percentage
+            table.table
+                thead
+                    tr
+                        th Scope
+                        th percentage
+                tbody
+                    tr
+                        td Total attempts
+                        td #{percentage.session} 
+                    tr 
+                        td Current session attempts
+                        td #{percentage.session}
