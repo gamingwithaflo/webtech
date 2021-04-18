@@ -1,0 +1,21 @@
+extends ../layouts/_base
+
+include ../components/_header
+
+block setData
+    -
+        // page values
+        data.url = "change_Name";
+        data.title = "Change name";
+
+block content
+    form.login_register(action='/changed_name' method='post')
+        +header('Change Name')
+        p
+          | New Name:
+          input.email(type='text' name='name' placeholder='Enter your new name' required='')
+        p
+          | confirm new Name:
+          input.email(type='text' name='second_check' placeholder='confirm your name' required='')
+          input(type='hidden' name="old_user_name" value=user.name)
+          input.bttnRegister(type='submit' value='change name')

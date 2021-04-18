@@ -1,0 +1,31 @@
+extends ../layouts/_base
+
+include ../components/_header
+include ../components/_table
+
+block setData
+    -
+        // page values
+        data.url = "results";
+        data.title = "Results";
+
+        data.profileexample = {
+            th: ["scope", "Correctness percentage"],
+            grades: [
+                {
+                    quiz: "Current session attemps",
+                    grade: "70%"
+                },
+                {
+                    quiz: "All session attemps",
+                    grade: "50%"
+                }
+            ]
+        };
+
+block content
+    article.pushdown
+        +header('Results Page')
+        section.box_with_field
+            h2 Current session correctness percentage
+            +table(data.profileexample.th, data.profileexample.grades)
