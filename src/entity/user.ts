@@ -1,29 +1,32 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import Attempt from "./attempt";
 import bcrypt from "bcrypt";
 
 @Entity()
 export default class User {
-    @PrimaryGeneratedColumn("uuid")
-    id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: number;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column({unique: true})
-    email: string;
+  @Column({ unique: true })
+  email: string;
 
-    @Column()
-    password: string;
+  @Column()
+  password: string;
 
-    @OneToMany(() => Attempt, attempt => attempt.user)
-    attempts: Attempt[];
+  @Column({ name: "login_time" })
+  loginTime: number;
 
-    /*
-     * compare current user password with input
-     * @return promise<boolean>
-     */
-    async validatePassword(password: string) {
-        return await bcrypt.compare(password, this.password);
-    }
+  @OneToMany(() => Attempt, (attempt) => attempt.user)
+  attempts: Attempt[];
+
+  /*
+   * compare current user password with input
+   * @return promise<boolean>
+   */
+  async validatePassword(password: string) {
+    return await bcrypt.compare(password, this.password);
+  }
 }

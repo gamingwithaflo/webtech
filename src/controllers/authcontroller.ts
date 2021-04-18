@@ -31,7 +31,7 @@ export default class AuthController {
     }
 
     // authenticate user
-    passport.authenticate("local", function (err, user) {
+    passport.authenticate("local", async function (err, user) {
       if (err) {
         return next(err);
       }
@@ -39,6 +39,16 @@ export default class AuthController {
         req.flash("error", "Email or password unknown");
         return res.redirect("/login");
       }
+      const timestamp = Date.now();
+      console.info(user + "start");
+      await this.userRepository
+        .createQueryBuilder()
+        .update(User)
+        .set({ loginTime: timestamp })
+        .where("id = :userId", { userId: user.id })
+        .execute();
+      user.loginTime = timestamp;
+      console.info(user + "end");
       req.logIn(user, function (err) {
         if (err) {
           return next(err);
@@ -71,6 +81,7 @@ export default class AuthController {
     const user = new User();
     user.name = req.body.name;
     user.email = req.body.email;
+    user.loginTime = 0;
     user.password = await AuthController.hashPassword(req.body.password);
 
     // save user
@@ -114,8 +125,8 @@ export default class AuthController {
   }
 
   async changed_name(req: Request, res: Response, next: NextFunction) {
-    let user = req.user as User;
-    let newName = req.body.name;
+    const user = req.user as User;
+    const newName = req.body.name;
     if (newName == req.body.second_check) {
       console.log("if statement doorgaat die");
       await this.userRepository
@@ -139,8 +150,8 @@ export default class AuthController {
     }
   }
   async changed_email(req: Request, res: Response, next: NextFunction) {
-    let user = req.user as User;
-    let newEmail = req.body.email;
+    const user = req.user as User;
+    const newEmail = req.body.email;
     if (newEmail == req.body.second_check) {
       console.log("if statement doorgaat die");
       await this.userRepository
