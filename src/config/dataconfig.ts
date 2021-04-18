@@ -33,6 +33,7 @@ export default class DataConfig {
       user.name = "example user";
       user.email = "example@user.mail";
       user.password = await AuthController.hashPassword("secretPassword");
+      user.loginTime = Date.now();
 
       // create user only if unique email not exists
       if (count[1] == 0) {

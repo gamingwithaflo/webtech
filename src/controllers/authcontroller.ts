@@ -13,12 +13,15 @@ import User from "../entity/user";
 import { NextFunction, Request, Response } from "express";
 import passport from "passport";
 import bcrypt from "bcrypt";
+import Attempt from "../entity/attempt";
 
 export default class AuthController {
   private userRepository: Repository<User>;
+  private attemptRepository: Repository<Attempt>;
 
   constructor() {
     this.userRepository = getRepository(User);
+    this.attemptRepository = getRepository(Attempt);
   }
 
   /*
@@ -41,7 +44,7 @@ export default class AuthController {
     }
 
     // authenticate user
-    passport.authenticate("local", function (err, user) {
+    passport.authenticate("local", async function (err, user) {
       if (err) {
         return next(err);
       }
@@ -49,6 +52,16 @@ export default class AuthController {
         req.flash("error", "Email or password unknown");
         return res.redirect("/login");
       }
+      const timestamp = Date.now();
+      console.info(user + "start");
+      await getRepository(User)
+        .createQueryBuilder()
+        .update(User)
+        .set({ loginTime: timestamp })
+        .where("id = :userId", { userId: user.id })
+        .execute();
+      user.loginTime = timestamp;
+      console.info(user + "end");
       req.logIn(user, function (err) {
         if (err) {
           return next(err);
@@ -81,6 +94,7 @@ export default class AuthController {
     const user = new User();
     user.name = req.body.name;
     user.email = req.body.email;
+    user.loginTime = Date.now();
     user.password = await AuthController.hashPassword(req.body.password);
 
     // save user
@@ -119,13 +133,81 @@ export default class AuthController {
     res.render("pages/change-email");
   }
 
-  report(req: Request, res: Response) {
-    res.render("pages/report");
+  async report(req: Request, res: Response) {
+    const SessionPercentage = await this.getSessionPercentage(req, res);
+    const TotalPercentage = await this.getTotalPercentage(req, res);
+    const percObj = { session: SessionPercentage, total: TotalPercentage };
+    console.log(SessionPercentage + "hello");
+    console.log(TotalPercentage + "hello2");
+    console.info(percObj);
+    res.render("pages/report", {
+      percentage: percObj,
+    });
+  }
+  //get request for total percentage of correct attempts
+  async getTotalPercentage(req: Request, res: Response) {
+    const user = req.user as User;
+    if (user) {
+      const items = await this.attemptRepository
+        .createQueryBuilder("attempt")
+        .select(["attempt.grade"])
+        .where("attempt.user.id = :userId", { userId: user.id })
+        .getMany();
+
+      console.log(items.length);
+
+      let numTrue = 0;
+      for (let i = 0; i < items.length; i++) {
+        if (items[i]) {
+          numTrue++;
+        }
+      }
+      console.log(numTrue);
+      if (items.length > 0) {
+        const msg = (numTrue / items.length) * 100;
+        return msg;
+      } else {
+        return "No attempts";
+      }
+    } else {
+      const errMsg = -2;
+      return errMsg;
+    }
   }
 
+  //get request for session percentage of correct attempts
+  async getSessionPercentage(req: Request, res: Response) {
+    const user = req.user as User;
+    if (user) {
+      const items = await this.attemptRepository
+        .createQueryBuilder("attempt")
+        .select(["attempt.grade"])
+        .where(
+          "attempt.user.id = :userId & attempt.date_time_attempt > :lastLogin",
+          { userId: user.id, lastLogin: user.loginTime }
+        )
+        .getMany();
+
+      let numTrue = 0;
+      for (let i = 0; i < items.length; i++) {
+        if (items[i]) {
+          numTrue++;
+        }
+      }
+      if (items.length > 0) {
+        const msg = (numTrue / items.length) * 100;
+        return msg;
+      } else {
+        return "no attempts";
+      }
+    } else {
+      const errMsg = -2;
+      return errMsg;
+    }
+  }
   async changed_name(req: Request, res: Response, next: NextFunction) {
-    let user = req.user as User;
-    let newName = req.body.name;
+    const user = req.user as User;
+    const newName = req.body.name;
     if (newName == req.body.second_check) {
       console.log("if statement doorgaat die");
       await this.userRepository
@@ -149,8 +231,8 @@ export default class AuthController {
     }
   }
   async changed_email(req: Request, res: Response, next: NextFunction) {
-    let user = req.user as User;
-    let newEmail = req.body.email;
+    const user = req.user as User;
+    const newEmail = req.body.email;
     if (newEmail == req.body.second_check) {
       console.log("if statement doorgaat die");
       await this.userRepository
