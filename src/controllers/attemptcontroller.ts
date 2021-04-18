@@ -69,7 +69,6 @@ export default class AttemptController {
      */
     async postAttempt(req: Request, res: Response) {
       if(req.user && req.body.questionId && req.body.postAnswer) {
-        // TODO api: check if user logged in and set attempt
         const questionId = req.body.questionId;
         const postAnswer = req.body.postAnswer;
 
