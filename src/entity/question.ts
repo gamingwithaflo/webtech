@@ -1,3 +1,10 @@
+/*
+
+- Question table for sqlite -
+two types of questions: mpc and open
+
+*/
+
 import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, TableInheritance} from "typeorm";
 import Quiz from "./quiz";
 import Attempt from "./attempt";

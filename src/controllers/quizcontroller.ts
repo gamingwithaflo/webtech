@@ -1,3 +1,9 @@
+/*
+
+For retrieving the questions of a quiz (api)
+
+*/
+
 import { Request, Response } from "express";
 import Quiz from "../entity/quiz";
 import {getRepository, Repository} from "typeorm";

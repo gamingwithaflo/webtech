@@ -1,3 +1,10 @@
+/*
+
+- Question table for sqlite -
+should be self-explanatory
+
+*/
+
 import Question from "./question";
 import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import Topic from "./topic";

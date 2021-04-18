@@ -1,3 +1,13 @@
+/*
+
+All API requests related to the Attempt entity route to here
+functions:
+getAttempts - gets all attempts from the logged in user
+getLastAttempt - gets the last attempt per quiz (for the logged in user)
+postAttempt - inserts a new attempt tuple in the db
+
+*/
+
 import { getRepository, Repository } from "typeorm";
 import { Request, Response } from "express";
 import Attempt from "../entity/attempt";
@@ -5,7 +15,6 @@ import Question from "../entity/question";
 import User from "../entity/user";
 
 /* Attempt API */
-
 export default class AttemptController {
   private attemptRepository: Repository<Attempt>;
   private questionRepository: Repository<Question>;
@@ -60,7 +69,6 @@ export default class AttemptController {
    */
   async postAttempt(req: Request, res: Response) {
     if (req.user && req.body.questionId && req.body.postAnswer) {
-      // TODO api: check if user logged in and set attempt
       const questionId = req.body.questionId;
       const postAnswer = req.body.postAnswer;
 
