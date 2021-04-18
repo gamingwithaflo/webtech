@@ -1,3 +1,13 @@
+/*
+
+All API requests related to the Attempt entity route to here
+functions:
+getAttempts - gets all attempts from the logged in user
+getLastAttempt - gets the last attempt per quiz (for the logged in user)
+postAttempt - inserts a new attempt tuple in the db
+
+*/
+
 import {getRepository, Repository} from "typeorm";
 import {Request, Response} from "express";
 import Attempt from "../entity/attempt";

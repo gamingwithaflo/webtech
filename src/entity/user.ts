@@ -1,3 +1,11 @@
+/*
+
+- User table for sqlite -
+loginTime is unix timestamp of last login, used for determining the success percentage of the current session
+(using the timestamps provided in attempts)
+
+*/
+
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import Attempt from "./attempt";
 import bcrypt from "bcrypt";

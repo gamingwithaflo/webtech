@@ -1,3 +1,10 @@
+/*
+
+- Question table for sqlite -
+two types of questions: mpc and open
+
+*/
+
 import Question from './question';
 import {ChildEntity} from "typeorm";
 
